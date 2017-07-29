@@ -1,0 +1,1730 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ProbModelXML formatVersion="0.2.0">
+  <ProbNet type="BayesianNetwork">
+    <Comment showWhenOpeningNetwork="false"><![CDATA[<<Double click to add/modify comment>>]]></Comment>
+    <Variables>
+      <Variable name="resultadosHistoricosEntreEllos" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="2430" y="38" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="derrotas" />
+          <State name="empates" />
+          <State name="victorias" />
+        </States>
+      </Variable>
+      <Variable name="seLeDaBienEquipoContrarioLocal" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="1407" y="953" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="no" />
+          <State name="si" />
+        </States>
+      </Variable>
+      <Variable name="rachaLocal" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="655" y="1148" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="no" />
+          <State name="si" />
+        </States>
+      </Variable>
+      <Variable name="efictividadLocal" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="944" y="1026" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="baja" />
+          <State name="alta" />
+        </States>
+      </Variable>
+      <Variable name="entrenadorTacticaLocal" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="908" y="149" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="diferentesTacticas" />
+          <State name="s4231" />
+          <State name="s433" />
+          <State name="s442" />
+        </States>
+      </Variable>
+      <Variable name="faltasCometidasLocal" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="1216" y="358" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="no" />
+          <State name="si" />
+        </States>
+      </Variable>
+      <Variable name="arbitro" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="2444" y="131" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="malo" />
+          <State name="bueno" />
+        </States>
+      </Variable>
+      <Variable name="tarjetasAmarillasLocal" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="823" y="263" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="no" />
+          <State name="si" />
+        </States>
+      </Variable>
+      <Variable name="tarjetasRojasLocal" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="1221" y="242" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="no" />
+          <State name="si" />
+        </States>
+      </Variable>
+      <Variable name="bajasLocal" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="1004" y="416" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="masDe5" />
+          <State name="entre3y5" />
+          <State name="entre0y2" />
+        </States>
+      </Variable>
+      <Variable name="sancionadosLocal" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="797" y="380" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="masDe3" />
+          <State name="entre2y3" />
+          <State name="entre0y1" />
+        </States>
+      </Variable>
+      <Variable name="numeroJugadoresLocal" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="1520" y="280" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="masDe30" />
+          <State name="entre25y30" />
+          <State name="entre20y25" />
+          <State name="menosDe20" />
+        </States>
+      </Variable>
+      <Variable name="jugadoresDisponiblesLocal" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="957" y="525" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="entre25y30" />
+          <State name="entre20y25" />
+          <State name="menosDe20" />
+        </States>
+      </Variable>
+      <Variable name="jugadoresEstrellasLocal" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="690" y="568" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="masDe3" />
+          <State name="entre1y3" />
+          <State name="ninguno" />
+        </States>
+      </Variable>
+      <Variable name="plantillaCortaLocal" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="1461" y="413" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="no" />
+          <State name="si" />
+        </States>
+      </Variable>
+      <Variable name="estacionDelAnio" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="2435" y="219" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="invierno" />
+          <State name="otonio" />
+          <State name="verano" />
+          <State name="primavera" />
+        </States>
+      </Variable>
+      <Variable name="temporada" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="2566" y="270" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="final" />
+          <State name="mitad" />
+          <State name="inicio" />
+        </States>
+      </Variable>
+      <Variable name="cansancioLocal" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="1186" y="535" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="no" />
+          <State name="si" />
+        </States>
+      </Variable>
+      <Variable name="jugadaLocal" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="1005" y="601" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="no" />
+          <State name="si" />
+        </States>
+      </Variable>
+      <Variable name="entrenadorTacticaVisitante" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="4164" y="40" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="diferentesTacticas" />
+          <State name="s4231" />
+          <State name="s433" />
+          <State name="s442" />
+        </States>
+      </Variable>
+      <Variable name="faltasRecibidasLocal" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="874" y="700" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="no" />
+          <State name="si" />
+        </States>
+      </Variable>
+      <Variable name="faltaDirectaLocal" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="556" y="790" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="no" />
+          <State name="si" />
+        </States>
+      </Variable>
+      <Variable name="penalLocal" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="868" y="787" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="no" />
+          <State name="si" />
+        </States>
+      </Variable>
+      <Variable name="jugadaEnAreaLocal" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="1059" y="701" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="no" />
+          <State name="si" />
+        </States>
+      </Variable>
+      <Variable name="cornersLocal" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="1562" y="635" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="no" />
+          <State name="si" />
+        </States>
+      </Variable>
+      <Variable name="centroAreaLocal" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="1319" y="695" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="no" />
+          <State name="si" />
+        </States>
+      </Variable>
+      <Variable name="enPropiaMetaLocal" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="1091" y="791" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="no" />
+          <State name="si" />
+        </States>
+      </Variable>
+      <Variable name="remateLocal" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="1379" y="814" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="no" />
+          <State name="si" />
+        </States>
+      </Variable>
+      <Variable name="marcarGolLocal" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="952" y="921" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="no" />
+          <State name="si" />
+        </States>
+      </Variable>
+      <Variable name="clasificacionLocal" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="2139" y="515" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="decenso" />
+          <State name="zonaMedia" />
+          <State name="uefa" />
+          <State name="champions" />
+        </States>
+      </Variable>
+      <Variable name="clasico" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="2431" y="523" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="no" />
+          <State name="si" />
+        </States>
+      </Variable>
+      <Variable name="estadioLleno" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="2361" y="737" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="no" />
+          <State name="si" />
+        </States>
+      </Variable>
+      <Variable name="seJuegaAlgoLocal" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="2122" y="629" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="no" />
+          <State name="si" />
+        </States>
+      </Variable>
+      <Variable name="motivacionLocal" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="2037" y="822" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="no" />
+          <State name="si" />
+        </States>
+      </Variable>
+      <Variable name="lluvia" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="2342" y="872" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="no" />
+          <State name="si" />
+        </States>
+      </Variable>
+      <Variable name="nieve" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="2569" y="877" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="no" />
+          <State name="si" />
+        </States>
+      </Variable>
+      <Variable name="condicionesMetereologicas" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="2431" y="1027" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="malas" />
+          <State name="regulares" />
+          <State name="buenas" />
+        </States>
+      </Variable>
+      <Variable name="NoGolesEquipoLocal" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="2245" y="1295" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="goleada" />
+          <State name="g3" />
+          <State name="g2" />
+          <State name="g1" />
+          <State name="g0" />
+        </States>
+      </Variable>
+      <Variable name="faltasCometidasVisitantes" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="4344" y="138" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="no" />
+          <State name="si" />
+        </States>
+      </Variable>
+      <Variable name="tarjetaAmarillasVistantes" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="4352" y="219" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="no" />
+          <State name="si" />
+        </States>
+      </Variable>
+      <Variable name="tarjetasRojasVisitante" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="3878" y="70" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="no" />
+          <State name="si" />
+        </States>
+      </Variable>
+      <Variable name="sancionadosVistante" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="3999" y="220" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="masDe3" />
+          <State name="entre2y3" />
+          <State name="entre0y1" />
+        </States>
+      </Variable>
+      <Variable name="bajasVisitante" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="4364" y="297" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="masDe5" />
+          <State name="entre3y5" />
+          <State name="entre0y2" />
+        </States>
+      </Variable>
+      <Variable name="numeroJugadoresVisitantes" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="4073" y="330" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="masDe30" />
+          <State name="entre25y30" />
+          <State name="entre20y25" />
+          <State name="menosDe20" />
+        </States>
+      </Variable>
+      <Variable name="jugadoresDisponiblesVistantes" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="4375" y="376" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="entre25y30" />
+          <State name="entre20y25" />
+          <State name="menosDe20" />
+        </States>
+      </Variable>
+      <Variable name="plantillaCortaVisitante" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="4105" y="388" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="no" />
+          <State name="si" />
+        </States>
+      </Variable>
+      <Variable name="viaje" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="3841" y="331" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="largaAvion" />
+          <State name="mediaAvion" />
+          <State name="cortaAvion" />
+          <State name="largaBus" />
+          <State name="mediaBus" />
+          <State name="cortaBus" />
+        </States>
+      </Variable>
+      <Variable name="cansancioVisitante" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="3829" y="458" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="no" />
+          <State name="si" />
+        </States>
+      </Variable>
+      <Variable name="jugadoresEstrellaVisitante" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="4426" y="461" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="masDe3" />
+          <State name="entre1y3" />
+          <State name="ninguno" />
+        </States>
+      </Variable>
+      <Variable name="jugadaVisitante" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="4169" y="467" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="no" />
+          <State name="si" />
+        </States>
+      </Variable>
+      <Variable name="faltasRecibidasVisitantes" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="3809" y="566" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="no" />
+          <State name="si" />
+        </States>
+      </Variable>
+      <Variable name="jugadaEnAreaVisitante" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="4013" y="562" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="no" />
+          <State name="si" />
+        </States>
+      </Variable>
+      <Variable name="centroAreaVisitante" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="4206" y="560" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="no" />
+          <State name="si" />
+        </States>
+      </Variable>
+      <Variable name="cornersVisitante" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="4386" y="556" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="no" />
+          <State name="si" />
+        </States>
+      </Variable>
+      <Variable name="faltaDirectaVisitante" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="3834" y="648" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="no" />
+          <State name="si" />
+        </States>
+      </Variable>
+      <Variable name="penalVistante" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="4001" y="642" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="no" />
+          <State name="si" />
+        </States>
+      </Variable>
+      <Variable name="enPropiaMetaVisitante" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="4180" y="642" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="no" />
+          <State name="si" />
+        </States>
+      </Variable>
+      <Variable name="remateVisitante" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="4383" y="646" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="no" />
+          <State name="si" />
+        </States>
+      </Variable>
+      <Variable name="marcarGolVisitante" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="4236" y="711" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="no" />
+          <State name="si" />
+        </States>
+      </Variable>
+      <Variable name="partidosHistoricosVisitante" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="4215" y="964" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="derrotas" />
+          <State name="empates" />
+          <State name="victorias" />
+        </States>
+      </Variable>
+      <Variable name="rachaVisitante" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="4443" y="964" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="no" />
+          <State name="si" />
+        </States>
+      </Variable>
+      <Variable name="seLeDaBienEquipoVisitante" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="3888" y="817" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="no" />
+          <State name="si" />
+        </States>
+      </Variable>
+      <Variable name="efectividadVisitante" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="4227" y="819" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="baja" />
+          <State name="alta" />
+        </States>
+      </Variable>
+      <Variable name="clasificacionVisitante" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="2687" y="513" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="decenso" />
+          <State name="zonaMedia" />
+          <State name="uefa" />
+          <State name="champions" />
+        </States>
+      </Variable>
+      <Variable name="seJuegaAlgoVisitante" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="2629" y="647" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="no" />
+          <State name="si" />
+        </States>
+      </Variable>
+      <Variable name="motivacionVisitante" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="2731" y="799" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="no" />
+          <State name="si" />
+        </States>
+      </Variable>
+      <Variable name="NoGolesEquipoVisitante" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="2622" y="1295" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="goleada" />
+          <State name="g3" />
+          <State name="g2" />
+          <State name="g1" />
+          <State name="g0" />
+        </States>
+      </Variable>
+      <Variable name="resultado" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="2448" y="1508" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="resM2M2" />
+          <State name="res2M2" />
+          <State name="res1M2" />
+          <State name="res0M2" />
+          <State name="resM22" />
+          <State name="res22" />
+          <State name="res12" />
+          <State name="res02" />
+          <State name="resM21" />
+          <State name="res21" />
+          <State name="res11" />
+          <State name="res01" />
+          <State name="resM20" />
+          <State name="res20" />
+          <State name="res10" />
+          <State name="res00" />
+        </States>
+      </Variable>
+      <Variable name="pronostico" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="2440" y="1734" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="ganaVisitante" />
+          <State name="empate" />
+          <State name="ganaLocal" />
+        </States>
+      </Variable>
+      <Variable name="partidosHistoricosLocal" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="1060" y="1179" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="derrotas" />
+          <State name="empates" />
+          <State name="victorias" />
+        </States>
+      </Variable>
+      <Variable name="presupuestoLocal" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="684" y="148" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="alto" />
+          <State name="medio" />
+          <State name="bajo" />
+        </States>
+      </Variable>
+      <Variable name="presupuestoVisitante" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="4600" y="308" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="alto" />
+          <State name="medio" />
+          <State name="bajo" />
+        </States>
+      </Variable>
+    </Variables>
+    <Links>
+      <Link directed="true">
+        <Variable name="resultadosHistoricosEntreEllos" />
+        <Variable name="seLeDaBienEquipoContrarioLocal" />
+      </Link>
+      <Link directed="true">
+        <Variable name="resultadosHistoricosEntreEllos" />
+        <Variable name="seLeDaBienEquipoVisitante" />
+      </Link>
+      <Link directed="true">
+        <Variable name="seLeDaBienEquipoContrarioLocal" />
+        <Variable name="efictividadLocal" />
+      </Link>
+      <Link directed="true">
+        <Variable name="rachaLocal" />
+        <Variable name="efictividadLocal" />
+      </Link>
+      <Link directed="true">
+        <Variable name="efictividadLocal" />
+        <Variable name="NoGolesEquipoLocal" />
+      </Link>
+      <Link directed="true">
+        <Variable name="entrenadorTacticaLocal" />
+        <Variable name="faltasCometidasLocal" />
+      </Link>
+      <Link directed="true">
+        <Variable name="entrenadorTacticaLocal" />
+        <Variable name="jugadaLocal" />
+      </Link>
+      <Link directed="true">
+        <Variable name="entrenadorTacticaLocal" />
+        <Variable name="jugadaVisitante" />
+      </Link>
+      <Link directed="true">
+        <Variable name="faltasCometidasLocal" />
+        <Variable name="tarjetasAmarillasLocal" />
+      </Link>
+      <Link directed="true">
+        <Variable name="faltasCometidasLocal" />
+        <Variable name="tarjetasRojasLocal" />
+      </Link>
+      <Link directed="true">
+        <Variable name="arbitro" />
+        <Variable name="tarjetasAmarillasLocal" />
+      </Link>
+      <Link directed="true">
+        <Variable name="arbitro" />
+        <Variable name="tarjetasRojasLocal" />
+      </Link>
+      <Link directed="true">
+        <Variable name="arbitro" />
+        <Variable name="faltasRecibidasLocal" />
+      </Link>
+      <Link directed="true">
+        <Variable name="arbitro" />
+        <Variable name="tarjetaAmarillasVistantes" />
+      </Link>
+      <Link directed="true">
+        <Variable name="arbitro" />
+        <Variable name="tarjetasRojasVisitante" />
+      </Link>
+      <Link directed="true">
+        <Variable name="arbitro" />
+        <Variable name="faltasRecibidasVisitantes" />
+      </Link>
+      <Link directed="true">
+        <Variable name="tarjetasAmarillasLocal" />
+        <Variable name="sancionadosLocal" />
+      </Link>
+      <Link directed="true">
+        <Variable name="tarjetasRojasLocal" />
+        <Variable name="sancionadosLocal" />
+      </Link>
+      <Link directed="true">
+        <Variable name="bajasLocal" />
+        <Variable name="jugadoresDisponiblesLocal" />
+      </Link>
+      <Link directed="true">
+        <Variable name="sancionadosLocal" />
+        <Variable name="bajasLocal" />
+      </Link>
+      <Link directed="true">
+        <Variable name="numeroJugadoresLocal" />
+        <Variable name="jugadoresDisponiblesLocal" />
+      </Link>
+      <Link directed="true">
+        <Variable name="numeroJugadoresLocal" />
+        <Variable name="plantillaCortaLocal" />
+      </Link>
+      <Link directed="true">
+        <Variable name="jugadoresDisponiblesLocal" />
+        <Variable name="jugadoresEstrellasLocal" />
+      </Link>
+      <Link directed="true">
+        <Variable name="jugadoresDisponiblesLocal" />
+        <Variable name="cansancioLocal" />
+      </Link>
+      <Link directed="true">
+        <Variable name="jugadoresEstrellasLocal" />
+        <Variable name="jugadaLocal" />
+      </Link>
+      <Link directed="true">
+        <Variable name="plantillaCortaLocal" />
+        <Variable name="cansancioLocal" />
+      </Link>
+      <Link directed="true">
+        <Variable name="estacionDelAnio" />
+        <Variable name="temporada" />
+      </Link>
+      <Link directed="true">
+        <Variable name="estacionDelAnio" />
+        <Variable name="lluvia" />
+      </Link>
+      <Link directed="true">
+        <Variable name="estacionDelAnio" />
+        <Variable name="nieve" />
+      </Link>
+      <Link directed="true">
+        <Variable name="temporada" />
+        <Variable name="cansancioLocal" />
+      </Link>
+      <Link directed="true">
+        <Variable name="temporada" />
+        <Variable name="clasificacionLocal" />
+      </Link>
+      <Link directed="true">
+        <Variable name="temporada" />
+        <Variable name="cansancioVisitante" />
+      </Link>
+      <Link directed="true">
+        <Variable name="temporada" />
+        <Variable name="clasificacionVisitante" />
+      </Link>
+      <Link directed="true">
+        <Variable name="cansancioLocal" />
+        <Variable name="jugadaLocal" />
+      </Link>
+      <Link directed="true">
+        <Variable name="jugadaLocal" />
+        <Variable name="faltasRecibidasLocal" />
+      </Link>
+      <Link directed="true">
+        <Variable name="jugadaLocal" />
+        <Variable name="jugadaEnAreaLocal" />
+      </Link>
+      <Link directed="true">
+        <Variable name="jugadaLocal" />
+        <Variable name="cornersLocal" />
+      </Link>
+      <Link directed="true">
+        <Variable name="jugadaLocal" />
+        <Variable name="centroAreaLocal" />
+      </Link>
+      <Link directed="true">
+        <Variable name="jugadaLocal" />
+        <Variable name="remateLocal" />
+      </Link>
+      <Link directed="true">
+        <Variable name="entrenadorTacticaVisitante" />
+        <Variable name="jugadaLocal" />
+      </Link>
+      <Link directed="true">
+        <Variable name="entrenadorTacticaVisitante" />
+        <Variable name="faltasCometidasVisitantes" />
+      </Link>
+      <Link directed="true">
+        <Variable name="entrenadorTacticaVisitante" />
+        <Variable name="jugadaVisitante" />
+      </Link>
+      <Link directed="true">
+        <Variable name="faltasRecibidasLocal" />
+        <Variable name="faltaDirectaLocal" />
+      </Link>
+      <Link directed="true">
+        <Variable name="faltasRecibidasLocal" />
+        <Variable name="penalLocal" />
+      </Link>
+      <Link directed="true">
+        <Variable name="faltaDirectaLocal" />
+        <Variable name="marcarGolLocal" />
+      </Link>
+      <Link directed="true">
+        <Variable name="penalLocal" />
+        <Variable name="marcarGolLocal" />
+      </Link>
+      <Link directed="true">
+        <Variable name="jugadaEnAreaLocal" />
+        <Variable name="penalLocal" />
+      </Link>
+      <Link directed="true">
+        <Variable name="jugadaEnAreaLocal" />
+        <Variable name="enPropiaMetaLocal" />
+      </Link>
+      <Link directed="true">
+        <Variable name="jugadaEnAreaLocal" />
+        <Variable name="remateLocal" />
+      </Link>
+      <Link directed="true">
+        <Variable name="cornersLocal" />
+        <Variable name="centroAreaLocal" />
+      </Link>
+      <Link directed="true">
+        <Variable name="cornersLocal" />
+        <Variable name="remateLocal" />
+      </Link>
+      <Link directed="true">
+        <Variable name="centroAreaLocal" />
+        <Variable name="enPropiaMetaLocal" />
+      </Link>
+      <Link directed="true">
+        <Variable name="centroAreaLocal" />
+        <Variable name="remateLocal" />
+      </Link>
+      <Link directed="true">
+        <Variable name="enPropiaMetaLocal" />
+        <Variable name="marcarGolLocal" />
+      </Link>
+      <Link directed="true">
+        <Variable name="remateLocal" />
+        <Variable name="enPropiaMetaLocal" />
+      </Link>
+      <Link directed="true">
+        <Variable name="remateLocal" />
+        <Variable name="marcarGolLocal" />
+      </Link>
+      <Link directed="true">
+        <Variable name="marcarGolLocal" />
+        <Variable name="efictividadLocal" />
+      </Link>
+      <Link directed="true">
+        <Variable name="clasificacionLocal" />
+        <Variable name="seJuegaAlgoLocal" />
+      </Link>
+      <Link directed="true">
+        <Variable name="clasico" />
+        <Variable name="motivacionLocal" />
+      </Link>
+      <Link directed="true">
+        <Variable name="clasico" />
+        <Variable name="motivacionVisitante" />
+      </Link>
+      <Link directed="true">
+        <Variable name="estadioLleno" />
+        <Variable name="motivacionLocal" />
+      </Link>
+      <Link directed="true">
+        <Variable name="estadioLleno" />
+        <Variable name="motivacionVisitante" />
+      </Link>
+      <Link directed="true">
+        <Variable name="seJuegaAlgoLocal" />
+        <Variable name="motivacionLocal" />
+      </Link>
+      <Link directed="true">
+        <Variable name="motivacionLocal" />
+        <Variable name="NoGolesEquipoLocal" />
+      </Link>
+      <Link directed="true">
+        <Variable name="lluvia" />
+        <Variable name="condicionesMetereologicas" />
+      </Link>
+      <Link directed="true">
+        <Variable name="nieve" />
+        <Variable name="condicionesMetereologicas" />
+      </Link>
+      <Link directed="true">
+        <Variable name="condicionesMetereologicas" />
+        <Variable name="NoGolesEquipoLocal" />
+      </Link>
+      <Link directed="true">
+        <Variable name="condicionesMetereologicas" />
+        <Variable name="NoGolesEquipoVisitante" />
+      </Link>
+      <Link directed="true">
+        <Variable name="NoGolesEquipoLocal" />
+        <Variable name="resultado" />
+      </Link>
+      <Link directed="true">
+        <Variable name="faltasCometidasVisitantes" />
+        <Variable name="tarjetaAmarillasVistantes" />
+      </Link>
+      <Link directed="true">
+        <Variable name="faltasCometidasVisitantes" />
+        <Variable name="tarjetasRojasVisitante" />
+      </Link>
+      <Link directed="true">
+        <Variable name="tarjetaAmarillasVistantes" />
+        <Variable name="sancionadosVistante" />
+      </Link>
+      <Link directed="true">
+        <Variable name="tarjetasRojasVisitante" />
+        <Variable name="sancionadosVistante" />
+      </Link>
+      <Link directed="true">
+        <Variable name="sancionadosVistante" />
+        <Variable name="bajasVisitante" />
+      </Link>
+      <Link directed="true">
+        <Variable name="bajasVisitante" />
+        <Variable name="jugadoresDisponiblesVistantes" />
+      </Link>
+      <Link directed="true">
+        <Variable name="numeroJugadoresVisitantes" />
+        <Variable name="jugadoresDisponiblesVistantes" />
+      </Link>
+      <Link directed="true">
+        <Variable name="numeroJugadoresVisitantes" />
+        <Variable name="plantillaCortaVisitante" />
+      </Link>
+      <Link directed="true">
+        <Variable name="jugadoresDisponiblesVistantes" />
+        <Variable name="cansancioVisitante" />
+      </Link>
+      <Link directed="true">
+        <Variable name="jugadoresDisponiblesVistantes" />
+        <Variable name="jugadoresEstrellaVisitante" />
+      </Link>
+      <Link directed="true">
+        <Variable name="plantillaCortaVisitante" />
+        <Variable name="cansancioVisitante" />
+      </Link>
+      <Link directed="true">
+        <Variable name="viaje" />
+        <Variable name="cansancioVisitante" />
+      </Link>
+      <Link directed="true">
+        <Variable name="cansancioVisitante" />
+        <Variable name="jugadaVisitante" />
+      </Link>
+      <Link directed="true">
+        <Variable name="jugadoresEstrellaVisitante" />
+        <Variable name="jugadaVisitante" />
+      </Link>
+      <Link directed="true">
+        <Variable name="jugadaVisitante" />
+        <Variable name="faltasRecibidasVisitantes" />
+      </Link>
+      <Link directed="true">
+        <Variable name="jugadaVisitante" />
+        <Variable name="cornersVisitante" />
+      </Link>
+      <Link directed="true">
+        <Variable name="jugadaVisitante" />
+        <Variable name="jugadaEnAreaVisitante" />
+      </Link>
+      <Link directed="true">
+        <Variable name="jugadaVisitante" />
+        <Variable name="centroAreaVisitante" />
+      </Link>
+      <Link directed="true">
+        <Variable name="jugadaVisitante" />
+        <Variable name="remateVisitante" />
+      </Link>
+      <Link directed="true">
+        <Variable name="faltasRecibidasVisitantes" />
+        <Variable name="faltaDirectaVisitante" />
+      </Link>
+      <Link directed="true">
+        <Variable name="faltasRecibidasVisitantes" />
+        <Variable name="penalVistante" />
+      </Link>
+      <Link directed="true">
+        <Variable name="jugadaEnAreaVisitante" />
+        <Variable name="penalVistante" />
+      </Link>
+      <Link directed="true">
+        <Variable name="jugadaEnAreaVisitante" />
+        <Variable name="enPropiaMetaVisitante" />
+      </Link>
+      <Link directed="true">
+        <Variable name="jugadaEnAreaVisitante" />
+        <Variable name="remateVisitante" />
+      </Link>
+      <Link directed="true">
+        <Variable name="centroAreaVisitante" />
+        <Variable name="enPropiaMetaVisitante" />
+      </Link>
+      <Link directed="true">
+        <Variable name="centroAreaVisitante" />
+        <Variable name="remateVisitante" />
+      </Link>
+      <Link directed="true">
+        <Variable name="cornersVisitante" />
+        <Variable name="centroAreaVisitante" />
+      </Link>
+      <Link directed="true">
+        <Variable name="cornersVisitante" />
+        <Variable name="remateVisitante" />
+      </Link>
+      <Link directed="true">
+        <Variable name="faltaDirectaVisitante" />
+        <Variable name="marcarGolVisitante" />
+      </Link>
+      <Link directed="true">
+        <Variable name="penalVistante" />
+        <Variable name="marcarGolVisitante" />
+      </Link>
+      <Link directed="true">
+        <Variable name="enPropiaMetaVisitante" />
+        <Variable name="marcarGolVisitante" />
+      </Link>
+      <Link directed="true">
+        <Variable name="remateVisitante" />
+        <Variable name="enPropiaMetaVisitante" />
+      </Link>
+      <Link directed="true">
+        <Variable name="remateVisitante" />
+        <Variable name="marcarGolVisitante" />
+      </Link>
+      <Link directed="true">
+        <Variable name="marcarGolVisitante" />
+        <Variable name="efectividadVisitante" />
+      </Link>
+      <Link directed="true">
+        <Variable name="partidosHistoricosVisitante" />
+        <Variable name="efectividadVisitante" />
+      </Link>
+      <Link directed="true">
+        <Variable name="rachaVisitante" />
+        <Variable name="efectividadVisitante" />
+      </Link>
+      <Link directed="true">
+        <Variable name="seLeDaBienEquipoVisitante" />
+        <Variable name="efectividadVisitante" />
+      </Link>
+      <Link directed="true">
+        <Variable name="efectividadVisitante" />
+        <Variable name="NoGolesEquipoVisitante" />
+      </Link>
+      <Link directed="true">
+        <Variable name="clasificacionVisitante" />
+        <Variable name="seJuegaAlgoVisitante" />
+      </Link>
+      <Link directed="true">
+        <Variable name="seJuegaAlgoVisitante" />
+        <Variable name="motivacionVisitante" />
+      </Link>
+      <Link directed="true">
+        <Variable name="motivacionVisitante" />
+        <Variable name="NoGolesEquipoVisitante" />
+      </Link>
+      <Link directed="true">
+        <Variable name="NoGolesEquipoVisitante" />
+        <Variable name="resultado" />
+      </Link>
+      <Link directed="true">
+        <Variable name="resultado" />
+        <Variable name="pronostico" />
+      </Link>
+      <Link directed="true">
+        <Variable name="partidosHistoricosLocal" />
+        <Variable name="efictividadLocal" />
+      </Link>
+      <Link directed="true">
+        <Variable name="presupuestoLocal" />
+        <Variable name="jugadoresEstrellasLocal" />
+      </Link>
+      <Link directed="true">
+        <Variable name="presupuestoLocal" />
+        <Variable name="numeroJugadoresLocal" />
+      </Link>
+      <Link directed="true">
+        <Variable name="presupuestoVisitante" />
+        <Variable name="numeroJugadoresVisitantes" />
+      </Link>
+      <Link directed="true">
+        <Variable name="presupuestoVisitante" />
+        <Variable name="jugadoresEstrellaVisitante" />
+      </Link>
+    </Links>
+    <Potentials>
+      <Potential type="Uniform" role="conditionalProbability">
+        <Variables>
+          <Variable name="resultadosHistoricosEntreEllos" />
+        </Variables>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="seLeDaBienEquipoContrarioLocal" />
+          <Variable name="resultadosHistoricosEntreEllos" />
+        </Variables>
+        <Values>0.5 0.5 0.25 0.75 0.0 1.0</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="rachaLocal" />
+        </Variables>
+        <Values>0.5 0.5</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="efictividadLocal" />
+          <Variable name="seLeDaBienEquipoContrarioLocal" />
+          <Variable name="rachaLocal" />
+          <Variable name="marcarGolLocal" />
+          <Variable name="partidosHistoricosLocal" />
+        </Variables>
+        <Values>1.0 0.0 0.85 0.15 0.9 0.1 0.1 0.9 0.85 0.15 0.4 0.6 0.8 0.2 0.2 0.8 0.9002 0.0998 0.76 0.24 0.86 0.14 0.45 0.55 0.75 0.25 0.41 0.59 0.85 0.15 0.3 0.7 0.7 0.3 0.15 0.85 0.8 0.2 0.2 0.8 0.6 0.4 0.44 0.56 0.21 0.79 0.0 1.0</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="entrenadorTacticaLocal" />
+        </Variables>
+        <Values>0.05 0.35 0.2 0.4</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="faltasCometidasLocal" />
+          <Variable name="entrenadorTacticaLocal" />
+        </Variables>
+        <Values>0.568 0.432 0.46 0.54 0.35 0.65 0.16 0.84</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="arbitro" />
+        </Variables>
+        <Values>0.7 0.3</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="tarjetasAmarillasLocal" />
+          <Variable name="faltasCometidasLocal" />
+          <Variable name="arbitro" />
+        </Variables>
+        <Values>0.84 0.16 0.2 0.8 0.91 0.09 0.28 0.72</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="tarjetasRojasLocal" />
+          <Variable name="faltasCometidasLocal" />
+          <Variable name="arbitro" />
+        </Variables>
+        <Values>0.88 0.12 0.5 0.5 0.95 0.05 0.32 0.68</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="bajasLocal" />
+          <Variable name="sancionadosLocal" />
+        </Variables>
+        <Values>0.75 0.25 0.0 0.45 0.5 0.05 0.0 0.174 0.826</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="sancionadosLocal" />
+          <Variable name="tarjetasAmarillasLocal" />
+          <Variable name="tarjetasRojasLocal" />
+        </Variables>
+        <Values>0.0 0.05 0.95 0.15 0.35 0.5 0.1 0.25 0.65 0.2 0.5 0.3</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="numeroJugadoresLocal" />
+          <Variable name="presupuestoLocal" />
+        </Variables>
+        <Values>0.001 0.571 0.428 0.0 0.01 0.33 0.66 0.0 1.0E-4 0.42855714 0.4285571 0.14278576</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="jugadoresDisponiblesLocal" />
+          <Variable name="numeroJugadoresLocal" />
+          <Variable name="bajasLocal" />
+        </Variables>
+        <Values>0.0 0.5 0.5 0.0 0.5 0.5 0.0 0.5 0.5 0.0 0.5 0.5 0.0 0.5 0.5 0.0 0.5 0.5 0.0 0.5 0.5 0.0 0.5 0.5 0.0 0.5 0.5 0.0 0.5 0.5 0.0 0.5 0.5 0.0 0.5 0.5</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="jugadoresEstrellasLocal" />
+          <Variable name="jugadoresDisponiblesLocal" />
+          <Variable name="presupuestoLocal" />
+        </Variables>
+        <Values>0.2 0.7 0.1 0.2 0.65 0.15 0.15 0.6 0.25 0.05 0.25 0.7 0.05 0.2 0.75 0.02 0.18 0.8 0.0 0.05 0.95 0.0 0.03 0.97 0.0 0.01 0.99</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="plantillaCortaLocal" />
+          <Variable name="numeroJugadoresLocal" />
+        </Variables>
+        <Values>1.0 0.0 0.8 0.2 0.6 0.4 0.0 1.0</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="estacionDelAnio" />
+        </Variables>
+        <Values>0.16 0.26 0.28 0.3</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="temporada" />
+          <Variable name="estacionDelAnio" />
+        </Variables>
+        <Values>0.0 0.8 0.2 0.0 0.1 0.9 0.5 0.0 0.5 0.8 0.2 0.0</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="cansancioLocal" />
+          <Variable name="jugadoresDisponiblesLocal" />
+          <Variable name="plantillaCortaLocal" />
+          <Variable name="temporada" />
+        </Variables>
+        <Values>0.53 0.47 0.49 0.51 0.46 0.54 0.51 0.49 0.48 0.52 0.39 0.61 0.87 0.13 0.85 0.15 0.77 0.23 0.5 0.5 0.85 0.15 0.82 0.18 0.96 0.04 0.93 0.07 0.88 0.12 0.93 0.07 0.91 0.09 0.84 0.16</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="jugadaLocal" />
+          <Variable name="entrenadorTacticaLocal" />
+          <Variable name="entrenadorTacticaVisitante" />
+          <Variable name="cansancioLocal" />
+          <Variable name="jugadoresEstrellasLocal" />
+        </Variables>
+        <Values>0.2 0.8 0.3 0.7 0.0 1.0 0.01 0.99 0.6 0.4 0.3 0.7 0.05 0.95 0.25 0.75 0.55 0.45 0.4 0.6 1.0E-4 0.9999 0.1 0.9 0.6 0.4 0.5 0.5 0.01 0.99 0.2 0.8 0.3 0.7 0.4 0.6 0.05 0.95 0.1 0.9 0.7 0.3 0.4 0.6 0.25 0.75 0.35 0.65 0.65 0.35 0.5 0.5 0.1 0.9 0.2 0.8 0.7 0.3 0.6 0.4 0.2 0.8 0.3 0.7 0.35 0.65 0.4 0.6 1.0E-6 0.999999 0.1 0.9 0.7 0.3 0.5 0.5 0.15 0.85 0.35 0.65 0.65 0.35 0.5 0.5 0.01 0.99 0.2 0.8 0.75 0.25 0.6 0.4 0.05 0.95 0.2 0.8 0.45 0.55 0.5 0.5 0.3 0.7 0.2 0.8 0.8 0.2 0.6 0.4 0.4 0.6 0.45 0.55 0.75 0.25 0.6 0.4 0.1 0.9 0.3 0.7 0.85 0.15 0.7 0.3 0.5 0.5 0.4 0.6 0.4 0.6 0.5 0.5 0.05 0.95 0.2 0.8 0.75 0.25 0.6 0.4 0.25 0.75 0.45 0.55 0.7 0.3 0.6 0.4 0.1 0.9 0.3 0.7 0.8 0.2 0.7 0.3 0.2 0.8 0.4 0.6 0.5 0.5 0.6 0.4 0.2 0.8 0.3 0.7 0.85 0.15 0.7 0.3 0.5 0.5 0.55 0.45 0.8 0.2 0.7 0.3 0.2 0.8 0.4 0.6 0.9 0.1 0.8 0.2 0.6 0.4 0.5 0.5</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="entrenadorTacticaVisitante" />
+        </Variables>
+        <Values>0.05 0.25 0.3 0.4</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="faltasRecibidasLocal" />
+          <Variable name="arbitro" />
+          <Variable name="jugadaLocal" />
+        </Variables>
+        <Values>0.75 0.25 0.9 0.1 0.36 0.64 0.15 0.85</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="faltaDirectaLocal" />
+          <Variable name="faltasRecibidasLocal" />
+        </Variables>
+        <Values>0.85 0.15 0.55 0.45</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="penalLocal" />
+          <Variable name="faltasRecibidasLocal" />
+          <Variable name="jugadaEnAreaLocal" />
+        </Variables>
+        <Values>1.0 0.0 1.0 0.0 0.95 0.05 0.05 0.95</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="jugadaEnAreaLocal" />
+          <Variable name="jugadaLocal" />
+        </Variables>
+        <Values>0.85 0.15 0.3 0.7</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="cornersLocal" />
+          <Variable name="jugadaLocal" />
+        </Variables>
+        <Values>0.85 0.15 0.3 0.7</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="centroAreaLocal" />
+          <Variable name="cornersLocal" />
+          <Variable name="jugadaLocal" />
+        </Variables>
+        <Values>0.8 0.2 0.15 0.85 0.25 0.75 0.05 0.95</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="enPropiaMetaLocal" />
+          <Variable name="jugadaEnAreaLocal" />
+          <Variable name="centroAreaLocal" />
+          <Variable name="remateLocal" />
+        </Variables>
+        <Values>1.0 0.0 0.96 0.04 0.98 0.02 0.95 0.05 0.96 0.04 0.91 0.09 0.95 0.05 0.9 0.1</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="remateLocal" />
+          <Variable name="cornersLocal" />
+          <Variable name="centroAreaLocal" />
+          <Variable name="jugadaLocal" />
+          <Variable name="jugadaEnAreaLocal" />
+        </Variables>
+        <Values>0.95 0.05 0.8 0.2 0.8 0.2 0.6 0.4 0.3 0.7 0.15 0.85 0.15 0.85 0.1 0.9 0.4 0.6 0.35 0.65 0.35 0.65 0.25 0.75 0.15 0.85 0.05 0.95 0.05 0.95 0.01 0.99</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="marcarGolLocal" />
+          <Variable name="enPropiaMetaLocal" />
+          <Variable name="remateLocal" />
+          <Variable name="penalLocal" />
+          <Variable name="faltaDirectaLocal" />
+        </Variables>
+        <Values>0.99 0.01 0.95 0.05 0.15 0.85 0.2 0.8 0.5 0.5 0.8 0.2 0.1 0.9 0.1 0.9 0.8 0.2 0.75 0.25 0.125 0.875 0.05 0.95 0.9 0.1 0.7 0.3 0.025 0.975 0.01 0.99</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="clasificacionLocal" />
+          <Variable name="temporada" />
+        </Variables>
+        <Values>0.417 0.2667 0.0833 0.233 0.333666 0.333 0.091667 0.241667 0.41413 0.2667 0.1025 0.21667</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="clasico" />
+        </Variables>
+        <Values>0.8 0.2</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="estadioLleno" />
+        </Variables>
+        <Values>0.284 0.716</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="seJuegaAlgoLocal" />
+          <Variable name="clasificacionLocal" />
+        </Variables>
+        <Values>0.8 0.2 0.85 0.15 0.7 0.3 0.85 0.15</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="motivacionLocal" />
+          <Variable name="seJuegaAlgoLocal" />
+          <Variable name="clasico" />
+          <Variable name="estadioLleno" />
+        </Variables>
+        <Values>0.7 0.3 0.6 0.4 0.65 0.35 0.43 0.57 0.4 0.6 0.25 0.75 0.2 0.8 0.0 1.0</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="lluvia" />
+          <Variable name="estacionDelAnio" />
+        </Variables>
+        <Values>0.43 0.57 0.61 0.39 0.95 0.05 0.75 0.25</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="nieve" />
+          <Variable name="estacionDelAnio" />
+        </Variables>
+        <Values>0.7 0.3 0.85 0.15 1.0 0.0 0.95 0.05</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="condicionesMetereologicas" />
+          <Variable name="lluvia" />
+          <Variable name="nieve" />
+        </Variables>
+        <Values>0.0 0.0 1.0 0.35 0.3 0.35 0.5 0.3 0.2 0.6 0.25 0.15</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="NoGolesEquipoLocal" />
+          <Variable name="motivacionLocal" />
+          <Variable name="condicionesMetereologicas" />
+          <Variable name="efictividadLocal" />
+        </Variables>
+        <Values>0.0 0.0 0.05 0.1 0.85 0.0 0.05 0.1 0.15 0.7 0.0 0.1 0.1 0.15 0.65 0.01 0.05 0.15 0.2 0.59 0.001 0.1 0.2 0.299 0.4 0.06 0.1 0.19 0.4 0.25 0.0 0.1 0.15 0.2 0.55 0.011 0.15 0.2 0.25 0.389 0.01 0.1 0.2 0.225 0.465 0.06 0.25 0.15 0.2 0.34 0.051 0.2 0.3 0.25 0.199 0.225 0.35 0.25 0.15 0.025</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="faltasCometidasVisitantes" />
+          <Variable name="entrenadorTacticaVisitante" />
+        </Variables>
+        <Values>0.679 0.321 0.44 0.56 0.35 0.65 0.17 0.83</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="tarjetaAmarillasVistantes" />
+          <Variable name="faltasCometidasVisitantes" />
+          <Variable name="arbitro" />
+        </Variables>
+        <Values>0.8 0.2 0.16 0.84 0.91 0.09 0.28 0.72</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="tarjetasRojasVisitante" />
+          <Variable name="faltasCometidasVisitantes" />
+          <Variable name="arbitro" />
+        </Variables>
+        <Values>0.86 0.14 0.39 0.61 0.95 0.05 0.32 0.68</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="sancionadosVistante" />
+          <Variable name="tarjetaAmarillasVistantes" />
+          <Variable name="tarjetasRojasVisitante" />
+        </Variables>
+        <Values>0.0 0.05 0.95 0.15 0.35 0.5 0.1 0.25 0.65 0.2 0.5 0.3</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="bajasVisitante" />
+          <Variable name="sancionadosVistante" />
+        </Variables>
+        <Values>0.95 0.05 0.0 0.055 0.75 0.195 0.0 0.15 0.85</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="numeroJugadoresVisitantes" />
+          <Variable name="presupuestoVisitante" />
+        </Variables>
+        <Values>0.001 0.571 0.428 0.0 0.01 0.33 0.66 0.0 2.0E-4 0.4285 0.4285 0.1428</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="jugadoresDisponiblesVistantes" />
+          <Variable name="numeroJugadoresVisitantes" />
+          <Variable name="bajasVisitante" />
+        </Variables>
+        <Values>0.0 0.5 0.5 0.0 0.5 0.5 0.0 0.5 0.5 0.0 0.5 0.5 0.0 0.5 0.5 0.0 0.5 0.5 0.0 0.5 0.5 0.0 0.5 0.5 0.0 0.5 0.5 0.0 0.5 0.5 0.0 0.5 0.5 0.0 0.5 0.5</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="plantillaCortaVisitante" />
+          <Variable name="numeroJugadoresVisitantes" />
+        </Variables>
+        <Values>1.0 0.0 0.8 0.2 0.6 0.4 0.0 1.0</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="viaje" />
+        </Variables>
+        <Values>0.33016 0.2 0.19978 0.132 0.09966 0.0384</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="cansancioVisitante" />
+          <Variable name="temporada" />
+          <Variable name="jugadoresDisponiblesVistantes" />
+          <Variable name="plantillaCortaVisitante" />
+          <Variable name="viaje" />
+        </Variables>
+        <Values>0.8 0.2 0.77 0.23 0.8 0.2 0.45 0.55 0.7 0.3 0.7 0.3 0.4 0.6 0.62 0.38 0.65 0.35 0.45 0.55 0.74 0.26 0.75 0.25 0.43 0.57 0.66 0.34 0.67 0.33 0.36 0.64 0.59 0.41 0.62 0.38 0.45 0.55 0.69 0.31 0.73 0.27 0.36 0.64 0.61 0.39 0.65 0.35 0.17 0.83 0.56 0.44 0.59 0.41 0.24 0.76 0.57 0.43 0.55 0.45 0.2 0.8 0.47 0.53 0.568 0.432 0.3 0.7 0.67 0.33 0.633 0.367 0.47 0.53 0.825 0.175 0.811 0.189 0.5 0.5 0.75 0.25 0.75 0.25 0.42 0.58 0.75 0.25 0.75 0.25 0.47 0.53 0.79 0.21 0.478 0.522 0.45 0.55 0.75 0.25 0.73 0.27 0.42 0.58 0.79 0.21 0.8 0.2 0.379 0.621 0.68 0.32 0.62 0.38 0.35 0.65 0.69 0.31 0.7 0.3 0.33 0.67 0.56 0.44 0.68 0.32 0.36 0.64 0.67 0.33 0.679 0.321 0.5 0.5 0.24 0.76 0.66 0.34 0.55 0.45 0.13 0.87 0.46 0.54 0.2 0.8 0.47 0.53 0.433 0.567 0.46 0.54 0.68 0.32 0.66 0.34 0.33 0.67 0.57 0.43 0.44 0.56 0.35 0.65 0.66 0.34 0.68 0.32 0.33 0.67 0.65 0.35 0.76 0.24 0.22 0.78 0.66 0.34 0.63 0.37 0.36 0.64 0.66 0.34 0.77 0.23 0.65 0.35 0.79 0.21 0.789 0.211 0.565 0.435 0.679 0.321 0.782 0.218 0.535 0.465 0.79 0.21 0.844 0.156 0.769 0.231 0.856 0.144 0.844 0.156 0.544 0.456 0.769 0.231 0.858 0.142</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="jugadoresEstrellaVisitante" />
+          <Variable name="jugadoresDisponiblesVistantes" />
+          <Variable name="presupuestoVisitante" />
+        </Variables>
+        <Values>0.2 0.7 0.1 0.2 0.65 0.15 0.15 0.6 0.25 0.05 0.25 0.7 0.05 0.2 0.75 0.02 0.18 0.8 0.0 0.05 0.95 0.0 0.03 0.97 0.0 0.01 0.99</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="jugadaVisitante" />
+          <Variable name="jugadoresEstrellaVisitante" />
+          <Variable name="cansancioVisitante" />
+          <Variable name="entrenadorTacticaVisitante" />
+          <Variable name="entrenadorTacticaLocal" />
+        </Variables>
+        <Values>0.2 0.8 0.45 0.55 0.5 0.5 0.0 1.0 0.3 0.7 0.2 0.8 0.6 0.4 0.8 0.2 0.6 0.4 0.05 0.95 0.4 0.6 0.45 0.55 0.55 0.45 0.75 0.25 0.6 0.4 1.0E-4 0.9999 0.1 0.9 0.3 0.7 0.6 0.4 0.85 0.15 0.7 0.3 0.01 0.99 0.5 0.5 0.4 0.6 0.35 0.65 0.5 0.5 0.4 0.6 1.0E-6 0.999999 0.2 0.8 0.1 0.9 0.7 0.3 0.85 0.15 0.4 0.6 0.15 0.85 0.5 0.5 0.35 0.65 0.65 0.35 0.8 0.2 0.5 0.5 0.01 0.99 0.2 0.8 0.2 0.8 0.75 0.25 0.9 0.1 0.6 0.4 0.05 0.95 0.6 0.4 0.3 0.7 0.4 0.6 0.3 0.7 0.5 0.5 0.05 0.95 0.01 0.99 0.2 0.8 0.75 0.25 0.3 0.7 0.6 0.4 0.25 0.75 0.25 0.75 0.45 0.55 0.7 0.3 0.4 0.6 0.6 0.4 0.1 0.9 0.1 0.9 0.3 0.7 0.8 0.2 0.5 0.5 0.7 0.3 0.2 0.8 0.2 0.8 0.4 0.6 0.3 0.7 0.4 0.6 0.6 0.4 0.05 0.95 0.1 0.9 0.3 0.7 0.7 0.3 0.5 0.5 0.7 0.3 0.25 0.75 0.35 0.65 0.55 0.45 0.65 0.35 0.5 0.5 0.7 0.3 0.1 0.9 0.2 0.8 0.4 0.6 0.7 0.3 0.6 0.4 0.8 0.2 0.2 0.8 0.2 0.8 0.5 0.5</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="faltasRecibidasVisitantes" />
+          <Variable name="jugadaVisitante" />
+          <Variable name="arbitro" />
+        </Variables>
+        <Values>0.79 0.21 0.4 0.6 0.9 0.1 0.15 0.85</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="jugadaEnAreaVisitante" />
+          <Variable name="jugadaVisitante" />
+        </Variables>
+        <Values>0.85 0.15 0.3 0.7</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="centroAreaVisitante" />
+          <Variable name="jugadaVisitante" />
+          <Variable name="cornersVisitante" />
+        </Variables>
+        <Values>0.8 0.2 0.25 0.75 0.15 0.85 0.05 0.95</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="cornersVisitante" />
+          <Variable name="jugadaVisitante" />
+        </Variables>
+        <Values>0.85 0.15 0.3 0.7</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="faltaDirectaVisitante" />
+          <Variable name="faltasRecibidasVisitantes" />
+        </Variables>
+        <Values>0.85 0.15 0.55 0.45</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="penalVistante" />
+          <Variable name="faltasRecibidasVisitantes" />
+          <Variable name="jugadaEnAreaVisitante" />
+        </Variables>
+        <Values>1.0 0.0 1.0 0.0 0.975 0.025 0.15 0.85</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="enPropiaMetaVisitante" />
+          <Variable name="jugadaEnAreaVisitante" />
+          <Variable name="centroAreaVisitante" />
+          <Variable name="remateVisitante" />
+        </Variables>
+        <Values>1.0 0.0 0.96 0.04 0.98 0.02 0.95 0.05 0.96 0.04 0.91 0.09 0.95 0.05 0.9 0.1</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="remateVisitante" />
+          <Variable name="cornersVisitante" />
+          <Variable name="jugadaEnAreaVisitante" />
+          <Variable name="centroAreaVisitante" />
+          <Variable name="jugadaVisitante" />
+        </Variables>
+        <Values>0.95 0.05 0.8 0.2 0.4 0.6 0.35 0.65 0.8 0.2 0.6 0.4 0.35 0.65 0.25 0.75 0.3 0.7 0.15 0.85 0.15 0.85 0.05 0.95 0.15 0.85 0.1 0.9 0.05 0.95 0.01 0.99</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="marcarGolVisitante" />
+          <Variable name="penalVistante" />
+          <Variable name="enPropiaMetaVisitante" />
+          <Variable name="remateVisitante" />
+          <Variable name="faltaDirectaVisitante" />
+        </Variables>
+        <Values>0.99 0.01 0.5 0.5 0.95 0.05 0.8 0.2 0.15 0.85 0.1 0.9 0.2 0.8 0.1 0.9 0.8 0.2 0.9 0.1 0.75 0.25 0.7 0.3 0.125 0.875 0.025 0.975 0.05 0.95 0.01 0.99</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="partidosHistoricosVisitante" />
+        </Variables>
+        <Values>0.55 0.33 0.12</Values>
+      </Potential>
+      <Potential type="Uniform" role="conditionalProbability">
+        <Variables>
+          <Variable name="rachaVisitante" />
+        </Variables>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="seLeDaBienEquipoVisitante" />
+          <Variable name="resultadosHistoricosEntreEllos" />
+        </Variables>
+        <Values>0.0 1.0 0.25 0.75 0.75 0.25</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="efectividadVisitante" />
+          <Variable name="marcarGolVisitante" />
+          <Variable name="rachaVisitante" />
+          <Variable name="seLeDaBienEquipoVisitante" />
+          <Variable name="partidosHistoricosVisitante" />
+        </Variables>
+        <Values>1.0 0.0 0.85 0.15 0.85 0.15 0.8 0.2 0.85 0.15 0.4 0.6 0.3 0.7 0.2 0.8 0.77 0.23 0.811 0.189 0.824 0.176 0.671 0.329 0.855 0.145 0.466 0.534 0.37 0.63 0.24 0.76 0.9 0.1 0.8 0.2 0.7 0.3 0.6 0.4 0.75 0.25 0.2 0.8 0.15 0.85 0.0 1.0</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="clasificacionVisitante" />
+          <Variable name="temporada" />
+        </Variables>
+        <Values>0.4173 0.2667 0.083 0.233 0.28333 0.38333 0.09167 0.24167 0.3583 0.2667 0.15833 0.21667</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="seJuegaAlgoVisitante" />
+          <Variable name="clasificacionVisitante" />
+        </Variables>
+        <Values>0.85 0.15 0.8 0.2 0.75 0.25 0.9 0.1</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="motivacionVisitante" />
+          <Variable name="seJuegaAlgoVisitante" />
+          <Variable name="estadioLleno" />
+          <Variable name="clasico" />
+        </Variables>
+        <Values>0.6 0.4 0.15 0.85 0.95 0.05 0.2 0.8 0.35 0.65 0.05 0.95 0.9 0.1 0.15 0.85</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="NoGolesEquipoVisitante" />
+          <Variable name="condicionesMetereologicas" />
+          <Variable name="motivacionVisitante" />
+          <Variable name="efectividadVisitante" />
+        </Variables>
+        <Values>0.0 0.0 0.05 0.1 0.85 0.0 0.1 0.1 0.15 0.65 0.001 0.1 0.2 0.299 0.4 0.0 0.05 0.1 0.15 0.7 0.01 0.05 0.15 0.2 0.59 0.06 0.1 0.19 0.4 0.25 0.0 0.1 0.15 0.2 0.55 0.01 0.1 0.2 0.225 0.465 0.051 0.2 0.3 0.25 0.199 0.011 0.15 0.2 0.25 0.389 0.06 0.25 0.15 0.2 0.34 0.225 0.35 0.25 0.15 0.025</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="resultado" />
+          <Variable name="NoGolesEquipoLocal" />
+          <Variable name="NoGolesEquipoVisitante" />
+        </Variables>
+        <Values>0.0625 0.0625 0.0625 0.0625 0.0625 0.0625 0.0625 0.0625 0.0625 0.0625 0.0625 0.0625 0.0625 0.0625 0.0625 0.0625 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0625 0.0625 0.0625 0.0625 0.0625 0.0625 0.0625 0.0625 0.0625 0.0625 0.0625 0.0625 0.0625 0.0625 0.0625 0.0625 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0625 0.0625 0.0625 0.0625 0.0625 0.0625 0.0625 0.0625 0.0625 0.0625 0.0625 0.0625 0.0625 0.0625 0.0625 0.0625 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0625 0.0625 0.0625 0.0625 0.0625 0.0625 0.0625 0.0625 0.0625 0.0625 0.0625 0.0625 0.0625 0.0625 0.0625 0.0625 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0625 0.0625 0.0625 0.0625 0.0625 0.0625 0.0625 0.0625 0.0625 0.0625 0.0625 0.0625 0.0625 0.0625 0.0625 0.0625 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="pronostico" />
+          <Variable name="resultado" />
+        </Variables>
+        <Values>0.17 0.38 0.45 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 1.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 1.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 1.0 0.0</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="partidosHistoricosLocal" />
+        </Variables>
+        <Values>0.12 0.33 0.55</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="presupuestoLocal" />
+        </Variables>
+        <Values>0.35 0.3 0.35</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="presupuestoVisitante" />
+        </Variables>
+        <Values>0.35 0.3 0.35</Values>
+      </Potential>
+    </Potentials>
+    <AdditionalProperties />
+  </ProbNet>
+</ProbModelXML>
