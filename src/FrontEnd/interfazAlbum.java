@@ -48,7 +48,7 @@ public class interfazAlbum extends javax.swing.JFrame {
         Button_searchRecord = new javax.swing.JButton();
         Button_deleteRecord = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        Table_dataAlbum = new javax.swing.JTable();
         Button_updateRecord = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -154,7 +154,7 @@ public class interfazAlbum extends javax.swing.JFrame {
 
         Button_deleteRecord.setText("Eliminar");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        Table_dataAlbum.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -162,7 +162,7 @@ public class interfazAlbum extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(Table_dataAlbum);
 
         Button_updateRecord.setText("Actualizar");
 
@@ -274,6 +274,7 @@ public class interfazAlbum extends javax.swing.JFrame {
     private javax.swing.JButton Button_showData;
     private javax.swing.JButton Button_updateRecord;
     private javax.swing.JComboBox<String> CB_options;
+    private javax.swing.JTable Table_dataAlbum;
     private javax.swing.JTextField Text_anioLan;
     private javax.swing.JTextField Text_idAlbum;
     private javax.swing.JTextField Text_idInterprete;
@@ -289,6 +290,5 @@ public class interfazAlbum extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
