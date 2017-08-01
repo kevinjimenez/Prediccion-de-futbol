@@ -5,17 +5,24 @@
  */
 package FrontEnd;
 
+import BackEnd.Album;
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author KEVIN
  */
 public class interfazAlbum extends javax.swing.JFrame {
-
+    Album backEnd_album;
     /**
      * Creates new form interfazAlbum
      */
     public interfazAlbum() {
         initComponents();
+        backEnd_album = new Album();
     }
 
     /**
@@ -42,6 +49,7 @@ public class interfazAlbum extends javax.swing.JFrame {
         Button_insertRecord = new javax.swing.JButton();
         Button_clearCampos = new javax.swing.JButton();
         Button_showData = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         CB_options = new javax.swing.JComboBox<>();
         Text_input = new javax.swing.JTextField();
@@ -66,10 +74,27 @@ public class interfazAlbum extends javax.swing.JFrame {
         jLabel6.setText("Año de Lanzamiento");
 
         Button_insertRecord.setText("Agregar");
+        Button_insertRecord.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Button_insertRecordActionPerformed(evt);
+            }
+        });
 
         Button_clearCampos.setText("Limpiar");
+        Button_clearCampos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Button_clearCamposActionPerformed(evt);
+            }
+        });
 
         Button_showData.setText("mostar datos");
+        Button_showData.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Button_showDataActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setText("DD-MMM-YYYY");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -89,7 +114,7 @@ public class interfazAlbum extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(Text_idInterprete, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(77, 77, 77)
@@ -106,7 +131,8 @@ public class interfazAlbum extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Text_anioLan))))
+                            .addComponent(Text_anioLan)
+                            .addComponent(jLabel7))))
                 .addGap(88, 88, 88))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
@@ -140,7 +166,9 @@ public class interfazAlbum extends javax.swing.JFrame {
                     .addComponent(Text_nameAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Text_lugarGrabacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Text_anioLan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel7)
+                .addGap(4, 4, 4)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Button_insertRecord)
                     .addComponent(Button_clearCampos)
@@ -148,7 +176,7 @@ public class interfazAlbum extends javax.swing.JFrame {
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
-        CB_options.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        CB_options.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombre Album", "Lugar Grabacion" }));
 
         Button_searchRecord.setText("Buscar");
 
@@ -207,7 +235,7 @@ public class interfazAlbum extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Button_updateRecord)
-                .addContainerGap(83, Short.MAX_VALUE))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -230,6 +258,41 @@ public class interfazAlbum extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void Button_insertRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_insertRecordActionPerformed
+        try {
+            // TODO add your handling code here:
+            System.out.println(Text_idAlbum.getText());
+            System.out.println(Text_idInterprete.getText());
+            System.out.println(Text_nameAlbum.getText());
+            System.out.println(Text_lugarGrabacion.getText());
+            System.out.println(Text_anioLan.getText());
+            backEnd_album.insertAlbum(Integer.parseInt(Text_idAlbum.getText()), Integer.parseInt(Text_idInterprete.getText()), Text_nameAlbum.getText(), Text_lugarGrabacion.getText(), Text_anioLan.getText());
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(interfazAlbum.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException ex) {
+            Logger.getLogger(interfazAlbum.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_Button_insertRecordActionPerformed
+
+    private void Button_clearCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_clearCamposActionPerformed
+        // TODO add your handling code here:
+        Text_idAlbum.setText("");
+        Text_idInterprete.setText("");
+        Text_nameAlbum.setText("");
+        Text_lugarGrabacion.setText("");
+        Text_anioLan.setText("");
+    }//GEN-LAST:event_Button_clearCamposActionPerformed
+
+    private void Button_showDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_showDataActionPerformed
+        try {
+            // TODO add your handling code here:
+            backEnd_album.MostrarDataAlbum(Table_dataAlbum);
+        } catch (SQLException ex) {
+            Logger.getLogger(interfazAlbum.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_Button_showDataActionPerformed
 
     /**
      * @param args the command line arguments
@@ -287,6 +350,7 @@ public class interfazAlbum extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;

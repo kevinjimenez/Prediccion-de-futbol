@@ -5,7 +5,7 @@
  */
 package FrontEnd;
 
-import BackEnd.Back_End;
+import BackEnd.Interprete;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -16,11 +16,11 @@ import java.util.logging.Logger;
  * @author KEVIN
  */
 public class interfazInterprete extends javax.swing.JFrame {
-    Back_End bacEnd;        
+    Interprete backEnd_interprete;        
    
     public interfazInterprete() {        
         initComponents();
-        bacEnd = new Back_End();
+        backEnd_interprete = new Interprete();
         
         Button_Borrado.setVisible(false);
         Button_Insert.setVisible(false);
@@ -333,9 +333,7 @@ public class interfazInterprete extends javax.swing.JFrame {
 
     private void Button_InsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_InsertActionPerformed
         try {
-            // TODO add your handling code here:
-            bacEnd.InsertaDatosInterprete(Integer.parseInt(TextF_IdInterprete.getText()),TextF_Nombre_Interprete.getText(),TextF_Apellido_Interprete.getText(),TextF_Pais.getText(),TextF_Alias.getText(),Integer.parseInt(TextF_Edad.getText()));                       
-            
+            backEnd_interprete.InsertaDatosInterprete(Integer.parseInt(TextF_IdInterprete.getText()),TextF_Nombre_Interprete.getText(),TextF_Apellido_Interprete.getText(),TextF_Pais.getText(),TextF_Alias.getText(),Integer.parseInt(TextF_Edad.getText()));
         } catch (SQLException ex) {
             Logger.getLogger(interfazInterprete.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -357,7 +355,7 @@ public class interfazInterprete extends javax.swing.JFrame {
             
         try {
             //System.out.println(Cb_Busqueda.getItemAt(Cb_Busqueda.getSelectedIndex())+" "+ Text_Busqueda.getText());
-            bacEnd.deleteInterprete(Cb_Busqueda.getItemAt(Cb_Busqueda.getSelectedIndex()), Text_Busqueda.getText());
+            backEnd_interprete.deleteInterprete(Cb_Busqueda.getItemAt(Cb_Busqueda.getSelectedIndex()), Text_Busqueda.getText());
         } catch (SQLException ex) {
             Logger.getLogger(interfazInterprete.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -367,7 +365,7 @@ public class interfazInterprete extends javax.swing.JFrame {
     private void Button_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_buscarActionPerformed
         try {
             System.out.println(Text_Busqueda.getText());
-            bacEnd.Buscar(Cb_Busqueda.getItemAt(Cb_Busqueda.getSelectedIndex()), TablaResult, Text_Busqueda.getText());
+            backEnd_interprete.Buscar(Cb_Busqueda.getItemAt(Cb_Busqueda.getSelectedIndex()), TablaResult, Text_Busqueda.getText());
             //System.out.println(Cb_Busqueda.getItemAt(Cb_Busqueda.getSelectedIndex()));
             
             
@@ -503,7 +501,7 @@ public class interfazInterprete extends javax.swing.JFrame {
     private void Button_UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_UpdateActionPerformed
         try {
             // TODO add your handling code here:
-            bacEnd.Actualizar(Cb_Busqueda.getItemAt(Cb_Busqueda.getSelectedIndex()), Text_Busqueda.getText(), TextF_Nombre_Interprete.getText(), TextF_Apellido_Interprete.getText(), TextF_Pais.getText(), TextF_Alias.getText(), Integer.parseInt(TextF_Edad.getText()));            
+            backEnd_interprete.Actualizar(Cb_Busqueda.getItemAt(Cb_Busqueda.getSelectedIndex()), Text_Busqueda.getText(), TextF_Nombre_Interprete.getText(), TextF_Apellido_Interprete.getText(), TextF_Pais.getText(), TextF_Alias.getText(), Integer.parseInt(TextF_Edad.getText()));            
         } catch (SQLException ex) {
             Logger.getLogger(interfazInterprete.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -513,7 +511,7 @@ public class interfazInterprete extends javax.swing.JFrame {
     private void Button_MostarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_MostarActionPerformed
         try {
             // TODO add your handling code here:
-            bacEnd.MostrarData(TablaResult);
+            backEnd_interprete.MostrarDataInterprete(TablaResult);
         } catch (SQLException ex) {
             Logger.getLogger(interfazInterprete.class.getName()).log(Level.SEVERE, null, ex);
         }

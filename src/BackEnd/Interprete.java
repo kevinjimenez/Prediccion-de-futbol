@@ -17,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author KEVIN
  */
-public class Back_End {
+public class Interprete {
     PreparedStatement stm = null;
     ResultSet rs = null;
     DBConexion conexion = new DBConexion();
@@ -288,7 +288,7 @@ public class Back_End {
         }
     }
   
-    public void MostrarData(JTable dataTable) throws SQLException{
+    public void MostrarDataInterprete(JTable dataTable) throws SQLException{
         String [] columnas = {"ID", "NOMBRE INTERPRETE","APELLIDO INTERPRETE","PAIS","ALIAS","EDAD"};
         String [] registros = new String[6];        
         modeloTabla = new DefaultTableModel(null,columnas){
@@ -311,11 +311,7 @@ public class Back_End {
                 modeloTabla.addRow(registros);
                 
         }
-        dataTable.setModel(modeloTabla);
-        
-        
-        
-        
+        dataTable.setModel(modeloTabla);        
     }
     
     
