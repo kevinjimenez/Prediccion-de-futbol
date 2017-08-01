@@ -9,6 +9,7 @@ import BackEnd.Interprete;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -333,7 +334,13 @@ public class interfazInterprete extends javax.swing.JFrame {
 
     private void Button_InsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_InsertActionPerformed
         try {
+        //System.out.println(TextF_IdInterprete.getText());
+            if ((TextF_IdInterprete.getText().length()==0)||(TextF_Nombre_Interprete.getText().length()==0)||(TextF_Apellido_Interprete.getText().length()==0)||(TextF_Alias.getText().length()==0)||(TextF_Pais.getText().length()==0)||(TextF_Edad.getText().length()==0)){                
+                JOptionPane.showMessageDialog(null, "falta");
+            }else{
             backEnd_interprete.InsertaDatosInterprete(Integer.parseInt(TextF_IdInterprete.getText()),TextF_Nombre_Interprete.getText(),TextF_Apellido_Interprete.getText(),TextF_Pais.getText(),TextF_Alias.getText(),Integer.parseInt(TextF_Edad.getText()));
+            }
+            
         } catch (SQLException ex) {
             Logger.getLogger(interfazInterprete.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -494,7 +501,7 @@ public class interfazInterprete extends javax.swing.JFrame {
                 TextF_Edad.setText(TablaResult.getValueAt(i, 5).toString());
                 //TextF_IdInterprete.setText(TablaResult.getValueAt(i, 5).toString());
             }
-            System.out.println("Double Click");
+            //System.out.println("Double Click");
          }        
     }//GEN-LAST:event_TablaResultMouseClicked
 

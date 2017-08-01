@@ -176,11 +176,21 @@ public class interfazAlbum extends javax.swing.JFrame {
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
-        CB_options.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombre Album", "Lugar Grabacion" }));
+        CB_options.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombre Album", "Lugar Grabacion", "Año de Grabacion" }));
 
         Button_searchRecord.setText("Buscar");
+        Button_searchRecord.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Button_searchRecordActionPerformed(evt);
+            }
+        });
 
         Button_deleteRecord.setText("Eliminar");
+        Button_deleteRecord.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Button_deleteRecordActionPerformed(evt);
+            }
+        });
 
         Table_dataAlbum.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -190,9 +200,19 @@ public class interfazAlbum extends javax.swing.JFrame {
 
             }
         ));
+        Table_dataAlbum.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Table_dataAlbumMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(Table_dataAlbum);
 
         Button_updateRecord.setText("Actualizar");
+        Button_updateRecord.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Button_updateRecordActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -293,6 +313,48 @@ public class interfazAlbum extends javax.swing.JFrame {
             Logger.getLogger(interfazAlbum.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_Button_showDataActionPerformed
+
+    private void Button_deleteRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_deleteRecordActionPerformed
+        try {
+            // TODO add your handling code here:            
+            backEnd_album.deleteAlbum(CB_options.getItemAt(CB_options.getSelectedIndex()), Text_input.getText());
+        } catch (SQLException ex) {
+            Logger.getLogger(interfazAlbum.class.getName()).log(Level.SEVERE, null, ex);
+        }
+                
+    }//GEN-LAST:event_Button_deleteRecordActionPerformed
+
+    private void Button_searchRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_searchRecordActionPerformed
+        try {
+            // TODO add your handling code here:
+
+            backEnd_album.buscarAlbum(CB_options.getItemAt(CB_options.getSelectedIndex()), Table_dataAlbum, Text_input.getText());
+        } catch (SQLException ex) {
+            Logger.getLogger(interfazAlbum.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_Button_searchRecordActionPerformed
+
+    private void Table_dataAlbumMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Table_dataAlbumMouseClicked
+        // TODO add your handling code here:
+        if (evt.getClickCount()==2) {
+            for (int i = 0; i < Table_dataAlbum.getRowCount(); i++) {
+                Text_idAlbum.setText(Table_dataAlbum.getValueAt(i, 0).toString());
+                Text_idInterprete.setText(Table_dataAlbum.getValueAt(i, 1).toString());
+                Text_nameAlbum.setText(Table_dataAlbum.getValueAt(i, 2).toString());
+                Text_lugarGrabacion.setText(Table_dataAlbum.getValueAt(i, 3).toString());
+                Text_anioLan.setText(Table_dataAlbum.getValueAt(i, 4).toString());            
+            }
+        }
+    }//GEN-LAST:event_Table_dataAlbumMouseClicked
+
+    private void Button_updateRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_updateRecordActionPerformed
+        try {
+            // TODO add your handling code here:
+            backEnd_album.updateAlbum(CB_options.getItemAt(CB_options.getSelectedIndex()), Text_input.getText(), Text_nameAlbum.getText(), Text_lugarGrabacion.getText(), Text_anioLan.getText());
+        } catch (SQLException ex) {
+            Logger.getLogger(interfazAlbum.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_Button_updateRecordActionPerformed
 
     /**
      * @param args the command line arguments

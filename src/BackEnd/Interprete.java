@@ -36,7 +36,7 @@ public class Interprete {
         stm.setInt(6, Edad);
         stm.executeUpdate();
         //conexion.Desconectar();
-        JOptionPane.showMessageDialog(null, "INSERTADO CORRECTAMENRE");
+        JOptionPane.showMessageDialog(null, "INSERTADO INTERPRETE CORRECTAMENRE");
         
     }
     

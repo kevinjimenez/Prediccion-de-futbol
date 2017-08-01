@@ -6,6 +6,7 @@
 package Main;
 
 import FrontEnd.interfazAlbum;
+import FrontEnd.interfazInterprete;
 import java.sql.SQLException;
 
 /**
