@@ -10,7 +10,6 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import principal.interfazPrincipal;
 
 
 /**
@@ -349,7 +348,7 @@ public class interfazInterprete extends javax.swing.JFrame {
         try {
         //System.out.println(TextF_IdInterprete.getText());
             if ((TextF_IdInterprete.getText().length()==0)||(TextF_Nombre_Interprete.getText().length()==0)||(TextF_Apellido_Interprete.getText().length()==0)||(TextF_Alias.getText().length()==0)||(TextF_Pais.getText().length()==0)||(TextF_Edad.getText().length()==0)){                
-                JOptionPane.showMessageDialog(null, "falta");
+                JOptionPane.showMessageDialog(null, "Falta campos");
             }else{
             backEnd_interprete.InsertaDatosInterprete(Integer.parseInt(TextF_IdInterprete.getText()),TextF_Nombre_Interprete.getText(),TextF_Apellido_Interprete.getText(),TextF_Pais.getText(),TextF_Alias.getText(),Integer.parseInt(TextF_Edad.getText()));
             }

@@ -5,7 +5,7 @@
  */
 package Main;
 
-import principal.interfazPrincipal;
+import FrontEnd.interfazPrincipal;
 import java.sql.SQLException;
 
 /**

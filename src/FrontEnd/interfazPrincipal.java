@@ -3,13 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package principal;
+package FrontEnd;
 
+import FrontEnd.Auditoria;
 import FrontEnd.interfazAlbum;
 import FrontEnd.interfazCancion;
 import FrontEnd.interfazGenero;
 import FrontEnd.interfazIdioma;
 import FrontEnd.interfazInterprete;
+import FrontEnd.replica1;
+import FrontEnd.replica2;
+import FrontEnd.replica3;
 
 /**
  *
@@ -22,6 +26,10 @@ public class interfazPrincipal extends javax.swing.JFrame {
     interfazCancion cancion;
     interfazGenero genero;
     interfazIdioma idioma;
+    Auditoria auditoria; 
+    replica1 r1;
+    replica2 r2;
+    replica3 r3;
     //interfazPrincipal ventan ;
         
     /**
@@ -34,6 +42,10 @@ public class interfazPrincipal extends javax.swing.JFrame {
         cancion=new interfazCancion();
         genero=new interfazGenero();
         idioma=new interfazIdioma();
+        auditoria=new Auditoria();
+        r1=new replica1();
+        r2=new replica2();
+        r3=new replica3();
         //ventan = new interfazPrincipal();
     }
 
@@ -51,10 +63,10 @@ public class interfazPrincipal extends javax.swing.JFrame {
         btn_cancion = new javax.swing.JButton();
         btn_genero = new javax.swing.JButton();
         btn_idioma = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
+        btnAuditoria = new javax.swing.JButton();
+        btnReplica1 = new javax.swing.JButton();
+        btnReplica2 = new javax.swing.JButton();
+        btnReplica3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -93,13 +105,33 @@ public class interfazPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jButton6.setText("Auditoria");
+        btnAuditoria.setText("Auditoria");
+        btnAuditoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAuditoriaActionPerformed(evt);
+            }
+        });
 
-        jButton7.setText("Replica1");
+        btnReplica1.setText("Replica1");
+        btnReplica1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReplica1ActionPerformed(evt);
+            }
+        });
 
-        jButton8.setText("replica2");
+        btnReplica2.setText("replica2");
+        btnReplica2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReplica2ActionPerformed(evt);
+            }
+        });
 
-        jButton9.setText("replica3");
+        btnReplica3.setText("replica3");
+        btnReplica3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReplica3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -107,7 +139,7 @@ public class interfazPrincipal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addComponent(jButton6)
+                .addComponent(btnAuditoria)
                 .addGap(55, 55, 55)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -120,15 +152,15 @@ public class interfazPrincipal extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btn_cancion)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton9))
+                                .addComponent(btnReplica3))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btn_album)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton8))
+                                .addComponent(btnReplica2))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btn_interprete)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
-                                .addComponent(jButton7)))
+                                .addComponent(btnReplica1)))
                         .addGap(29, 29, 29))))
         );
         layout.setVerticalGroup(
@@ -137,16 +169,16 @@ public class interfazPrincipal extends javax.swing.JFrame {
                 .addGap(66, 66, 66)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_interprete)
-                    .addComponent(jButton6)
-                    .addComponent(jButton7))
+                    .addComponent(btnAuditoria)
+                    .addComponent(btnReplica1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_album)
-                    .addComponent(jButton8))
+                    .addComponent(btnReplica2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_cancion)
-                    .addComponent(jButton9))
+                    .addComponent(btnReplica3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_genero)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -159,6 +191,7 @@ public class interfazPrincipal extends javax.swing.JFrame {
 
     private void btn_interpreteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_interpreteActionPerformed
         // TODO add your handling code here:        
+        this.dispose();
         interpretre.setVisible(true);        
         
         
@@ -184,6 +217,26 @@ public class interfazPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         idioma.setVisible(true);
     }//GEN-LAST:event_btn_idiomaActionPerformed
+
+    private void btnReplica1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReplica1ActionPerformed
+        // TODO add your handling code here:
+        r1.setVisible(true);
+    }//GEN-LAST:event_btnReplica1ActionPerformed
+
+    private void btnReplica2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReplica2ActionPerformed
+        // TODO add your handling code here:
+        r2.setVisible(true);
+    }//GEN-LAST:event_btnReplica2ActionPerformed
+
+    private void btnReplica3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReplica3ActionPerformed
+        // TODO add your handling code here:
+        r3.setVisible(true);
+    }//GEN-LAST:event_btnReplica3ActionPerformed
+
+    private void btnAuditoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAuditoriaActionPerformed
+        // TODO add your handling code here:
+        auditoria.setVisible(true);
+    }//GEN-LAST:event_btnAuditoriaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -221,14 +274,14 @@ public class interfazPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAuditoria;
+    private javax.swing.JButton btnReplica1;
+    private javax.swing.JButton btnReplica2;
+    private javax.swing.JButton btnReplica3;
     private javax.swing.JButton btn_album;
     private javax.swing.JButton btn_cancion;
     private javax.swing.JButton btn_genero;
     private javax.swing.JButton btn_idioma;
     private javax.swing.JButton btn_interprete;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     // End of variables declaration//GEN-END:variables
 }

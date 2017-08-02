@@ -24,6 +24,8 @@ public class Interprete {
     String insert,delete="",update="",search="",mostar;
     DefaultTableModel modeloTabla;
     
+    
+    
     public void InsertaDatosInterprete(int ID, String Nombre,String Apellido, String Pais, String Alias, int Edad) throws SQLException{
         
         insert = "insert into INTERPRETE(ID_INTERPRETE,NOMBRE_INTERPRETE,APELLIDO_INTERPRETE,PAIS,ALIAS,EDAD) values(?,?,?,?,?,?)";
@@ -35,6 +37,7 @@ public class Interprete {
         stm.setString(5, Alias);
         stm.setInt(6, Edad);
         stm.executeUpdate();
+        
         //conexion.Desconectar();
         JOptionPane.showMessageDialog(null, "INSERTADO INTERPRETE CORRECTAMENRE");
         
