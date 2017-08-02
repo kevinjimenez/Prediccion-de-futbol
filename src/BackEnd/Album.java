@@ -64,7 +64,7 @@ public class Album {
     }
     
     public void deleteAlbum(String Item, String valorEliminado) throws SQLException{                       
-        System.out.println("khe: "+valorEliminado);
+        //System.out.println("khe: "+valorEliminado);
         if(Item.equals("Nombre Album")){
             delete = "delete from album where Nombre_Album like '%"+valorEliminado+"%'";
             stm=conexion.getConexion().prepareStatement(delete);        

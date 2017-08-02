@@ -5,17 +5,25 @@
  */
 package FrontEnd;
 
+import BackEnd.Idioma;
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author KEVIN
  */
 public class interfazIdioma extends javax.swing.JFrame {
-
+    
+    Idioma back_endIdioma;
     /**
      * Creates new form interfazIdioma
      */
     public interfazIdioma() {
         initComponents();
+        back_endIdioma = new Idioma();
     }
 
     /**
@@ -38,7 +46,7 @@ public class interfazIdioma extends javax.swing.JFrame {
         btn_showIidoma = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        Table_idiomaData = new javax.swing.JTable();
         CB_setIdioma = new javax.swing.JComboBox<>();
         Txt_busquedaInput = new javax.swing.JTextField();
         btn_searchIdioma = new javax.swing.JButton();
@@ -54,10 +62,25 @@ public class interfazIdioma extends javax.swing.JFrame {
         jLabel3.setText("Idioma");
 
         btn_insertIdioma.setText("Insertar");
+        btn_insertIdioma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_insertIdiomaActionPerformed(evt);
+            }
+        });
 
         btn_limpiarCampos.setText("Limpiar");
+        btn_limpiarCampos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_limpiarCamposActionPerformed(evt);
+            }
+        });
 
         btn_showIidoma.setText("Mostrar Datos");
+        btn_showIidoma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_showIidomaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -105,7 +128,7 @@ public class interfazIdioma extends javax.swing.JFrame {
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        Table_idiomaData.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -113,15 +136,35 @@ public class interfazIdioma extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        Table_idiomaData.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Table_idiomaDataMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(Table_idiomaData);
 
-        CB_setIdioma.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        CB_setIdioma.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Idioma" }));
 
         btn_searchIdioma.setText("Buscar");
+        btn_searchIdioma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_searchIdiomaActionPerformed(evt);
+            }
+        });
 
         btn_deleteIdioma.setText("Eliminar");
+        btn_deleteIdioma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_deleteIdiomaActionPerformed(evt);
+            }
+        });
 
         btn_updateIdioma.setText("Actualizar");
+        btn_updateIdioma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_updateIdiomaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -181,6 +224,67 @@ public class interfazIdioma extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btn_insertIdiomaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_insertIdiomaActionPerformed
+        try {
+            // TODO add your handling code here:
+            back_endIdioma.insertIdioma(Integer.parseInt(Txt_idIdioma.getText()), Txt_idioma.getText());
+        } catch (SQLException | ParseException ex) {
+            Logger.getLogger(interfazIdioma.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btn_insertIdiomaActionPerformed
+
+    private void btn_limpiarCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_limpiarCamposActionPerformed
+        // TODO add your handling code here:
+        Txt_idIdioma.setText("");
+        Txt_idioma.setText("");
+    }//GEN-LAST:event_btn_limpiarCamposActionPerformed
+
+    private void btn_showIidomaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_showIidomaActionPerformed
+        try {
+            // TODO add your handling code here:
+            back_endIdioma.MostrarDataIdioma(Table_idiomaData);
+        } catch (SQLException ex) {
+            Logger.getLogger(interfazIdioma.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btn_showIidomaActionPerformed
+
+    private void btn_searchIdiomaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_searchIdiomaActionPerformed
+        try {
+            // TODO add your handling code here:
+            back_endIdioma.buscarIdioma(CB_setIdioma.getItemAt(CB_setIdioma.getSelectedIndex()), Table_idiomaData, Txt_busquedaInput.getText());
+        } catch (SQLException ex) {
+            Logger.getLogger(interfazIdioma.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btn_searchIdiomaActionPerformed
+
+    private void btn_deleteIdiomaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_deleteIdiomaActionPerformed
+        try {
+            // TODO add your handling code here:
+            back_endIdioma.deleteIdioma(CB_setIdioma.getItemAt(CB_setIdioma.getSelectedIndex()), Txt_busquedaInput.getText());
+        } catch (SQLException ex) {
+            Logger.getLogger(interfazIdioma.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btn_deleteIdiomaActionPerformed
+        
+    private void Table_idiomaDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Table_idiomaDataMouseClicked
+        // TODO add your handling code here:
+        if (evt.getClickCount()==2) {
+            for (int i = 0; i < Table_idiomaData.getRowCount(); i++) {
+                Txt_idIdioma.setText(Table_idiomaData.getValueAt(i, 0).toString());
+                Txt_idioma.setText(Table_idiomaData.getValueAt(i, 1).toString());                
+            }
+        }
+    }//GEN-LAST:event_Table_idiomaDataMouseClicked
+
+    private void btn_updateIdiomaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_updateIdiomaActionPerformed
+        try {
+            // TODO add your handling code here:
+            back_endIdioma.updateIdioma(CB_setIdioma.getItemAt(CB_setIdioma.getSelectedIndex()), Txt_busquedaInput.getText(), Txt_idioma.getText());
+        } catch (SQLException ex) {
+            Logger.getLogger(interfazIdioma.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btn_updateIdiomaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -218,6 +322,7 @@ public class interfazIdioma extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> CB_setIdioma;
+    private javax.swing.JTable Table_idiomaData;
     private javax.swing.JTextField Txt_busquedaInput;
     private javax.swing.JTextField Txt_idIdioma;
     private javax.swing.JTextField Txt_idioma;
@@ -233,6 +338,5 @@ public class interfazIdioma extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

@@ -287,7 +287,7 @@ public class Interprete {
             JOptionPane.showMessageDialog(null, "ACTUALIZADO");
         }
     }
-  
+    
     public void MostrarDataInterprete(JTable dataTable) throws SQLException{
         String [] columnas = {"ID", "NOMBRE INTERPRETE","APELLIDO INTERPRETE","PAIS","ALIAS","EDAD"};
         String [] registros = new String[6];        

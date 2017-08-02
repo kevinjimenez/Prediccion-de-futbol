@@ -23,6 +23,26 @@ public class interfazAlbum extends javax.swing.JFrame {
     public interfazAlbum() {
         initComponents();
         backEnd_album = new Album();
+        
+        //botones
+        Button_insertRecord.setVisible(false);
+        Button_clearCampos.setVisible(false);
+        Button_showData.setVisible(false);
+        Button_deleteRecord.setVisible(false);
+        Button_searchRecord.setVisible(false);
+        Button_updateRecord.setVisible(false);
+        //combo
+        CB_options.setVisible(false);
+        //tabla
+        Table_dataAlbum.setVisible(false);
+        //textfield
+        Text_anioLan.setEnabled(false);
+        Text_idAlbum.setEnabled(false);
+        Text_idInterprete.setEnabled(false);
+        Text_input.setVisible(false);
+        Text_lugarGrabacion.setEnabled(false);
+        Text_nameAlbum.setEnabled(false);
+        
     }
 
     /**
@@ -58,6 +78,12 @@ public class interfazAlbum extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         Table_dataAlbum = new javax.swing.JTable();
         Button_updateRecord = new javax.swing.JButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        Menu_nuevoAlbum = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        Menu_buscarAlbum = new javax.swing.JMenuItem();
+        Menu_eliminarAlbum = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -255,8 +281,42 @@ public class interfazAlbum extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Button_updateRecord)
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
+
+        jMenu1.setText("File");
+
+        Menu_nuevoAlbum.setText("Nuevo Album");
+        Menu_nuevoAlbum.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Menu_nuevoAlbumActionPerformed(evt);
+            }
+        });
+        jMenu1.add(Menu_nuevoAlbum);
+
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Edit");
+
+        Menu_buscarAlbum.setText("Buscar Album");
+        Menu_buscarAlbum.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Menu_buscarAlbumActionPerformed(evt);
+            }
+        });
+        jMenu2.add(Menu_buscarAlbum);
+
+        Menu_eliminarAlbum.setText("Eliminar Album");
+        Menu_eliminarAlbum.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Menu_eliminarAlbumActionPerformed(evt);
+            }
+        });
+        jMenu2.add(Menu_eliminarAlbum);
+
+        jMenuBar1.add(jMenu2);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -336,6 +396,23 @@ public class interfazAlbum extends javax.swing.JFrame {
 
     private void Table_dataAlbumMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Table_dataAlbumMouseClicked
         // TODO add your handling code here:
+        Button_insertRecord.setVisible(false);
+        Button_clearCampos.setVisible(false);
+        Button_showData.setVisible(true);
+        Button_deleteRecord.setVisible(false);
+        Button_searchRecord.setVisible(false);
+        Button_updateRecord.setVisible(true);
+        //combo
+        CB_options.setVisible(true);
+        //tabla
+        Table_dataAlbum.setVisible(true);
+        //textfield
+        Text_anioLan.setEnabled(true);
+        Text_idAlbum.setEnabled(false);
+        Text_idInterprete.setEnabled(false);
+        Text_input.setVisible(true);
+        Text_lugarGrabacion.setEnabled(true);
+        Text_nameAlbum.setEnabled(true);
         if (evt.getClickCount()==2) {
             for (int i = 0; i < Table_dataAlbum.getRowCount(); i++) {
                 Text_idAlbum.setText(Table_dataAlbum.getValueAt(i, 0).toString());
@@ -355,6 +432,90 @@ public class interfazAlbum extends javax.swing.JFrame {
             Logger.getLogger(interfazAlbum.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_Button_updateRecordActionPerformed
+
+    private void Menu_nuevoAlbumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Menu_nuevoAlbumActionPerformed
+        // TODO add your handling code here:
+        Text_anioLan.setText("");
+        Text_idAlbum.setText("");
+        Text_idInterprete.setText("");
+        Text_input.setText("");
+        Text_lugarGrabacion.setText("");
+        Text_nameAlbum.setText("");
+        //botones
+        Button_insertRecord.setVisible(true);
+        Button_clearCampos.setVisible(true);
+        Button_showData.setVisible(true);
+        Button_deleteRecord.setVisible(false);
+        Button_searchRecord.setVisible(false);
+        Button_updateRecord.setVisible(false);
+        //combo
+        CB_options.setVisible(false);
+        //tabla
+        Table_dataAlbum.setVisible(true);
+        //textfield
+        Text_anioLan.setEnabled(true);
+        Text_idAlbum.setEnabled(true);
+        Text_idInterprete.setEnabled(true);        
+        Text_input.setVisible(false);
+        Text_lugarGrabacion.setEnabled(true);
+        Text_nameAlbum.setEnabled(true);
+    }//GEN-LAST:event_Menu_nuevoAlbumActionPerformed
+
+    private void Menu_buscarAlbumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Menu_buscarAlbumActionPerformed
+        // TODO add your handling code here:
+        Text_anioLan.setText("");
+        Text_idAlbum.setText("");
+        Text_idInterprete.setText("");
+        Text_input.setText("");
+        Text_lugarGrabacion.setText("");
+        Text_nameAlbum.setText("");
+        //botones
+        Button_insertRecord.setVisible(false);
+        Button_clearCampos.setVisible(false);
+        Button_showData.setVisible(false);
+        Button_deleteRecord.setVisible(false);
+        Button_searchRecord.setVisible(true);
+        Button_updateRecord.setVisible(false);
+        //combo
+        CB_options.setVisible(true);
+        //tabla
+        Table_dataAlbum.setVisible(true);
+        //textfield
+        Text_anioLan.setEnabled(false);
+        Text_idAlbum.setEnabled(false);
+        Text_idInterprete.setEnabled(false);
+        Text_input.setVisible(true);
+        Text_lugarGrabacion.setEnabled(false);
+        Text_nameAlbum.setEnabled(false);
+    }//GEN-LAST:event_Menu_buscarAlbumActionPerformed
+
+    private void Menu_eliminarAlbumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Menu_eliminarAlbumActionPerformed
+        // TODO add your handling code here:
+        Text_anioLan.setText("");
+        Text_idAlbum.setText("");
+        Text_idInterprete.setText("");
+        Text_input.setText("");
+        Text_lugarGrabacion.setText("");
+        Text_nameAlbum.setText("");
+        //botones
+        Button_insertRecord.setVisible(false);
+        Button_clearCampos.setVisible(false);
+        Button_showData.setVisible(true);
+        Button_deleteRecord.setVisible(true);
+        Button_searchRecord.setVisible(false);
+        Button_updateRecord.setVisible(false);
+        //combo
+        CB_options.setVisible(true);
+        //tabla
+        Table_dataAlbum.setVisible(true);
+        //textfield
+        Text_anioLan.setEnabled(false);
+        Text_idAlbum.setEnabled(false);
+        Text_idInterprete.setEnabled(false);
+        Text_input.setVisible(true);
+        Text_lugarGrabacion.setEnabled(false);
+        Text_nameAlbum.setEnabled(false);
+    }//GEN-LAST:event_Menu_eliminarAlbumActionPerformed
 
     /**
      * @param args the command line arguments
@@ -399,6 +560,9 @@ public class interfazAlbum extends javax.swing.JFrame {
     private javax.swing.JButton Button_showData;
     private javax.swing.JButton Button_updateRecord;
     private javax.swing.JComboBox<String> CB_options;
+    private javax.swing.JMenuItem Menu_buscarAlbum;
+    private javax.swing.JMenuItem Menu_eliminarAlbum;
+    private javax.swing.JMenuItem Menu_nuevoAlbum;
     private javax.swing.JTable Table_dataAlbum;
     private javax.swing.JTextField Text_anioLan;
     private javax.swing.JTextField Text_idAlbum;
@@ -413,6 +577,9 @@ public class interfazAlbum extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;

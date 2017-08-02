@@ -5,17 +5,25 @@
  */
 package FrontEnd;
 
+import BackEnd.Genero;
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author KEVIN
  */
 public class interfazGenero extends javax.swing.JFrame {
 
+    Genero back_endGenero;
     /**
      * Creates new form interfazGenero
      */
     public interfazGenero() {
         initComponents();
+        back_endGenero=new Genero();
     }
 
     /**
@@ -63,10 +71,25 @@ public class interfazGenero extends javax.swing.JFrame {
         jScrollPane1.setViewportView(txtArea_descripcion);
 
         btn_insertRecord.setText("Insertar");
+        btn_insertRecord.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_insertRecordActionPerformed(evt);
+            }
+        });
 
         btn_clearCampos.setText("Limpiar");
+        btn_clearCampos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_clearCamposActionPerformed(evt);
+            }
+        });
 
         btn_showData.setText("Mostar Datos");
+        btn_showData.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_showDataActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -135,15 +158,35 @@ public class interfazGenero extends javax.swing.JFrame {
 
             }
         ));
+        Table_generoData.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Table_generoDataMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(Table_generoData);
 
-        CB_tipoBusqueda.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Genero" }));
+        CB_tipoBusqueda.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Genero", "Descripcion del Genero" }));
 
         btn_searchRecord.setText("Buscar");
+        btn_searchRecord.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_searchRecordActionPerformed(evt);
+            }
+        });
 
         btn_deleteRecord.setText("Eliminar");
+        btn_deleteRecord.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_deleteRecordActionPerformed(evt);
+            }
+        });
 
         btn_updateRecord.setText("Actualizar");
+        btn_updateRecord.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_updateRecordActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -200,6 +243,72 @@ public class interfazGenero extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_insertRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_insertRecordActionPerformed
+        try {
+            // TODO add your handling code here:
+            back_endGenero.insertGenero(Integer.parseInt(Txt_idGenero.getText()), Txt_tipoGenero.getText(), txtArea_descripcion.getText());
+        } catch (SQLException | ParseException ex) {
+            Logger.getLogger(interfazGenero.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btn_insertRecordActionPerformed
+
+    private void btn_clearCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_clearCamposActionPerformed
+        // TODO add your handling code here:
+        Txt_idGenero.setText("");
+        Txt_tipoGenero.setText("");
+        txtArea_descripcion.setText("");
+    }//GEN-LAST:event_btn_clearCamposActionPerformed
+
+    private void btn_showDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_showDataActionPerformed
+        try {
+            // TODO add your handling code here:
+            back_endGenero.MostrarDataGenero(Table_generoData);
+        } catch (SQLException ex) {
+            Logger.getLogger(interfazGenero.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btn_showDataActionPerformed
+
+    private void btn_searchRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_searchRecordActionPerformed
+        try {
+            // TODO add your handling code here:
+            back_endGenero.buscarGenero(CB_tipoBusqueda.getItemAt(CB_tipoBusqueda.getSelectedIndex()), Table_generoData, Txt_entrada.getText());
+        } catch (SQLException ex) {
+            Logger.getLogger(interfazGenero.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btn_searchRecordActionPerformed
+
+    private void btn_deleteRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_deleteRecordActionPerformed
+        
+        try {
+            // TODO add your handling code here:
+            back_endGenero.deleteGenero(CB_tipoBusqueda.getItemAt(CB_tipoBusqueda.getSelectedIndex()), Txt_entrada.getText());
+        } catch (SQLException ex) {
+            Logger.getLogger(interfazGenero.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btn_deleteRecordActionPerformed
+
+    private void btn_updateRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_updateRecordActionPerformed
+        try {
+            // TODO add your handling code here:
+
+            back_endGenero.updateAlbum(CB_tipoBusqueda.getItemAt(CB_tipoBusqueda.getSelectedIndex()), Txt_entrada.getText(), txtArea_descripcion.getText());
+        } catch (SQLException ex) {
+            Logger.getLogger(interfazGenero.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btn_updateRecordActionPerformed
+
+    private void Table_generoDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Table_generoDataMouseClicked
+        // TODO add your handling code here:
+        if (evt.getClickCount()==2) {
+            for (int i = 0; i < Table_generoData.getRowCount(); i++) {
+                Txt_idGenero.setText(Table_generoData.getValueAt(i, 0).toString());
+                Txt_tipoGenero.setText(Table_generoData.getValueAt(i, 1).toString());
+                txtArea_descripcion.setText(Table_generoData.getValueAt(i, 2).toString());
+            }
+            
+        }
+    }//GEN-LAST:event_Table_generoDataMouseClicked
 
     /**
      * @param args the command line arguments
