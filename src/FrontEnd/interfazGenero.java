@@ -24,6 +24,23 @@ public class interfazGenero extends javax.swing.JFrame {
     public interfazGenero() {
         initComponents();
         back_endGenero=new Genero();
+        //botones
+        btn_clearCampos.setVisible(false);
+        btn_deleteRecord.setVisible(false);
+        btn_insertRecord.setVisible(false);
+        btn_showData.setVisible(false);
+        btn_searchRecord.setVisible(false);
+        btn_updateRecord.setVisible(false);
+        //tabla
+        Table_generoData.setVisible(false);
+        //combo
+        CB_tipoBusqueda.setVisible(false);
+        //textfiel
+        Txt_entrada.setVisible(false);
+        Txt_idGenero.setEnabled(false);
+        Txt_tipoGenero.setEnabled(false);
+        txtArea_descripcion.setEnabled(false);
+        
     }
 
     /**
@@ -55,6 +72,12 @@ public class interfazGenero extends javax.swing.JFrame {
         btn_searchRecord = new javax.swing.JButton();
         btn_deleteRecord = new javax.swing.JButton();
         btn_updateRecord = new javax.swing.JButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        Menu_nuevoGenero = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        Menu_buscarGenero = new javax.swing.JMenuItem();
+        Menu_eliminarGenero = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -147,7 +170,7 @@ public class interfazGenero extends javax.swing.JFrame {
                     .addComponent(btn_insertRecord)
                     .addComponent(btn_clearCampos)
                     .addComponent(btn_showData))
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         Table_generoData.setModel(new javax.swing.table.DefaultTableModel(
@@ -225,6 +248,40 @@ public class interfazGenero extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jMenu1.setText("File");
+
+        Menu_nuevoGenero.setText("Nuevo Genero");
+        Menu_nuevoGenero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Menu_nuevoGeneroActionPerformed(evt);
+            }
+        });
+        jMenu1.add(Menu_nuevoGenero);
+
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Edit");
+
+        Menu_buscarGenero.setText("Buscar Genero");
+        Menu_buscarGenero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Menu_buscarGeneroActionPerformed(evt);
+            }
+        });
+        jMenu2.add(Menu_buscarGenero);
+
+        Menu_eliminarGenero.setText("Eliminar Genero");
+        Menu_eliminarGenero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Menu_eliminarGeneroActionPerformed(evt);
+            }
+        });
+        jMenu2.add(Menu_eliminarGenero);
+
+        jMenuBar1.add(jMenu2);
+
+        setJMenuBar(jMenuBar1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -301,6 +358,25 @@ public class interfazGenero extends javax.swing.JFrame {
     private void Table_generoDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Table_generoDataMouseClicked
         // TODO add your handling code here:
         if (evt.getClickCount()==2) {
+            Txt_idGenero.setText("");
+            Txt_tipoGenero.setText("");
+            txtArea_descripcion.setText("");
+        //botones
+            btn_clearCampos.setVisible(false);
+            btn_deleteRecord.setVisible(false);
+            btn_insertRecord.setVisible(false);
+            btn_showData.setVisible(true);
+            btn_searchRecord.setVisible(true);
+            btn_updateRecord.setVisible(true);
+        //tabla
+            Table_generoData.setVisible(true);
+        //combo
+            CB_tipoBusqueda.setVisible(true);
+        //textfiel
+            Txt_entrada.setVisible(true);
+            Txt_idGenero.setEnabled(false);
+            Txt_tipoGenero.setEnabled(false);
+            txtArea_descripcion.setEnabled(true);
             for (int i = 0; i < Table_generoData.getRowCount(); i++) {
                 Txt_idGenero.setText(Table_generoData.getValueAt(i, 0).toString());
                 Txt_tipoGenero.setText(Table_generoData.getValueAt(i, 1).toString());
@@ -309,6 +385,78 @@ public class interfazGenero extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_Table_generoDataMouseClicked
+
+    private void Menu_nuevoGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Menu_nuevoGeneroActionPerformed
+        // TODO add your handling code here:
+        Txt_idGenero.setText("");
+        Txt_tipoGenero.setText("");
+        txtArea_descripcion.setText("");
+        //botones
+        btn_clearCampos.setVisible(true);
+        btn_deleteRecord.setVisible(false);
+        btn_insertRecord.setVisible(true);
+        btn_showData.setVisible(true);
+        btn_searchRecord.setVisible(false);
+        btn_updateRecord.setVisible(false);
+        //tabla
+        Table_generoData.setVisible(true);
+        //combo
+        CB_tipoBusqueda.setVisible(false);
+        //textfiel
+        Txt_entrada.setVisible(false);
+        Txt_idGenero.setEnabled(true);
+        Txt_tipoGenero.setEnabled(true);
+        txtArea_descripcion.setEnabled(true);
+        
+    }//GEN-LAST:event_Menu_nuevoGeneroActionPerformed
+
+    private void Menu_buscarGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Menu_buscarGeneroActionPerformed
+        // TODO add your handling code here:
+        Txt_idGenero.setText("");
+        Txt_tipoGenero.setText("");
+        txtArea_descripcion.setText("");
+        //botones
+        btn_clearCampos.setVisible(false);
+        btn_deleteRecord.setVisible(false);
+        btn_insertRecord.setVisible(false);
+        btn_showData.setVisible(false);
+        btn_searchRecord.setVisible(true);
+        btn_updateRecord.setVisible(false);
+        //tabla
+        Table_generoData.setVisible(true);
+        //combo
+        CB_tipoBusqueda.setVisible(true);
+        //textfiel
+        Txt_entrada.setVisible(true);
+        Txt_idGenero.setEnabled(false);
+        Txt_tipoGenero.setEnabled(false);
+        txtArea_descripcion.setEnabled(false);
+        
+    }//GEN-LAST:event_Menu_buscarGeneroActionPerformed
+
+    private void Menu_eliminarGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Menu_eliminarGeneroActionPerformed
+        // TODO add your handling code here:
+        Txt_idGenero.setText("");
+        Txt_tipoGenero.setText("");
+        txtArea_descripcion.setText("");
+        //botones
+        btn_clearCampos.setVisible(false);
+        btn_deleteRecord.setVisible(true);
+        btn_insertRecord.setVisible(false);
+        btn_showData.setVisible(true);
+        btn_searchRecord.setVisible(true);
+        btn_updateRecord.setVisible(false);
+        //tabla
+        Table_generoData.setVisible(true);
+        
+        //combo
+        CB_tipoBusqueda.setVisible(true);
+        //textfiel
+        Txt_entrada.setVisible(true);
+        Txt_idGenero.setEnabled(false);
+        Txt_tipoGenero.setEnabled(false);
+        txtArea_descripcion.setEnabled(false);
+    }//GEN-LAST:event_Menu_eliminarGeneroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -347,6 +495,9 @@ public class interfazGenero extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> CB_tipoBusqueda;
+    private javax.swing.JMenuItem Menu_buscarGenero;
+    private javax.swing.JMenuItem Menu_eliminarGenero;
+    private javax.swing.JMenuItem Menu_nuevoGenero;
     private javax.swing.JTable Table_generoData;
     private javax.swing.JTextField Txt_entrada;
     private javax.swing.JTextField Txt_idGenero;
@@ -361,6 +512,9 @@ public class interfazGenero extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;

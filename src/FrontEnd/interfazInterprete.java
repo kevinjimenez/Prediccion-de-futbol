@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import principal.interfazPrincipal;
 
 
 /**
@@ -70,6 +71,7 @@ public class interfazInterprete extends javax.swing.JFrame {
         Button_buscar = new javax.swing.JButton();
         Button_delete = new javax.swing.JButton();
         Button_Update = new javax.swing.JButton();
+        btn_closeInterprete = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         NewInsert = new javax.swing.JMenuItem();
@@ -277,6 +279,13 @@ public class interfazInterprete extends javax.swing.JFrame {
                 .addGap(61, 61, 61))
         );
 
+        btn_closeInterprete.setText("cerra");
+        btn_closeInterprete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_closeInterpreteActionPerformed(evt);
+            }
+        });
+
         jMenu1.setText("File");
 
         NewInsert.setText("Insertar Nuevo");
@@ -315,10 +324,13 @@ public class interfazInterprete extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(btn_closeInterprete)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -326,7 +338,8 @@ public class interfazInterprete extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 36, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                .addComponent(btn_closeInterprete))
         );
 
         pack();
@@ -533,6 +546,15 @@ public class interfazInterprete extends javax.swing.JFrame {
        
     }//GEN-LAST:event_TextF_IdInterpreteMouseClicked
 
+    private void btn_closeInterpreteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_closeInterpreteActionPerformed
+        // TODO add your handling code here:
+        
+        this.dispose();
+        new interfazPrincipal().setVisible(true);
+        //this.setVisible(false);
+        
+    }//GEN-LAST:event_btn_closeInterpreteActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -594,6 +616,7 @@ public class interfazInterprete extends javax.swing.JFrame {
     private javax.swing.JTextField TextF_Nombre_Interprete;
     private javax.swing.JTextField TextF_Pais;
     private javax.swing.JTextField Text_Busqueda;
+    private javax.swing.JButton btn_closeInterprete;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
