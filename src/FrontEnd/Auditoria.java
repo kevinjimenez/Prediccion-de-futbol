@@ -42,6 +42,7 @@ public class Auditoria extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         Table_AuditoriaData = new javax.swing.JTable();
         btn_mostarAuditoria = new javax.swing.JButton();
+        btn_regresarmain = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -65,6 +66,13 @@ public class Auditoria extends javax.swing.JFrame {
         btn_mostarAuditoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_mostarAuditoriaActionPerformed(evt);
+            }
+        });
+
+        btn_regresarmain.setText("Regresar");
+        btn_regresarmain.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_regresarmainActionPerformed(evt);
             }
         });
 
@@ -92,6 +100,10 @@ public class Auditoria extends javax.swing.JFrame {
                         .addGap(0, 266, Short.MAX_VALUE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btn_regresarmain)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -107,7 +119,9 @@ public class Auditoria extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_mostarAuditoria)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_regresarmain)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -132,6 +146,12 @@ public class Auditoria extends javax.swing.JFrame {
             Logger.getLogger(Auditoria.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btn_mostarAuditoriaActionPerformed
+
+    private void btn_regresarmainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_regresarmainActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        new interfazPrincipal().setVisible(true);
+    }//GEN-LAST:event_btn_regresarmainActionPerformed
 
     /**
      * @param args the command line arguments
@@ -173,6 +193,7 @@ public class Auditoria extends javax.swing.JFrame {
     private javax.swing.JTable Table_AuditoriaData;
     private javax.swing.JTextField Txt_inputAuditoria;
     private javax.swing.JButton btn_mostarAuditoria;
+    private javax.swing.JButton btn_regresarmain;
     private javax.swing.JButton btn_searchAuditoria;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

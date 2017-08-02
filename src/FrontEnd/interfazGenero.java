@@ -72,6 +72,7 @@ public class interfazGenero extends javax.swing.JFrame {
         btn_searchRecord = new javax.swing.JButton();
         btn_deleteRecord = new javax.swing.JButton();
         btn_updateRecord = new javax.swing.JButton();
+        btn_regresar = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         Menu_nuevoGenero = new javax.swing.JMenuItem();
@@ -211,6 +212,13 @@ public class interfazGenero extends javax.swing.JFrame {
             }
         });
 
+        btn_regresar.setText("Regresar");
+        btn_regresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_regresarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -228,7 +236,8 @@ public class interfazGenero extends javax.swing.JFrame {
                                 .addComponent(Txt_entrada, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(33, 33, 33)
                                 .addComponent(btn_searchRecord))))
-                    .addComponent(btn_updateRecord))
+                    .addComponent(btn_updateRecord)
+                    .addComponent(btn_regresar))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -245,6 +254,8 @@ public class interfazGenero extends javax.swing.JFrame {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_updateRecord)
+                .addGap(18, 18, 18)
+                .addComponent(btn_regresar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -458,6 +469,12 @@ public class interfazGenero extends javax.swing.JFrame {
         txtArea_descripcion.setEnabled(false);
     }//GEN-LAST:event_Menu_eliminarGeneroActionPerformed
 
+    private void btn_regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_regresarActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        new interfazPrincipal().setVisible(true);
+    }//GEN-LAST:event_btn_regresarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -505,6 +522,7 @@ public class interfazGenero extends javax.swing.JFrame {
     private javax.swing.JButton btn_clearCampos;
     private javax.swing.JButton btn_deleteRecord;
     private javax.swing.JButton btn_insertRecord;
+    private javax.swing.JButton btn_regresar;
     private javax.swing.JButton btn_searchRecord;
     private javax.swing.JButton btn_showData;
     private javax.swing.JButton btn_updateRecord;

@@ -62,6 +62,7 @@ public class interfazInterprete extends javax.swing.JFrame {
         Button_Mostar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         TextF_Apellido_Interprete = new javax.swing.JTextField();
+        btn_closeInterprete = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         Cb_Busqueda = new javax.swing.JComboBox<>();
         Text_Busqueda = new javax.swing.JTextField();
@@ -70,7 +71,6 @@ public class interfazInterprete extends javax.swing.JFrame {
         Button_buscar = new javax.swing.JButton();
         Button_delete = new javax.swing.JButton();
         Button_Update = new javax.swing.JButton();
-        btn_closeInterprete = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         NewInsert = new javax.swing.JMenuItem();
@@ -132,6 +132,13 @@ public class interfazInterprete extends javax.swing.JFrame {
 
         jLabel7.setText("APELLIDO INTERPRETE");
 
+        btn_closeInterprete.setText("regresar");
+        btn_closeInterprete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_closeInterpreteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -164,7 +171,10 @@ public class interfazInterprete extends javax.swing.JFrame {
                             .addComponent(TextF_Pais)
                             .addComponent(TextF_Alias, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(TextF_Edad, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TextF_Apellido_Interprete))))
+                            .addComponent(TextF_Apellido_Interprete)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btn_closeInterprete)))
                 .addContainerGap(48, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -202,10 +212,12 @@ public class interfazInterprete extends javax.swing.JFrame {
                     .addComponent(Button_Insert)
                     .addComponent(Button_Borrado)
                     .addComponent(Button_Mostar))
-                .addGap(29, 29, 29))
+                .addGap(18, 18, 18)
+                .addComponent(btn_closeInterprete)
+                .addContainerGap())
         );
 
-        Cb_Busqueda.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "Nombre Interprete", "Apellido Interprete", "Pais", "Alias", "Edad" }));
+        Cb_Busqueda.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombre Interprete", "Apellido Interprete", "Pais", "Alias", "Edad" }));
 
         TablaResult.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -278,13 +290,6 @@ public class interfazInterprete extends javax.swing.JFrame {
                 .addGap(61, 61, 61))
         );
 
-        btn_closeInterprete.setText("cerra");
-        btn_closeInterprete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_closeInterpreteActionPerformed(evt);
-            }
-        });
-
         jMenu1.setText("File");
 
         NewInsert.setText("Insertar Nuevo");
@@ -327,9 +332,6 @@ public class interfazInterprete extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(btn_closeInterprete)
-                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -337,8 +339,7 @@ public class interfazInterprete extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
-                .addComponent(btn_closeInterprete))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
         pack();
@@ -354,7 +355,7 @@ public class interfazInterprete extends javax.swing.JFrame {
             }
             
         } catch (SQLException ex) {
-            Logger.getLogger(interfazInterprete.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         }
         
         
@@ -374,22 +375,32 @@ public class interfazInterprete extends javax.swing.JFrame {
             
         try {
             //System.out.println(Cb_Busqueda.getItemAt(Cb_Busqueda.getSelectedIndex())+" "+ Text_Busqueda.getText());
-            backEnd_interprete.deleteInterprete(Cb_Busqueda.getItemAt(Cb_Busqueda.getSelectedIndex()), Text_Busqueda.getText());
+            if (Text_Busqueda.getText().length()==0) {
+                System.out.println("Ingrese cual desea eliminar");
+            }else{
+                backEnd_interprete.deleteInterprete(Cb_Busqueda.getItemAt(Cb_Busqueda.getSelectedIndex()), Text_Busqueda.getText());
+            }
+            
         } catch (SQLException ex) {
-            Logger.getLogger(interfazInterprete.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         }
         
     }//GEN-LAST:event_Button_deleteActionPerformed
 
     private void Button_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_buscarActionPerformed
         try {
-            System.out.println(Text_Busqueda.getText());
-            backEnd_interprete.Buscar(Cb_Busqueda.getItemAt(Cb_Busqueda.getSelectedIndex()), TablaResult, Text_Busqueda.getText());
+            //System.out.println(Text_Busqueda.getText());
+            if (Text_Busqueda.getText().length()==0) {
+                System.out.println("Ingrese cual desea eliminar");
+            }else{
+                backEnd_interprete.Buscar(Cb_Busqueda.getItemAt(Cb_Busqueda.getSelectedIndex()), TablaResult, Text_Busqueda.getText());
+            }
+            
             //System.out.println(Cb_Busqueda.getItemAt(Cb_Busqueda.getSelectedIndex()));
             
             
         } catch (SQLException ex) {
-            Logger.getLogger(interfazInterprete.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         }
         
     }//GEN-LAST:event_Button_buscarActionPerformed
@@ -519,10 +530,17 @@ public class interfazInterprete extends javax.swing.JFrame {
 
     private void Button_UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_UpdateActionPerformed
         try {
+            if (Text_Busqueda.getText().length()==0) {
+                System.out.println("Ingrese cual desea actuaizar");
+            }else{
+                Button_Mostar.setVisible(true);
+                backEnd_interprete.Actualizar(Cb_Busqueda.getItemAt(Cb_Busqueda.getSelectedIndex()), Text_Busqueda.getText(), TextF_Nombre_Interprete.getText(), TextF_Apellido_Interprete.getText(), TextF_Pais.getText(), TextF_Alias.getText(), Integer.parseInt(TextF_Edad.getText()));            
+            }
             // TODO add your handling code here:
-            backEnd_interprete.Actualizar(Cb_Busqueda.getItemAt(Cb_Busqueda.getSelectedIndex()), Text_Busqueda.getText(), TextF_Nombre_Interprete.getText(), TextF_Apellido_Interprete.getText(), TextF_Pais.getText(), TextF_Alias.getText(), Integer.parseInt(TextF_Edad.getText()));            
+            
         } catch (SQLException ex) {
-            Logger.getLogger(interfazInterprete.class.getName()).log(Level.SEVERE, null, ex);
+            //Logger.getLogger(interfazInterprete.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         }
         
     }//GEN-LAST:event_Button_UpdateActionPerformed
@@ -546,8 +564,7 @@ public class interfazInterprete extends javax.swing.JFrame {
     }//GEN-LAST:event_TextF_IdInterpreteMouseClicked
 
     private void btn_closeInterpreteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_closeInterpreteActionPerformed
-        // TODO add your handling code here:
-        
+        // TODO add your handling code here:        
         this.dispose();
         new interfazPrincipal().setVisible(true);
         //this.setVisible(false);

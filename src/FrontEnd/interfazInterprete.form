@@ -73,10 +73,6 @@
               <EmptySpace type="unrelated" max="32767" attributes="0"/>
               <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
           </Group>
-          <Group type="102" attributes="0">
-              <Component id="btn_closeInterprete" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -87,7 +83,6 @@
                   <Component id="jPanel1" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="13" max="32767" attributes="0"/>
-              <Component id="btn_closeInterprete" min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -131,6 +126,10 @@
                               <Component id="TextF_Edad" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
                               <Component id="TextF_Apellido_Interprete" alignment="0" max="32767" attributes="0"/>
                           </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="btn_closeInterprete" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="48" max="32767" attributes="0"/>
@@ -180,7 +179,9 @@
                       <Component id="Button_Borrado" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="Button_Mostar" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="btn_closeInterprete" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -264,6 +265,14 @@
         </Component>
         <Component class="javax.swing.JTextField" name="TextF_Apellido_Interprete">
         </Component>
+        <Component class="javax.swing.JButton" name="btn_closeInterprete">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="regresar"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_closeInterpreteActionPerformed"/>
+          </Events>
+        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="jPanel2">
@@ -316,13 +325,12 @@
         <Component class="javax.swing.JComboBox" name="Cb_Busqueda">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="6">
-                <StringItem index="0" value="ID"/>
-                <StringItem index="1" value="Nombre Interprete"/>
-                <StringItem index="2" value="Apellido Interprete"/>
-                <StringItem index="3" value="Pais"/>
-                <StringItem index="4" value="Alias"/>
-                <StringItem index="5" value="Edad"/>
+              <StringArray count="5">
+                <StringItem index="0" value="Nombre Interprete"/>
+                <StringItem index="1" value="Apellido Interprete"/>
+                <StringItem index="2" value="Pais"/>
+                <StringItem index="3" value="Alias"/>
+                <StringItem index="4" value="Edad"/>
               </StringArray>
             </Property>
           </Properties>
@@ -406,13 +414,5 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="btn_closeInterprete">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="cerra"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_closeInterpreteActionPerformed"/>
-      </Events>
-    </Component>
   </SubComponents>
 </Form>

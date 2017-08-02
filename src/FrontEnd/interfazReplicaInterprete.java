@@ -42,6 +42,7 @@ public class interfazReplicaInterprete extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         Table_replica1 = new javax.swing.JTable();
         btn_mostarReplica1 = new javax.swing.JButton();
+        btn_regresa = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -73,6 +74,13 @@ public class interfazReplicaInterprete extends javax.swing.JFrame {
             }
         });
 
+        btn_regresa.setText("Regresar");
+        btn_regresa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_regresaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -92,7 +100,10 @@ public class interfazReplicaInterprete extends javax.swing.JFrame {
                                 .addComponent(Txt_inputReplica1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(29, 29, 29)
                                 .addComponent(btn_replica1Buscar))
-                            .addComponent(btn_mostarReplica1))))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(btn_mostarReplica1)
+                                .addGap(31, 31, 31)
+                                .addComponent(btn_regresa)))))
                 .addContainerGap(85, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -108,7 +119,9 @@ public class interfazReplicaInterprete extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn_mostarReplica1)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_mostarReplica1)
+                    .addComponent(btn_regresa))
                 .addContainerGap(51, Short.MAX_VALUE))
         );
 
@@ -143,6 +156,12 @@ public class interfazReplicaInterprete extends javax.swing.JFrame {
             Logger.getLogger(interfazReplicaInterprete.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btn_replica1BuscarActionPerformed
+
+    private void btn_regresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_regresaActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        new interfazPrincipal().setVisible(true);
+    }//GEN-LAST:event_btn_regresaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -185,6 +204,7 @@ public class interfazReplicaInterprete extends javax.swing.JFrame {
     private javax.swing.JTable Table_replica1;
     private javax.swing.JTextField Txt_inputReplica1;
     private javax.swing.JButton btn_mostarReplica1;
+    private javax.swing.JButton btn_regresa;
     private javax.swing.JButton btn_replica1Buscar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

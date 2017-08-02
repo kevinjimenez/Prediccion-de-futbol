@@ -192,29 +192,30 @@ public class interfazPrincipal extends javax.swing.JFrame {
     private void btn_interpreteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_interpreteActionPerformed
         // TODO add your handling code here:        
         this.dispose();
-        interpretre.setVisible(true);        
-        
-        
-        
+        interpretre.setVisible(true);                        
     }//GEN-LAST:event_btn_interpreteActionPerformed
 
     private void btn_albumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_albumActionPerformed
         // TODO add your handling code here:
+        this.dispose();
         album.setVisible(true);
     }//GEN-LAST:event_btn_albumActionPerformed
 
     private void btn_cancionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancionActionPerformed
         // TODO add your handling code here:
+        this.dispose();
         cancion.setVisible(true);
     }//GEN-LAST:event_btn_cancionActionPerformed
 
     private void btn_generoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_generoActionPerformed
         // TODO add your handling code here:
+        this.dispose();
         genero.setVisible(true);
     }//GEN-LAST:event_btn_generoActionPerformed
 
     private void btn_idiomaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_idiomaActionPerformed
         // TODO add your handling code here:
+        this.dispose();
         idioma.setVisible(true);
     }//GEN-LAST:event_btn_idiomaActionPerformed
 
@@ -225,16 +226,19 @@ public class interfazPrincipal extends javax.swing.JFrame {
 
     private void btnReplica2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReplica2ActionPerformed
         // TODO add your handling code here:
+        this.dispose();
         r2.setVisible(true);
     }//GEN-LAST:event_btnReplica2ActionPerformed
 
     private void btnReplica3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReplica3ActionPerformed
         // TODO add your handling code here:
+        this.dispose();
         r3.setVisible(true);
     }//GEN-LAST:event_btnReplica3ActionPerformed
 
     private void btnAuditoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAuditoriaActionPerformed
         // TODO add your handling code here:
+        this.dispose();
         auditoria.setVisible(true);
     }//GEN-LAST:event_btnAuditoriaActionPerformed
 

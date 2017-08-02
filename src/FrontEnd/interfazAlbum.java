@@ -78,6 +78,7 @@ public class interfazAlbum extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         Table_dataAlbum = new javax.swing.JTable();
         Button_updateRecord = new javax.swing.JButton();
+        btn_regresarMain = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         Menu_nuevoAlbum = new javax.swing.JMenuItem();
@@ -240,6 +241,13 @@ public class interfazAlbum extends javax.swing.JFrame {
             }
         });
 
+        btn_regresarMain.setText("Regresar");
+        btn_regresarMain.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_regresarMainActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -266,6 +274,10 @@ public class interfazAlbum extends javax.swing.JFrame {
                                 .addComponent(Button_updateRecord)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btn_regresarMain)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -281,7 +293,9 @@ public class interfazAlbum extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Button_updateRecord)
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_regresarMain)
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         jMenu1.setText("File");
@@ -517,6 +531,12 @@ public class interfazAlbum extends javax.swing.JFrame {
         Text_nameAlbum.setEnabled(false);
     }//GEN-LAST:event_Menu_eliminarAlbumActionPerformed
 
+    private void btn_regresarMainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_regresarMainActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        new interfazPrincipal().setVisible(true);
+    }//GEN-LAST:event_btn_regresarMainActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -570,6 +590,7 @@ public class interfazAlbum extends javax.swing.JFrame {
     private javax.swing.JTextField Text_input;
     private javax.swing.JTextField Text_lugarGrabacion;
     private javax.swing.JTextField Text_nameAlbum;
+    private javax.swing.JButton btn_regresarMain;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

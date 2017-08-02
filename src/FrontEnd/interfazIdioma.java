@@ -70,6 +70,7 @@ public class interfazIdioma extends javax.swing.JFrame {
         btn_searchIdioma = new javax.swing.JButton();
         btn_deleteIdioma = new javax.swing.JButton();
         btn_updateIdioma = new javax.swing.JButton();
+        btn_regresar = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         Menu_nuevoIdioma = new javax.swing.JMenuItem();
@@ -198,6 +199,13 @@ public class interfazIdioma extends javax.swing.JFrame {
             }
         });
 
+        btn_regresar.setText("Regresar");
+        btn_regresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_regresarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -217,7 +225,10 @@ public class interfazIdioma extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btn_updateIdioma)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(btn_updateIdioma)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btn_regresar))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(66, Short.MAX_VALUE))
         );
@@ -234,7 +245,9 @@ public class interfazIdioma extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn_updateIdioma)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_updateIdioma)
+                    .addComponent(btn_regresar))
                 .addGap(28, 28, 28))
         );
 
@@ -449,6 +462,12 @@ public class interfazIdioma extends javax.swing.JFrame {
     
     }//GEN-LAST:event_Menu_eliminarIdiomaActionPerformed
 
+    private void btn_regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_regresarActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        new interfazPrincipal().setVisible(true);
+    }//GEN-LAST:event_btn_regresarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -497,6 +516,7 @@ public class interfazIdioma extends javax.swing.JFrame {
     private javax.swing.JButton btn_deleteIdioma;
     private javax.swing.JButton btn_insertIdioma;
     private javax.swing.JButton btn_limpiarCampos;
+    private javax.swing.JButton btn_regresar;
     private javax.swing.JButton btn_searchIdioma;
     private javax.swing.JButton btn_showIidoma;
     private javax.swing.JButton btn_updateIdioma;

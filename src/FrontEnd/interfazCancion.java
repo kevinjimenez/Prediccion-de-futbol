@@ -80,6 +80,7 @@ public class interfazCancion extends javax.swing.JFrame {
         btn_buscarCancion = new javax.swing.JButton();
         btn_eliminarCancion = new javax.swing.JButton();
         btn_actualizarCancion = new javax.swing.JButton();
+        btn_regresarmain = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         Menu_nuevaCancion = new javax.swing.JMenuItem();
@@ -241,25 +242,35 @@ public class interfazCancion extends javax.swing.JFrame {
             }
         });
 
+        btn_regresarmain.setText("Regresar");
+        btn_regresarmain.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_regresarmainActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 558, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btn_eliminarCancion)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(CB_optionsCancion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(38, 38, 38)
-                        .addComponent(txt_buscadoCancion, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(43, 43, 43)
-                .addComponent(btn_buscarCancion)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btn_eliminarCancion)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(CB_optionsCancion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(38, 38, 38)
+                                .addComponent(txt_buscadoCancion, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(43, 43, 43)
+                        .addComponent(btn_buscarCancion))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(btn_actualizarCancion)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_regresarmain)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(btn_actualizarCancion)
-                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -273,8 +284,11 @@ public class interfazCancion extends javax.swing.JFrame {
                 .addComponent(btn_eliminarCancion)
                 .addGap(12, 12, 12)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btn_actualizarCancion))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_actualizarCancion)
+                    .addComponent(btn_regresarmain))
+                .addGap(12, 12, 12))
         );
 
         jMenu1.setText("File");
@@ -507,6 +521,12 @@ public class interfazCancion extends javax.swing.JFrame {
         
     }//GEN-LAST:event_Menu_eliminarCancionActionPerformed
 
+    private void btn_regresarmainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_regresarmainActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        new interfazPrincipal().setVisible(true);
+    }//GEN-LAST:event_btn_regresarmainActionPerformed
+
     
     /**
      * @param args the command line arguments
@@ -558,6 +578,7 @@ public class interfazCancion extends javax.swing.JFrame {
     private javax.swing.JButton btn_insertCancion;
     private javax.swing.JButton btn_limpiarCancion;
     private javax.swing.JButton btn_mostarDatosCancion;
+    private javax.swing.JButton btn_regresarmain;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

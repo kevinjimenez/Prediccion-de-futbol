@@ -42,6 +42,7 @@ public class interfazReplicaIdioma extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         Table_replica3 = new javax.swing.JTable();
         btn_mostarReplica3 = new javax.swing.JButton();
+        btn_regresarmain = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -73,6 +74,13 @@ public class interfazReplicaIdioma extends javax.swing.JFrame {
             }
         });
 
+        btn_regresarmain.setText("Regresar");
+        btn_regresarmain.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_regresarmainActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -94,7 +102,9 @@ public class interfazReplicaIdioma extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(btn_mostarReplica3)))
+                        .addComponent(btn_mostarReplica3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btn_regresarmain)))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -110,7 +120,9 @@ public class interfazReplicaIdioma extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn_mostarReplica3)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_mostarReplica3)
+                    .addComponent(btn_regresarmain))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
@@ -145,6 +157,12 @@ public class interfazReplicaIdioma extends javax.swing.JFrame {
             Logger.getLogger(interfazReplicaIdioma.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btn_replica3BusquedaActionPerformed
+
+    private void btn_regresarmainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_regresarmainActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        new interfazPrincipal().setVisible(true);
+    }//GEN-LAST:event_btn_regresarmainActionPerformed
 
     /**
      * @param args the command line arguments
@@ -187,6 +205,7 @@ public class interfazReplicaIdioma extends javax.swing.JFrame {
     private javax.swing.JTable Table_replica3;
     private javax.swing.JTextField Txt_inputReplica3;
     private javax.swing.JButton btn_mostarReplica3;
+    private javax.swing.JButton btn_regresarmain;
     private javax.swing.JButton btn_replica3Busqueda;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
