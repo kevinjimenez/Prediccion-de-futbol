@@ -5,19 +5,26 @@
  */
 package FrontEnd;
 
+import BackEnd.replicaAlbum;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author KEVIN
  */
-public class replica2 extends javax.swing.JFrame {
+public class interfazReplicaAlbum extends javax.swing.JFrame {
 
+     replicaAlbum r2;
     /**
      * Creates new form replica2
      */
-    public replica2() {
+    public interfazReplicaAlbum() {
         initComponents();
+        r2=new replicaAlbum();
     }
-
+       
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -34,14 +41,20 @@ public class replica2 extends javax.swing.JFrame {
         btn_replica2Busqueda = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         Table_replica2 = new javax.swing.JTable();
+        btn_dataAlbum = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Replica2");
 
-        CB_replica2Options.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        CB_replica2Options.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombre Album", "Lugar Grabacion", "Año de Grabacion" }));
 
         btn_replica2Busqueda.setText("Buscar");
+        btn_replica2Busqueda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_replica2BusquedaActionPerformed(evt);
+            }
+        });
 
         Table_replica2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -52,6 +65,13 @@ public class replica2 extends javax.swing.JFrame {
             }
         ));
         jScrollPane1.setViewportView(Table_replica2);
+
+        btn_dataAlbum.setText("Mostar Datos");
+        btn_dataAlbum.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_dataAlbumActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -71,7 +91,10 @@ public class replica2 extends javax.swing.JFrame {
                         .addComponent(btn_replica2Busqueda))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btn_dataAlbum)))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -86,7 +109,9 @@ public class replica2 extends javax.swing.JFrame {
                     .addComponent(btn_replica2Busqueda))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addComponent(btn_dataAlbum)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -102,6 +127,24 @@ public class replica2 extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_dataAlbumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_dataAlbumActionPerformed
+         try {
+             // TODO add your handling code here:
+             r2.MostrarDataAlbum(Table_replica2);
+         } catch (SQLException ex) {
+             Logger.getLogger(interfazReplicaAlbum.class.getName()).log(Level.SEVERE, null, ex);
+         }
+    }//GEN-LAST:event_btn_dataAlbumActionPerformed
+
+    private void btn_replica2BusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_replica2BusquedaActionPerformed
+         try {
+             // TODO add your handling code here:
+             r2.buscarAlbum(CB_replica2Options.getItemAt(CB_replica2Options.getSelectedIndex()), Table_replica2, Txt_replica2Input.getText());
+         } catch (SQLException ex) {
+             Logger.getLogger(interfazReplicaAlbum.class.getName()).log(Level.SEVERE, null, ex);
+         }
+    }//GEN-LAST:event_btn_replica2BusquedaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -120,20 +163,21 @@ public class replica2 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(replica2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(interfazReplicaAlbum.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(replica2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(interfazReplicaAlbum.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(replica2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(interfazReplicaAlbum.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(replica2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(interfazReplicaAlbum.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new replica2().setVisible(true);
+                new interfazReplicaAlbum().setVisible(true);
             }
         });
     }
@@ -142,6 +186,7 @@ public class replica2 extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> CB_replica2Options;
     private javax.swing.JTable Table_replica2;
     private javax.swing.JTextField Txt_replica2Input;
+    private javax.swing.JButton btn_dataAlbum;
     private javax.swing.JButton btn_replica2Busqueda;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

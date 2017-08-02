@@ -5,17 +5,24 @@
  */
 package FrontEnd;
 
+import BackEnd.replicaIdioma;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author KEVIN
  */
-public class replica3 extends javax.swing.JFrame {
+public class interfazReplicaIdioma extends javax.swing.JFrame {
 
+    replicaIdioma r3;
     /**
      * Creates new form replica3
      */
-    public replica3() {
+    public interfazReplicaIdioma() {
         initComponents();
+        r3=new replicaIdioma();
     }
 
     /**
@@ -34,14 +41,20 @@ public class replica3 extends javax.swing.JFrame {
         btn_replica3Busqueda = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         Table_replica3 = new javax.swing.JTable();
+        btn_mostarReplica3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("replica3");
 
-        CB_replica3Options.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        CB_replica3Options.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Idioma" }));
 
         btn_replica3Busqueda.setText("Buscar");
+        btn_replica3Busqueda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_replica3BusquedaActionPerformed(evt);
+            }
+        });
 
         Table_replica3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -52,6 +65,13 @@ public class replica3 extends javax.swing.JFrame {
             }
         ));
         jScrollPane1.setViewportView(Table_replica3);
+
+        btn_mostarReplica3.setText("Mostar Datos");
+        btn_mostarReplica3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_mostarReplica3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -71,7 +91,10 @@ public class replica3 extends javax.swing.JFrame {
                         .addComponent(btn_replica3Busqueda))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btn_mostarReplica3)))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -86,7 +109,9 @@ public class replica3 extends javax.swing.JFrame {
                     .addComponent(btn_replica3Busqueda))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn_mostarReplica3)
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -102,6 +127,24 @@ public class replica3 extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_mostarReplica3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_mostarReplica3ActionPerformed
+        try {
+            // TODO add your handling code here:
+            r3.MostrarDataIdioma(Table_replica3);
+        } catch (SQLException ex) {
+            Logger.getLogger(interfazReplicaIdioma.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btn_mostarReplica3ActionPerformed
+
+    private void btn_replica3BusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_replica3BusquedaActionPerformed
+        try {
+            // TODO add your handling code here:
+            r3.buscarIdioma(CB_replica3Options.getItemAt(CB_replica3Options.getSelectedIndex()), Table_replica3, Txt_inputReplica3.getText());
+        } catch (SQLException ex) {
+            Logger.getLogger(interfazReplicaIdioma.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btn_replica3BusquedaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -120,20 +163,21 @@ public class replica3 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(replica3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(interfazReplicaIdioma.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(replica3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(interfazReplicaIdioma.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(replica3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(interfazReplicaIdioma.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(replica3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(interfazReplicaIdioma.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new replica3().setVisible(true);
+                new interfazReplicaIdioma().setVisible(true);
             }
         });
     }
@@ -142,6 +186,7 @@ public class replica3 extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> CB_replica3Options;
     private javax.swing.JTable Table_replica3;
     private javax.swing.JTextField Txt_inputReplica3;
+    private javax.swing.JButton btn_mostarReplica3;
     private javax.swing.JButton btn_replica3Busqueda;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

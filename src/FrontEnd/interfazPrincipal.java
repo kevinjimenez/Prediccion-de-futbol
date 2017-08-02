@@ -11,9 +11,9 @@ import FrontEnd.interfazCancion;
 import FrontEnd.interfazGenero;
 import FrontEnd.interfazIdioma;
 import FrontEnd.interfazInterprete;
-import FrontEnd.replica1;
-import FrontEnd.replica2;
-import FrontEnd.replica3;
+import FrontEnd.interfazReplicaInterprete;
+import FrontEnd.interfazReplicaAlbum;
+import FrontEnd.interfazReplicaIdioma;
 
 /**
  *
@@ -27,9 +27,9 @@ public class interfazPrincipal extends javax.swing.JFrame {
     interfazGenero genero;
     interfazIdioma idioma;
     Auditoria auditoria; 
-    replica1 r1;
-    replica2 r2;
-    replica3 r3;
+    interfazReplicaInterprete r1;
+    interfazReplicaAlbum r2;
+    interfazReplicaIdioma r3;
     //interfazPrincipal ventan ;
         
     /**
@@ -43,9 +43,9 @@ public class interfazPrincipal extends javax.swing.JFrame {
         genero=new interfazGenero();
         idioma=new interfazIdioma();
         auditoria=new Auditoria();
-        r1=new replica1();
-        r2=new replica2();
-        r3=new replica3();
+        r1=new interfazReplicaInterprete();
+        r2=new interfazReplicaAlbum();
+        r3=new interfazReplicaIdioma();
         //ventan = new interfazPrincipal();
     }
 

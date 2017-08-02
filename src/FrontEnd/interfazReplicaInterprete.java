@@ -5,17 +5,24 @@
  */
 package FrontEnd;
 
+import BackEnd.replicaInterprete;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author KEVIN
  */
-public class replica1 extends javax.swing.JFrame {
+public class interfazReplicaInterprete extends javax.swing.JFrame {
 
+    replicaInterprete replica1;
     /**
      * Creates new form replica1
      */
-    public replica1() {
+    public interfazReplicaInterprete() {
         initComponents();
+        replica1=new replicaInterprete();
     }
 
     /**
@@ -34,14 +41,20 @@ public class replica1 extends javax.swing.JFrame {
         btn_replica1Buscar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         Table_replica1 = new javax.swing.JTable();
+        btn_mostarReplica1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Replica1");
 
-        CB_replica1Options.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        CB_replica1Options.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombre Interprete", "Apellido Interprete", "Pais", "Alias", "Edad" }));
 
         btn_replica1Buscar.setText("Buscar");
+        btn_replica1Buscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_replica1BuscarActionPerformed(evt);
+            }
+        });
 
         Table_replica1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -53,6 +66,13 @@ public class replica1 extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(Table_replica1);
 
+        btn_mostarReplica1.setText("Mostar Datos");
+        btn_mostarReplica1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_mostarReplica1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -60,22 +80,20 @@ public class replica1 extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(167, 167, 167)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(42, 42, 42)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(167, 167, 167)
-                                .addComponent(jLabel1))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(42, 42, 42)
                                 .addComponent(CB_replica1Options, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(Txt_inputReplica1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(29, 29, 29)
-                                .addComponent(btn_replica1Buscar)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 15, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                                .addComponent(btn_replica1Buscar))
+                            .addComponent(btn_mostarReplica1))))
+                .addContainerGap(85, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -89,7 +107,9 @@ public class replica1 extends javax.swing.JFrame {
                     .addComponent(btn_replica1Buscar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn_mostarReplica1)
+                .addContainerGap(51, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -105,6 +125,24 @@ public class replica1 extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_mostarReplica1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_mostarReplica1ActionPerformed
+        try {
+            // TODO add your handling code here:
+            replica1.MostrarInterprete(Table_replica1);
+        } catch (SQLException ex) {
+            Logger.getLogger(interfazReplicaInterprete.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btn_mostarReplica1ActionPerformed
+
+    private void btn_replica1BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_replica1BuscarActionPerformed
+        try {
+            // TODO add your handling code here:
+            replica1.Buscar(CB_replica1Options.getItemAt(CB_replica1Options.getSelectedIndex()), Table_replica1, Txt_inputReplica1.getText());
+        } catch (SQLException ex) {
+            Logger.getLogger(interfazReplicaInterprete.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btn_replica1BuscarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -123,20 +161,21 @@ public class replica1 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(replica1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(interfazReplicaInterprete.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(replica1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(interfazReplicaInterprete.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(replica1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(interfazReplicaInterprete.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(replica1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(interfazReplicaInterprete.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new replica1().setVisible(true);
+                new interfazReplicaInterprete().setVisible(true);
             }
         });
     }
@@ -145,6 +184,7 @@ public class replica1 extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> CB_replica1Options;
     private javax.swing.JTable Table_replica1;
     private javax.swing.JTextField Txt_inputReplica1;
+    private javax.swing.JButton btn_mostarReplica1;
     private javax.swing.JButton btn_replica1Buscar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

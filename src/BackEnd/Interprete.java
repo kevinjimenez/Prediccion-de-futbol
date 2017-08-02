@@ -57,12 +57,7 @@ public class Interprete {
             stm.executeUpdate();  
             JOptionPane.showMessageDialog(null, "ELIMINADO");
         }
-        if(Item.equals("Apellido Interprete")){
-            delete = "delete from interprete where Apellido_Interprete like '%"+valorEliminado+"%'";
-            stm=conexion.getConexion().prepareStatement(delete);        
-            stm.executeUpdate();  
-            JOptionPane.showMessageDialog(null, "ELIMINADO");
-        }
+        
         if(Item.equals("Apellido Interprete")){
             delete = "delete from interprete where Apellido_Interprete like '%"+valorEliminado+"%'";
             stm=conexion.getConexion().prepareStatement(delete);        
@@ -99,24 +94,7 @@ public class Interprete {
                 {
                     return false;
                 }};
-        if(Item.equals("ID")){            
-            search="Select * from Interprete where id_interprete = ? ";        
-            stm=conexion.getConexion().prepareStatement(search);
-            stm.setInt(1, Integer.parseInt(valorBuscar));        
-            rs = stm.executeQuery();                  
-            while (rs.next()) {                        
-                registro[0]=rs.getString(1);
-                registro[1]=rs.getString(2);
-                registro[2]=rs.getString(3);
-                registro[3]=rs.getString(4);
-                registro[4]=rs.getString(5);
-                registro[5]=rs.getString(6);
-                modeloTabla.addRow(registro);
-            }
-            //JOptionPane.showMessageDialog(null, "NO EXISTE");
-            
-            tablaResultados.setModel(modeloTabla);
-        }
+        
         if(Item.equals("Nombre Interprete")){            
             search="Select * from Interprete where Nombre_Interprete like '%"+valorBuscar+"%' ORDER BY id_interprete ASC";        
             stm=conexion.getConexion().prepareStatement(search);                   
