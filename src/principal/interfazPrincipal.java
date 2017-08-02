@@ -158,11 +158,8 @@ public class interfazPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_interpreteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_interpreteActionPerformed
-        // TODO add your handling code here:
-        //this.setVisible(false);
-        interpretre.setVisible(true);
-        //interpretre.setAlwaysOnTop(true);
-        //new interfazInterprete().setVisible(true);
+        // TODO add your handling code here:        
+        interpretre.setVisible(true);        
         
         
         
