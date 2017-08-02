@@ -26,7 +26,7 @@ public class Album {
     DefaultTableModel modeloTabla;
     
     public void insertAlbum(int idAlbum, int idInterprete, String nameAlbum, String lugarGrabacion, String fecha) throws SQLException, ParseException{                
-        insert = "insert into ALBUM(ID_ALBUM ,ID_INTERPRETE, NOMBRE_ALBUM, LUGAR_GRABACION, ANIO_LANZAMIENTO) values(?,?,?,?,?)";
+        insert = "insert into ALBUM(ID_ALBUM ,ID_INTERPRETE, NOMBRE_ALBUM, LUGAR, ANIO_LANZAMIENTO) values(?,?,?,?,?)";
         stm = conexion.getConexion().prepareStatement(insert);
         stm.setInt(1, idAlbum);
         stm.setInt(2, idInterprete);
@@ -40,7 +40,7 @@ public class Album {
     }
 
     public void MostrarDataAlbum(JTable dataTable) throws SQLException{
-        String [] columnas = {"ID ALBUM", "ID INTERPRETE", "NOMBRE ALBUM","LUGAR DE GRABACION","AÑO DE LANZAMIENTO"};
+        String [] columnas = {"ID ALBUM", "ID INTERPRETE", "NOMBRE ALBUM","LUGAR","AÑO DE LANZAMIENTO"};
         String [] registros = new String[5];        
         modeloTabla = new DefaultTableModel(null,columnas){
         @Override
@@ -72,7 +72,7 @@ public class Album {
             JOptionPane.showMessageDialog(null, "ELIMINADO");
         }
         if(Item.equals("Lugar Grabacion")){
-            delete = "delete from album where Lugar_Grabacion like '%"+valorEliminado+"%'";
+            delete = "delete from album where Lugar like '%"+valorEliminado+"%'";
             stm=conexion.getConexion().prepareStatement(delete);        
             stm.executeUpdate();  
             JOptionPane.showMessageDialog(null, "ELIMINADO");
@@ -86,7 +86,7 @@ public class Album {
     } 
     
     public void buscarAlbum(String Item, JTable tablaResultados, String valorBuscar ) throws SQLException{
-        String [] columnas = {"ID ALBUM", "ID INTERPRETE", "NOMBRE ALBUM","LUGAR DE GRABACION","AÑO DE LANZAMIENTO"};
+        String [] columnas = {"ID ALBUM", "ID INTERPRETE", "NOMBRE ALBUM","LUGAR","AÑO DE LANZAMIENTO"};
         String [] registro = new String[5];                       
         modeloTabla = new DefaultTableModel(null,columnas){
             @Override
@@ -112,7 +112,7 @@ public class Album {
             tablaResultados.setModel(modeloTabla);
         }
         if(Item.equals("Lugar Grabacion")){            
-            search="Select * from Album where Lugar_Grabacion like '%"+valorBuscar+"%' ORDER BY id_Album ASC";        
+            search="Select * from Album where Lugar like '%"+valorBuscar+"%' ORDER BY id_Album ASC";        
             stm=conexion.getConexion().prepareStatement(search);                   
             rs = stm.executeQuery();                  
             while (rs.next()) {                        
@@ -150,7 +150,7 @@ public class Album {
         if(Item.equals("Nombre Album")){
             System.out.println("2");
             System.out.println(valorActualizar);
-            update = "update album set Nombre_Album=?, Lugar_Grabacion = ?, Anio_Lanzamiento=? where Nombre_Album like '%"+valorActualizar+"%'";
+            update = "update album set Nombre_Album=?, Lugar = ?, Anio_Lanzamiento=? where Nombre_Album like '%"+valorActualizar+"%'";
             stm=conexion.getConexion().prepareStatement(update);   
             stm.setString(1, nameAlbum);
             stm.setString(2, lugarGrabacion);
@@ -161,7 +161,7 @@ public class Album {
         if(Item.equals("Lugar Grabacion")){
             System.out.println("3");
             System.out.println(valorActualizar);
-            update = "update album set Nombre_Album=?, Lugar_Grabacion = ?, Anio_Lanzamiento=? where Lugar_Grabacion like '%"+valorActualizar+"%'";
+            update = "update album set Nombre_Album=?, Lugar = ?, Anio_Lanzamiento=? where Lugar like '%"+valorActualizar+"%'";
             stm=conexion.getConexion().prepareStatement(update);   
             stm.setString(1, nameAlbum);
             stm.setString(2, lugarGrabacion);
@@ -172,7 +172,7 @@ public class Album {
         if(Item.equals("Año de Grabacion")){
             System.out.println("4");
             System.out.println(valorActualizar);
-            update = "update album set Nombre_Album=?, Lugar_Grabacion = ?, Anio_Lanzamiento=? where Anio_Lanzamiento like '%"+valorActualizar+"%'";
+            update = "update album set Nombre_Album=?, Lugar = ?, Anio_Lanzamiento=? where Anio_Lanzamiento like '%"+valorActualizar+"%'";
             stm=conexion.getConexion().prepareStatement(update);   
             stm.setString(1, nameAlbum);
             stm.setString(2, lugarGrabacion);

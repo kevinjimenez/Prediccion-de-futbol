@@ -28,7 +28,7 @@ public class Interprete {
     
     public void InsertaDatosInterprete(int ID, String Nombre,String Apellido, String Pais, String Alias, int Edad) throws SQLException{
         
-        insert = "insert into INTERPRETE(ID_INTERPRETE,NOMBRE_INTERPRETE,APELLIDO_INTERPRETE,PAIS,ALIAS,EDAD) values(?,?,?,?,?,?)";
+        insert = "insert into INTERPRETE(ID_INTERPRETE,NOMBRE_INTERPRETE,APELLIDO_INTERPRETE,LUGAR,ALIAS,EDAD) values(?,?,?,?,?,?)";
         stm = conexion.getConexion().prepareStatement(insert);
         stm.setInt(1, ID);
         stm.setString(2, Nombre);
@@ -70,7 +70,7 @@ public class Interprete {
             JOptionPane.showMessageDialog(null, "ELIMINADO");
         }
         if(Item.equals("Pais")){
-            delete = "delete from interprete where Pais like '%"+valorEliminado+"%'";
+            delete = "delete from interprete where Lugar like '%"+valorEliminado+"%'";
             stm=conexion.getConexion().prepareStatement(delete);        
             stm.executeUpdate();  
             JOptionPane.showMessageDialog(null, "ELIMINADO");
@@ -91,7 +91,7 @@ public class Interprete {
     }
     
     public void Buscar(String Item, JTable tablaResultados, String valorBuscar ) throws SQLException{
-        String [] columnas = {"ID", "NOMBRE INTERPRETE","APELLIDO INTERPRETE","PAIS","ALIAS","EDAD"};
+        String [] columnas = {"ID", "NOMBRE INTERPRETE","APELLIDO INTERPRETE","LUGAR","ALIAS","EDAD"};
         String [] registro = new String[6];                       
         modeloTabla = new DefaultTableModel(null,columnas){
             @Override
@@ -152,7 +152,7 @@ public class Interprete {
             tablaResultados.setModel(modeloTabla);
         }
         if(Item.equals("Pais")){            
-            search="Select * from Interprete where Pais like '%"+valorBuscar+"%' ORDER BY id_interprete ASC";        
+            search="Select * from Interprete where Lugar like '%"+valorBuscar+"%' ORDER BY id_interprete ASC";        
             stm=conexion.getConexion().prepareStatement(search);                   
             rs = stm.executeQuery();                  
             while (rs.next()) {                        
@@ -210,7 +210,7 @@ public class Interprete {
         if(Item.equals("ID")){
             System.out.println("1");
             System.out.println(valorActualizar);
-            update = "update interprete set Nombre_interprete = ?, Apellido_interprete = ?, Pais=?, Alias=?, Edad=? where ID_INTERPRETE=?";
+            update = "update interprete set Nombre_interprete = ?, Apellido_interprete = ?, Lugar=?, Alias=?, Edad=? where ID_INTERPRETE=?";
             stm=conexion.getConexion().prepareStatement(update);   
             stm.setString(1, Nombre);
             stm.setString(2, Apellido);
@@ -224,7 +224,7 @@ public class Interprete {
         if(Item.equals("Nombre Interprete")){
             System.out.println("2");
             System.out.println(valorActualizar);
-            update = "update interprete set Nombre_interprete=?, Apellido_interprete = ?, Pais=?, Alias=?, Edad=? where Nombre_Interprete like '%"+valorActualizar+"%'";
+            update = "update interprete set Nombre_interprete=?, Apellido_interprete = ?, Lugar=?, Alias=?, Edad=? where Nombre_Interprete like '%"+valorActualizar+"%'";
             stm=conexion.getConexion().prepareStatement(update);   
             stm.setString(1, Nombre);
             stm.setString(2, Apellido);
@@ -237,7 +237,7 @@ public class Interprete {
         if(Item.equals("Apellido Interprete")){
             System.out.println("3");
             System.out.println(valorActualizar);
-            update = "update interprete set Nombre_interprete = ?, Apellido_interprete = ?, Pais=?, Alias=?, Edad=? where Apellido_interprete like '%"+valorActualizar+"%'";
+            update = "update interprete set Nombre_interprete = ?, Apellido_interprete = ?, Lugar=?, Alias=?, Edad=? where Apellido_interprete like '%"+valorActualizar+"%'";
             stm=conexion.getConexion().prepareStatement(update);   
             stm.setString(1, Nombre);
             stm.setString(2, Apellido);
@@ -250,7 +250,7 @@ public class Interprete {
         if(Item.equals("Pais")){
             System.out.println("4");
             System.out.println(valorActualizar);
-            update = "update interprete set Nombre_interprete=?, Apellido_interprete = ?, Pais=?, Alias=?, Edad=? where pais=?";
+            update = "update interprete set Nombre_interprete=?, Apellido_interprete = ?, Lugar=?, Alias=?, Edad=? where Lugar=?";
             stm=conexion.getConexion().prepareStatement(update);   
             stm.setString(1, Nombre);
             stm.setString(2, Apellido);
@@ -264,7 +264,7 @@ public class Interprete {
         if(Item.equals("Alias")){
             System.out.println("5");
             System.out.println(valorActualizar);
-            update = "update interprete set Nombre_interprete=?,Apellido_interprete = ?, Pais=?, Alias=?, Edad=? where alias=?";
+            update = "update interprete set Nombre_interprete=?,Apellido_interprete = ?, Lugar=?, Alias=?, Edad=? where alias=?";
             stm=conexion.getConexion().prepareStatement(update);   
             stm.setString(1, Nombre);
             stm.setString(2, Apellido);
@@ -278,7 +278,7 @@ public class Interprete {
         if(Item.equals("Edad")){
             System.out.println("6");
             System.out.println(valorActualizar);
-            update = "update interprete set Nombre_interprete=?, Apellido_interprete = ?, Pais=?, Alias=?, Edad=? where edad=?";
+            update = "update interprete set Nombre_interprete=?, Apellido_interprete = ?, Lugar=?, Alias=?, Edad=? where edad=?";
             stm=conexion.getConexion().prepareStatement(update);   
             stm.setString(1, Nombre);
             stm.setString(2, Apellido);
@@ -292,7 +292,7 @@ public class Interprete {
     }
     
     public void MostrarDataInterprete(JTable dataTable) throws SQLException{
-        String [] columnas = {"ID", "NOMBRE INTERPRETE","APELLIDO INTERPRETE","PAIS","ALIAS","EDAD"};
+        String [] columnas = {"ID", "NOMBRE INTERPRETE","APELLIDO INTERPRETE","LUGAR","ALIAS","EDAD"};
         String [] registros = new String[6];        
         modeloTabla = new DefaultTableModel(null,columnas){
         @Override

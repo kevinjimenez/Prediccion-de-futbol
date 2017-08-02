@@ -39,6 +39,7 @@ public class interfazIdioma extends javax.swing.JFrame {
         Txt_busquedaInput.setVisible(false);
         Txt_idioma.setEnabled(false);
         Txt_idIdioma.setEnabled(false);
+        Txt_LugarIidoma.setEnabled(false);
     }
 
     /**
@@ -59,6 +60,8 @@ public class interfazIdioma extends javax.swing.JFrame {
         btn_insertIdioma = new javax.swing.JButton();
         btn_limpiarCampos = new javax.swing.JButton();
         btn_showIidoma = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        Txt_LugarIidoma = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         Table_idiomaData = new javax.swing.JTable();
@@ -103,6 +106,8 @@ public class interfazIdioma extends javax.swing.JFrame {
             }
         });
 
+        jLabel4.setText("Lugar");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -119,14 +124,18 @@ public class interfazIdioma extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addComponent(jLabel3)
                             .addGap(18, 18, 18)
-                            .addComponent(Txt_idioma, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(Txt_idioma, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(jLabel4)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(Txt_LugarIidoma, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addComponent(btn_insertIdioma)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(btn_limpiarCampos)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(btn_showIidoma))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(198, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -140,7 +149,9 @@ public class interfazIdioma extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(Txt_idioma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Txt_idioma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4)
+                    .addComponent(Txt_LugarIidoma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_insertIdioma)
@@ -282,7 +293,7 @@ public class interfazIdioma extends javax.swing.JFrame {
     private void btn_insertIdiomaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_insertIdiomaActionPerformed
         try {
             // TODO add your handling code here:
-            back_endIdioma.insertIdioma(Integer.parseInt(Txt_idIdioma.getText()), Txt_idioma.getText());
+            back_endIdioma.insertIdioma(Integer.parseInt(Txt_idIdioma.getText()), Txt_idioma.getText(),Txt_LugarIidoma.getText());
         } catch (SQLException | ParseException ex) {
             Logger.getLogger(interfazIdioma.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -292,6 +303,7 @@ public class interfazIdioma extends javax.swing.JFrame {
         // TODO add your handling code here:
         Txt_idIdioma.setText("");
         Txt_idioma.setText("");
+        Txt_LugarIidoma.setText("");
     }//GEN-LAST:event_btn_limpiarCamposActionPerformed
 
     private void btn_showIidomaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_showIidomaActionPerformed
@@ -326,6 +338,7 @@ public class interfazIdioma extends javax.swing.JFrame {
         if (evt.getClickCount()==2) {
             Txt_idIdioma.setText("");
             Txt_idioma.setText("");    
+            Txt_LugarIidoma.setText("");
             
         //botones
             btn_deleteIdioma.setVisible(false);
@@ -341,10 +354,13 @@ public class interfazIdioma extends javax.swing.JFrame {
         //textfield
             Txt_busquedaInput.setVisible(true);
             Txt_idioma.setEnabled(true);
-            Txt_idIdioma.setEnabled(true);    
+            Txt_idIdioma.setEnabled(true);
+            Txt_LugarIidoma.setEnabled(false);
+                    
             for (int i = 0; i < Table_idiomaData.getRowCount(); i++) {
                 Txt_idIdioma.setText(Table_idiomaData.getValueAt(i, 0).toString());
-                Txt_idioma.setText(Table_idiomaData.getValueAt(i, 1).toString());                
+                Txt_idioma.setText(Table_idiomaData.getValueAt(i, 1).toString());      
+                Txt_LugarIidoma.setText(Table_idiomaData.getValueAt(i, 2).toString());
             }
         }
     }//GEN-LAST:event_Table_idiomaDataMouseClicked
@@ -378,6 +394,7 @@ public class interfazIdioma extends javax.swing.JFrame {
         Txt_busquedaInput.setVisible(false);
         Txt_idioma.setEnabled(true);
         Txt_idIdioma.setEnabled(true);
+        Txt_LugarIidoma.setEnabled(true);
     
         
     }//GEN-LAST:event_Menu_nuevoIdiomaActionPerformed
@@ -387,6 +404,7 @@ public class interfazIdioma extends javax.swing.JFrame {
         Txt_idIdioma.setText("");
         Txt_idioma.setText("");
         Txt_busquedaInput.setText("");
+        Txt_LugarIidoma.setText("");
         //botones
         btn_deleteIdioma.setVisible(false);
         btn_insertIdioma.setVisible(false);
@@ -402,6 +420,7 @@ public class interfazIdioma extends javax.swing.JFrame {
         Txt_busquedaInput.setVisible(true);
         Txt_idioma.setEnabled(false);
         Txt_idIdioma.setEnabled(false);
+        Txt_LugarIidoma.setEnabled(false);
     
     }//GEN-LAST:event_Menu_buscarIdiomaActionPerformed
 
@@ -410,6 +429,7 @@ public class interfazIdioma extends javax.swing.JFrame {
         Txt_idIdioma.setText("");
         Txt_idioma.setText("");
         Txt_busquedaInput.setText("");
+        Txt_LugarIidoma.setText("");
         //botones
         btn_deleteIdioma.setVisible(true);
         btn_insertIdioma.setVisible(false);
@@ -425,6 +445,7 @@ public class interfazIdioma extends javax.swing.JFrame {
         Txt_busquedaInput.setVisible(true);
         Txt_idioma.setEnabled(false);
         Txt_idIdioma.setEnabled(false);
+        Txt_LugarIidoma.setEnabled(false);
     
     }//GEN-LAST:event_Menu_eliminarIdiomaActionPerformed
 
@@ -469,6 +490,7 @@ public class interfazIdioma extends javax.swing.JFrame {
     private javax.swing.JMenuItem Menu_eliminarIdioma;
     private javax.swing.JMenuItem Menu_nuevoIdioma;
     private javax.swing.JTable Table_idiomaData;
+    private javax.swing.JTextField Txt_LugarIidoma;
     private javax.swing.JTextField Txt_busquedaInput;
     private javax.swing.JTextField Txt_idIdioma;
     private javax.swing.JTextField Txt_idioma;
@@ -481,6 +503,7 @@ public class interfazIdioma extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
