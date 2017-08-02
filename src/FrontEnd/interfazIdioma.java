@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -305,10 +306,14 @@ public class interfazIdioma extends javax.swing.JFrame {
 
     private void btn_insertIdiomaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_insertIdiomaActionPerformed
         try {
-            // TODO add your handling code here:
-            back_endIdioma.insertIdioma(Integer.parseInt(Txt_idIdioma.getText()), Txt_idioma.getText(),Txt_LugarIidoma.getText());
+            if ((Txt_idIdioma.getText().length()==0)||(Txt_idioma.getText().length()==0)||(Txt_LugarIidoma.getText().length()==0)) {
+                JOptionPane.showMessageDialog(null, "Falat ingresos");
+            }else{
+                back_endIdioma.insertIdioma(Integer.parseInt(Txt_idIdioma.getText()), Txt_idioma.getText(),Txt_LugarIidoma.getText());
+            }
+            
         } catch (SQLException | ParseException ex) {
-            Logger.getLogger(interfazIdioma.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         }
     }//GEN-LAST:event_btn_insertIdiomaActionPerformed
 
@@ -324,25 +329,31 @@ public class interfazIdioma extends javax.swing.JFrame {
             // TODO add your handling code here:
             back_endIdioma.MostrarDataIdioma(Table_idiomaData);
         } catch (SQLException ex) {
-            Logger.getLogger(interfazIdioma.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         }
     }//GEN-LAST:event_btn_showIidomaActionPerformed
 
     private void btn_searchIdiomaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_searchIdiomaActionPerformed
         try {
-            // TODO add your handling code here:
-            back_endIdioma.buscarIdioma(CB_setIdioma.getItemAt(CB_setIdioma.getSelectedIndex()), Table_idiomaData, Txt_busquedaInput.getText());
+            if (Txt_busquedaInput.getText().length()==0) {
+                JOptionPane.showMessageDialog(null, "Ingrese dato ha Buscar");
+            }else{
+                back_endIdioma.buscarIdioma(CB_setIdioma.getItemAt(CB_setIdioma.getSelectedIndex()), Table_idiomaData, Txt_busquedaInput.getText());
+            }            
         } catch (SQLException ex) {
-            Logger.getLogger(interfazIdioma.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         }
     }//GEN-LAST:event_btn_searchIdiomaActionPerformed
 
     private void btn_deleteIdiomaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_deleteIdiomaActionPerformed
         try {
-            // TODO add your handling code here:
-            back_endIdioma.deleteIdioma(CB_setIdioma.getItemAt(CB_setIdioma.getSelectedIndex()), Txt_busquedaInput.getText());
+            if (Txt_busquedaInput.getText().length()==0) {
+                JOptionPane.showMessageDialog(null, "Ingrese dato ha eliminar");
+            }else{
+                back_endIdioma.deleteIdioma(CB_setIdioma.getItemAt(CB_setIdioma.getSelectedIndex()), Txt_busquedaInput.getText());
+            }            
         } catch (SQLException ex) {
-            Logger.getLogger(interfazIdioma.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         }
     }//GEN-LAST:event_btn_deleteIdiomaActionPerformed
         
@@ -380,10 +391,14 @@ public class interfazIdioma extends javax.swing.JFrame {
 
     private void btn_updateIdiomaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_updateIdiomaActionPerformed
         try {
-            // TODO add your handling code here:
-            back_endIdioma.updateIdioma(CB_setIdioma.getItemAt(CB_setIdioma.getSelectedIndex()), Txt_busquedaInput.getText(), Txt_idioma.getText());
+            if (Txt_busquedaInput.getText().length()==0) {
+                JOptionPane.showMessageDialog(null, "Ingrese dato ha Buscar");
+            }else{
+                back_endIdioma.updateIdioma(CB_setIdioma.getItemAt(CB_setIdioma.getSelectedIndex()), Txt_busquedaInput.getText(), Txt_idioma.getText());
+            }
+            
         } catch (SQLException ex) {
-            Logger.getLogger(interfazIdioma.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         }
     }//GEN-LAST:event_btn_updateIdiomaActionPerformed
 

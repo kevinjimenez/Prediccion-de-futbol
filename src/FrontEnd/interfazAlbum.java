@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -355,18 +356,15 @@ public class interfazAlbum extends javax.swing.JFrame {
 
     private void Button_insertRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_insertRecordActionPerformed
         try {
-            // TODO add your handling code here:
-            System.out.println(Text_idAlbum.getText());
-            System.out.println(Text_idInterprete.getText());
-            System.out.println(Text_nameAlbum.getText());
-            System.out.println(Text_lugarGrabacion.getText());
-            System.out.println(Text_anioLan.getText());
-            backEnd_album.insertAlbum(Integer.parseInt(Text_idAlbum.getText()), Integer.parseInt(Text_idInterprete.getText()), Text_nameAlbum.getText(), Text_lugarGrabacion.getText(), Text_anioLan.getText());
+            if ((Text_idAlbum.getText().length()==0)||(Text_idInterprete.getText().length()==0)||(Text_nameAlbum.getText().length()==0)||(Text_lugarGrabacion.getText().length()==0)||(Text_anioLan.getText().length()==0)) {
+                JOptionPane.showMessageDialog(null, "Falta de llenar campos");
+            }else{
+                backEnd_album.insertAlbum(Integer.parseInt(Text_idAlbum.getText()), Integer.parseInt(Text_idInterprete.getText()), Text_nameAlbum.getText(), Text_lugarGrabacion.getText(), Text_anioLan.getText());
+            }
             
-        } catch (SQLException ex) {
-            Logger.getLogger(interfazAlbum.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ParseException ex) {
-            Logger.getLogger(interfazAlbum.class.getName()).log(Level.SEVERE, null, ex);
+            
+        } catch (SQLException | ParseException ex) {
+            JOptionPane.showMessageDialog(null, ex);
         }
     }//GEN-LAST:event_Button_insertRecordActionPerformed
 
@@ -381,19 +379,22 @@ public class interfazAlbum extends javax.swing.JFrame {
 
     private void Button_showDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_showDataActionPerformed
         try {
-            // TODO add your handling code here:
+            
             backEnd_album.MostrarDataAlbum(Table_dataAlbum);
         } catch (SQLException ex) {
-            Logger.getLogger(interfazAlbum.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         }
     }//GEN-LAST:event_Button_showDataActionPerformed
 
     private void Button_deleteRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_deleteRecordActionPerformed
         try {
-            // TODO add your handling code here:            
-            backEnd_album.deleteAlbum(CB_options.getItemAt(CB_options.getSelectedIndex()), Text_input.getText());
+            if (Text_input.getText().length()==0) {
+                JOptionPane.showMessageDialog(null, "INGRESE EL DATO A ELIMINAR");
+            }else{
+                backEnd_album.deleteAlbum(CB_options.getItemAt(CB_options.getSelectedIndex()), Text_input.getText());
+            }                        
         } catch (SQLException ex) {
-            Logger.getLogger(interfazAlbum.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         }
                 
     }//GEN-LAST:event_Button_deleteRecordActionPerformed
@@ -401,10 +402,12 @@ public class interfazAlbum extends javax.swing.JFrame {
     private void Button_searchRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_searchRecordActionPerformed
         try {
             // TODO add your handling code here:
-
+            if (Text_input.getText().length()==0) {
+                JOptionPane.showMessageDialog(null, "Ingrese dato ha buscar");
+            }
             backEnd_album.buscarAlbum(CB_options.getItemAt(CB_options.getSelectedIndex()), Table_dataAlbum, Text_input.getText());
         } catch (SQLException ex) {
-            Logger.getLogger(interfazAlbum.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         }
     }//GEN-LAST:event_Button_searchRecordActionPerformed
 
@@ -440,10 +443,13 @@ public class interfazAlbum extends javax.swing.JFrame {
 
     private void Button_updateRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_updateRecordActionPerformed
         try {
+            if (Text_input.getText().length()==0) {
+                JOptionPane.showMessageDialog(null, "Ingrese dato ha actualizar");
+            }
             // TODO add your handling code here:
             backEnd_album.updateAlbum(CB_options.getItemAt(CB_options.getSelectedIndex()), Text_input.getText(), Text_nameAlbum.getText(), Text_lugarGrabacion.getText(), Text_anioLan.getText());
         } catch (SQLException ex) {
-            Logger.getLogger(interfazAlbum.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         }
     }//GEN-LAST:event_Button_updateRecordActionPerformed
 

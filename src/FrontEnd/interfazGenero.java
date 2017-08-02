@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -315,9 +316,14 @@ public class interfazGenero extends javax.swing.JFrame {
     private void btn_insertRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_insertRecordActionPerformed
         try {
             // TODO add your handling code here:
-            back_endGenero.insertGenero(Integer.parseInt(Txt_idGenero.getText()), Txt_tipoGenero.getText(), txtArea_descripcion.getText());
+            if ((Txt_idGenero.getText().length()==0)||(Txt_tipoGenero.getText().length()==0)) {
+                JOptionPane.showMessageDialog(null, "Falta de ingresar campos");
+            }else{
+                back_endGenero.insertGenero(Integer.parseInt(Txt_idGenero.getText()), Txt_tipoGenero.getText(), txtArea_descripcion.getText());
+            }
+            
         } catch (SQLException | ParseException ex) {
-            Logger.getLogger(interfazGenero.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         }
     }//GEN-LAST:event_btn_insertRecordActionPerformed
 
@@ -333,7 +339,8 @@ public class interfazGenero extends javax.swing.JFrame {
             // TODO add your handling code here:
             back_endGenero.MostrarDataGenero(Table_generoData);
         } catch (SQLException ex) {
-            Logger.getLogger(interfazGenero.class.getName()).log(Level.SEVERE, null, ex);
+            //Logger.getLogger(interfazGenero.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         }
     }//GEN-LAST:event_btn_showDataActionPerformed
 
@@ -342,7 +349,8 @@ public class interfazGenero extends javax.swing.JFrame {
             // TODO add your handling code here:
             back_endGenero.buscarGenero(CB_tipoBusqueda.getItemAt(CB_tipoBusqueda.getSelectedIndex()), Table_generoData, Txt_entrada.getText());
         } catch (SQLException ex) {
-            Logger.getLogger(interfazGenero.class.getName()).log(Level.SEVERE, null, ex);
+            //Logger.getLogger(interfazGenero.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         }
     }//GEN-LAST:event_btn_searchRecordActionPerformed
 
@@ -352,7 +360,8 @@ public class interfazGenero extends javax.swing.JFrame {
             // TODO add your handling code here:
             back_endGenero.deleteGenero(CB_tipoBusqueda.getItemAt(CB_tipoBusqueda.getSelectedIndex()), Txt_entrada.getText());
         } catch (SQLException ex) {
-            Logger.getLogger(interfazGenero.class.getName()).log(Level.SEVERE, null, ex);
+            //Logger.getLogger(interfazGenero.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         }
     }//GEN-LAST:event_btn_deleteRecordActionPerformed
 
@@ -362,7 +371,8 @@ public class interfazGenero extends javax.swing.JFrame {
 
             back_endGenero.updateAlbum(CB_tipoBusqueda.getItemAt(CB_tipoBusqueda.getSelectedIndex()), Txt_entrada.getText(), txtArea_descripcion.getText());
         } catch (SQLException ex) {
-            Logger.getLogger(interfazGenero.class.getName()).log(Level.SEVERE, null, ex);
+            //Logger.getLogger(interfazGenero.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         }
     }//GEN-LAST:event_btn_updateRecordActionPerformed
 
