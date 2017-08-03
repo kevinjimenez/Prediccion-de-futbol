@@ -352,6 +352,7 @@ public class interfazInterprete extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Falta campos");
             }else{
             backEnd_interprete.InsertaDatosInterprete(Integer.parseInt(TextF_IdInterprete.getText()),TextF_Nombre_Interprete.getText(),TextF_Apellido_Interprete.getText(),TextF_Pais.getText(),TextF_Alias.getText(),Integer.parseInt(TextF_Edad.getText()));
+            TablaResult.setVisible(false);
             }
             
         } catch (SQLException ex) {
@@ -369,6 +370,7 @@ public class interfazInterprete extends javax.swing.JFrame {
         TextF_Pais.setText("");
         TextF_Alias.setText("");
         TextF_Edad.setText("");
+        TablaResult.setVisible(false);
     }//GEN-LAST:event_Button_BorradoActionPerformed
 
     private void Button_deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_deleteActionPerformed
@@ -376,9 +378,10 @@ public class interfazInterprete extends javax.swing.JFrame {
         try {
             //System.out.println(Cb_Busqueda.getItemAt(Cb_Busqueda.getSelectedIndex())+" "+ Text_Busqueda.getText());
             if (Text_Busqueda.getText().length()==0) {
-                System.out.println("Ingrese cual desea eliminar");
-            }else{
+                JOptionPane.showMessageDialog(null, "Ingrese cual desea eliminar");
+            }else{                
                 backEnd_interprete.deleteInterprete(Cb_Busqueda.getItemAt(Cb_Busqueda.getSelectedIndex()), Text_Busqueda.getText());
+                Button_Mostar.setVisible(true);
             }
             
         } catch (SQLException ex) {
@@ -391,9 +394,10 @@ public class interfazInterprete extends javax.swing.JFrame {
         try {
             //System.out.println(Text_Busqueda.getText());
             if (Text_Busqueda.getText().length()==0) {
-                System.out.println("Ingrese cual desea eliminar");
+                JOptionPane.showMessageDialog(null,"Ingrese cual desea buscar y actualizar");
             }else{
                 backEnd_interprete.Buscar(Cb_Busqueda.getItemAt(Cb_Busqueda.getSelectedIndex()), TablaResult, Text_Busqueda.getText());
+                TablaResult.setVisible(true);
             }
             
             //System.out.println(Cb_Busqueda.getItemAt(Cb_Busqueda.getSelectedIndex()));
@@ -423,7 +427,7 @@ public class interfazInterprete extends javax.swing.JFrame {
         Button_Update.setVisible(false);
         
         Cb_Busqueda.setVisible(false);        
-        TablaResult.setVisible(true);
+        TablaResult.setVisible(false);
         Text_Busqueda.setVisible(false);
         
         TextF_IdInterprete.setEnabled(true);
@@ -451,7 +455,7 @@ public class interfazInterprete extends javax.swing.JFrame {
          Button_Mostar.setVisible(false);
         
         Cb_Busqueda.setVisible(true);        
-        TablaResult.setVisible(true);
+        TablaResult.setVisible(false);
         Text_Busqueda.setVisible(true);
         
         TextF_IdInterprete.setEnabled(false);
@@ -460,17 +464,17 @@ public class interfazInterprete extends javax.swing.JFrame {
         TextF_Pais.setEnabled(false);
         TextF_Alias.setEnabled(false);
         TextF_Edad.setEnabled(false);
-        
+        //TablaResult.removeAll();
         
     }//GEN-LAST:event_SearchRecordActionPerformed
 
     private void DeleteRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteRecordActionPerformed
         // TODO add your handling code here:
         Button_delete.setVisible(true);
-         Button_Mostar.setVisible(true);
+         Button_Mostar.setVisible(false);
         
         Cb_Busqueda.setVisible(true);        
-        TablaResult.setVisible(true);
+        TablaResult.setVisible(false);
         Text_Busqueda.setVisible(true);
         
         Button_Borrado.setVisible(false);
@@ -531,10 +535,22 @@ public class interfazInterprete extends javax.swing.JFrame {
     private void Button_UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_UpdateActionPerformed
         try {
             if (Text_Busqueda.getText().length()==0) {
-                System.out.println("Ingrese cual desea actuaizar");
+                JOptionPane.showMessageDialog(null,"Ingrese cual desea actuaizar");
+            }
+            if ((TextF_IdInterprete.getText().length()==0)||(TextF_Nombre_Interprete.getText().length()==0)||(TextF_Apellido_Interprete.getText().length()==0)||(TextF_Alias.getText().length()==0)||(TextF_Pais.getText().length()==0)||(TextF_Edad.getText().length()==0)){                
+                JOptionPane.showMessageDialog(null, "Falta campos");
             }else{
-                Button_Mostar.setVisible(true);
                 backEnd_interprete.Actualizar(Cb_Busqueda.getItemAt(Cb_Busqueda.getSelectedIndex()), Text_Busqueda.getText(), TextF_Nombre_Interprete.getText(), TextF_Apellido_Interprete.getText(), TextF_Pais.getText(), TextF_Alias.getText(), Integer.parseInt(TextF_Edad.getText()));            
+                TextF_IdInterprete.setText("");
+                TextF_Nombre_Interprete.setText("");
+                TextF_Apellido_Interprete.setText("");
+                TextF_Pais.setText("");
+                TextF_Alias.setText("");
+                TextF_Edad.setText("");
+                Text_Busqueda.setText("");
+                Button_Mostar.setVisible(true);
+                TablaResult.setVisible(false);
+                
             }
             // TODO add your handling code here:
             
@@ -549,8 +565,9 @@ public class interfazInterprete extends javax.swing.JFrame {
         try {
             // TODO add your handling code here:
             backEnd_interprete.MostrarDataInterprete(TablaResult);
+            TablaResult.setVisible(true);
         } catch (SQLException ex) {
-            Logger.getLogger(interfazInterprete.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showConfirmDialog(null, ex);        
         }
     }//GEN-LAST:event_Button_MostarActionPerformed
 
