@@ -356,7 +356,7 @@ public class interfazIdioma extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Ingrese dato ha eliminar");
             }else{
                 back_endIdioma.deleteIdioma(CB_setIdioma.getItemAt(CB_setIdioma.getSelectedIndex()), Txt_busquedaInput.getText());
-                Txt_busquedaInput.setText("");
+                
                 btn_showIidoma.setVisible(true);
             }            
         } catch (SQLException ex) {

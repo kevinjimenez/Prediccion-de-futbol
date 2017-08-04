@@ -101,6 +101,12 @@ public class Genero {
     
     public void deleteGenero(String Item, String valorEliminado) throws SQLException{                       
         //System.out.println("khe: "+valorEliminado);
+        if(Item.equals("Genero")){
+            delete = "delete from genero where tipo_genero like '%"+valorEliminado+"%'";
+            stm=conexion.getConexion().prepareStatement(delete);        
+            stm.executeUpdate();  
+            JOptionPane.showMessageDialog(null, "ELIMINADO");
+        }
         if(Item.equals("Descripcion del Genero")){
             delete = "delete from genero where descripcion like '%"+valorEliminado+"%'";
             stm=conexion.getConexion().prepareStatement(delete);        
@@ -109,14 +115,25 @@ public class Genero {
         }              
     } 
     
-    public void updateAlbum(String Item, String valorActualizar, String descripcion) throws SQLException{
+    public void updateAlbum(String Item, String valorActualizar,String inputGenero,String descripcion) throws SQLException{
                 
+        if(Item.equals("Genero")){
+            //System.out.println("2");
+            //System.out.println(valorActualizar);
+            update = "update genero set tipo_genero=?,descripcion=? where tipo_genero like '%"+valorActualizar+"%'";
+            stm=conexion.getConexion().prepareStatement(update);   
+            stm.setString(1, inputGenero);
+            stm.setString(2, descripcion);
+            stm.executeUpdate();  
+            JOptionPane.showMessageDialog(null, "ACTUALIZADO");
+        }
         if(Item.equals("Descripcion del Genero")){
             //System.out.println("2");
             //System.out.println(valorActualizar);
-            update = "update genero set descripcion=? where descripcion like '%"+valorActualizar+"%'";
+            update = "update genero set tipo_genero=?,descripcion=? where descripcion like '%"+valorActualizar+"%'";
             stm=conexion.getConexion().prepareStatement(update);   
-            stm.setString(1, descripcion);            
+            stm.setString(1, inputGenero);
+            stm.setString(2, descripcion);
             stm.executeUpdate();  
             JOptionPane.showMessageDialog(null, "ACTUALIZADO");
         }

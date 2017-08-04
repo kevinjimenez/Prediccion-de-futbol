@@ -404,7 +404,7 @@ public class interfazCancion extends javax.swing.JFrame {
             }else{                
                 back_endCancion.deleteCancion(CB_optionsCancion.getItemAt(CB_optionsCancion.getSelectedIndex()), txt_buscadoCancion.getText());
                 btn_mostarDatosCancion.setVisible(true);
-                txt_buscadoCancion.setText("");
+                
             }            
         } catch (SQLException ex) {
             //Logger.getLogger(interfazCancion.class.getName()).log(Level.SEVERE, null, ex);

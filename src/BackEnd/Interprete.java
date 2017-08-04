@@ -29,7 +29,7 @@ public class Interprete {
     public void InsertaDatosInterprete(int ID, String Nombre,String Apellido, String Pais, String Alias, int Edad) throws SQLException{
         
         insert = "insert into INTERPRETE(ID_INTERPRETE,NOMBRE_INTERPRETE,APELLIDO_INTERPRETE,LUGAR,ALIAS,EDAD) values(?,?,?,?,?,?)";
-        stm = conexion.getConexion().prepareStatement(insert);
+        stm = conexion.getConexion().prepareStatement(insert);        
         stm.setInt(1, ID);
         stm.setString(2, Nombre);
         stm.setString(3, Apellido);
@@ -43,14 +43,7 @@ public class Interprete {
         
     }
     
-    public void deleteInterprete(String Item, String valorEliminado) throws SQLException{       
-        if(Item.equals("ID")){            
-            delete = "delete from interprete where ID_INTERPRETE=?";
-            stm=conexion.getConexion().prepareStatement(delete);        
-            stm.setInt(1, Integer.parseInt(valorEliminado));
-            stm.executeUpdate();  
-            JOptionPane.showMessageDialog(null, "ELIMINADO");
-        }        
+    public void deleteInterprete(String Item, String valorEliminado) throws SQLException{                     
         if(Item.equals("Nombre Interprete")){
             delete = "delete from interprete where Nombre_Interprete like '%"+valorEliminado+"%'";
             stm=conexion.getConexion().prepareStatement(delete);        
@@ -163,7 +156,8 @@ public class Interprete {
             
             tablaResultados.setModel(modeloTabla);
         }
-        if(Item.equals("Edad")){            
+        if(Item.equals("Edad")){       
+            isNumber(valorBuscar);
             search="Select * from Interprete where Edad =? ORDER BY id_interprete ASC";        
             stm=conexion.getConexion().prepareStatement(search);     
             stm.setInt(1, Integer.parseInt(valorBuscar));
@@ -279,6 +273,16 @@ public class Interprete {
                 
         }
         dataTable.setModel(modeloTabla);        
+    }
+    
+    private boolean isNumber(String cadena){
+        try {
+            Integer.parseInt(cadena);
+            return true;
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, e);
+            return false;
+        }
     }
     
     

@@ -348,12 +348,15 @@ public class interfazInterprete extends javax.swing.JFrame {
     private void Button_InsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_InsertActionPerformed
         try {
         //System.out.println(TextF_IdInterprete.getText());
+            isNumber(TextF_IdInterprete.getText());
+            isNumber(TextF_Edad.getText());
             if ((TextF_IdInterprete.getText().length()==0)||(TextF_Nombre_Interprete.getText().length()==0)||(TextF_Apellido_Interprete.getText().length()==0)||(TextF_Alias.getText().length()==0)||(TextF_Pais.getText().length()==0)||(TextF_Edad.getText().length()==0)){                
                 JOptionPane.showMessageDialog(null, "Falta campos");
             }else{
             backEnd_interprete.InsertaDatosInterprete(Integer.parseInt(TextF_IdInterprete.getText()),TextF_Nombre_Interprete.getText(),TextF_Apellido_Interprete.getText(),TextF_Pais.getText(),TextF_Alias.getText(),Integer.parseInt(TextF_Edad.getText()));
             TablaResult.setVisible(false);
             }
+            
             
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex);
@@ -382,7 +385,7 @@ public class interfazInterprete extends javax.swing.JFrame {
             }else{                
                 backEnd_interprete.deleteInterprete(Cb_Busqueda.getItemAt(Cb_Busqueda.getSelectedIndex()), Text_Busqueda.getText());                
                 Button_Mostar.setVisible(true);
-                Text_Busqueda.setToolTipText("");
+                
             }
             
         } catch (SQLException ex) {
@@ -535,6 +538,7 @@ public class interfazInterprete extends javax.swing.JFrame {
 
     private void Button_UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_UpdateActionPerformed
         try {
+            isNumber(TextF_Edad.getText());
             if ((Text_Busqueda.getText().length()==0)||(TextF_IdInterprete.getText().length()==0)||(TextF_Nombre_Interprete.getText().length()==0)||(TextF_Apellido_Interprete.getText().length()==0)||(TextF_Alias.getText().length()==0)||(TextF_Pais.getText().length()==0)||(TextF_Edad.getText().length()==0)) {
                 JOptionPane.showMessageDialog(null,"Ingrese cual desea actuaizar");
             }else{
@@ -586,6 +590,15 @@ public class interfazInterprete extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btn_closeInterpreteActionPerformed
 
+    private static boolean isNumber(String id){
+        try {
+            Integer.parseInt(id);
+            return true;
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, e);
+            return false;
+        }
+    }
     /**
      * @param args the command line arguments
      */

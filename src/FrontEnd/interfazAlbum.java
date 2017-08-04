@@ -390,8 +390,7 @@ public class interfazAlbum extends javax.swing.JFrame {
             if (Text_input.getText().length()==0) {
                 JOptionPane.showMessageDialog(null, "INGRESE EL DATO A ELIMINAR");
             }else{
-                backEnd_album.deleteAlbum(CB_options.getItemAt(CB_options.getSelectedIndex()), Text_input.getText());                
-                Text_input.setText("");
+                backEnd_album.deleteAlbum(CB_options.getItemAt(CB_options.getSelectedIndex()), Text_input.getText());                                
                 Button_showData.setVisible(true);
             }                        
         } catch (SQLException ex) {

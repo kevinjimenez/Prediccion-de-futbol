@@ -23,6 +23,9 @@ public class Auditoria extends javax.swing.JFrame {
     public Auditoria() {
         initComponents();
         audi=new AuditoriaTabla();
+        CB_auditoria.setVisible(false);
+        Txt_inputAuditoria.setVisible(false);
+        btn_searchAuditoria.setVisible(false);
     }
 
     /**

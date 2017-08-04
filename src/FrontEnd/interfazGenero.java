@@ -322,7 +322,7 @@ public class interfazGenero extends javax.swing.JFrame {
                 back_endGenero.insertGenero(Integer.parseInt(Txt_idGenero.getText()), Txt_tipoGenero.getText(), txtArea_descripcion.getText());
                 Table_generoData.setVisible(false);
             }            
-        } catch (SQLException | ParseException ex) {
+        } catch (SQLException | ParseException | NumberFormatException ex) {
             //Logger.getLogger(interfazGenero.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(null, ex);
         } 
@@ -369,8 +369,7 @@ public class interfazGenero extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Ingrese dato ha eliminar");
             }else{
                 back_endGenero.deleteGenero(CB_tipoBusqueda.getItemAt(CB_tipoBusqueda.getSelectedIndex()), Txt_entrada.getText());
-                btn_showData.setVisible(true); 
-                Txt_entrada.setText("");
+                btn_showData.setVisible(true);                 
             }
         } catch (SQLException ex) {
             //Logger.getLogger(interfazGenero.class.getName()).log(Level.SEVERE, null, ex);
@@ -384,12 +383,12 @@ public class interfazGenero extends javax.swing.JFrame {
             if ((Txt_entrada.getText().length()==0)||(Txt_idGenero.getText().length()==0)||(Txt_tipoGenero.getText().length()==0)||(txtArea_descripcion.getText().length()==0)) {
                 JOptionPane.showMessageDialog(null, "Falta de ingresar datos");
             }else{
-                back_endGenero.updateAlbum(CB_tipoBusqueda.getItemAt(CB_tipoBusqueda.getSelectedIndex()), Txt_entrada.getText(), txtArea_descripcion.getText());
+                back_endGenero.updateAlbum(CB_tipoBusqueda.getItemAt(CB_tipoBusqueda.getSelectedIndex()), Txt_entrada.getText(), Txt_tipoGenero.getText(),txtArea_descripcion.getText());               
+                btn_showData.setVisible(true);
+                Txt_entrada.setText("");
                 Txt_idGenero.setText("");
                 Txt_tipoGenero.setText("");
                 txtArea_descripcion.setText("");
-                Txt_entrada.setText("");
-                btn_showData.setVisible(true);
             }            
         } catch (SQLException ex) {
             //Logger.getLogger(interfazGenero.class.getName()).log(Level.SEVERE, null, ex);
