@@ -9,6 +9,7 @@ import BackEnd.Cancion;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -346,9 +347,15 @@ public class interfazCancion extends javax.swing.JFrame {
     private void btn_insertCancionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_insertCancionActionPerformed
         try {
             // TODO add your handling code here:
-            back_endCancion.InsertCancion(Integer.parseInt(txt_idCancion.getText()), Integer.parseInt(Txt_idAlbum.getText()), Integer.parseInt(Txt_idGenero.getText()), Integer.parseInt(Txt_idIdioma.getText()), txt_nameCancion.getText(), Integer.parseInt(txt_duracion.getText()));
+            if((txt_idCancion.getText().length()==0)||(Txt_idAlbum.getText().length()==0)||(Txt_idGenero.getText().length()==0)||(Txt_idIdioma.getText().length()==0)||(txt_nameCancion.getText().length()==0)||(txt_duracion.getText().length()==0)){
+                JOptionPane.showMessageDialog(null, "falta llenar campos");
+            }else{
+                back_endCancion.InsertCancion(Integer.parseInt(txt_idCancion.getText()), Integer.parseInt(Txt_idAlbum.getText()), Integer.parseInt(Txt_idGenero.getText()), Integer.parseInt(Txt_idIdioma.getText()), txt_nameCancion.getText(), Integer.parseInt(txt_duracion.getText()));
+                Table_cancion.setVisible(false);
+            }            
         } catch (SQLException ex) {
-            Logger.getLogger(interfazCancion.class.getName()).log(Level.SEVERE, null, ex);
+            //Logger.getLogger(interfazCancion.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         }
     }//GEN-LAST:event_btn_insertCancionActionPerformed
 
@@ -360,32 +367,48 @@ public class interfazCancion extends javax.swing.JFrame {
         Txt_idIdioma.setText("");
         txt_nameCancion.setText("");
         txt_duracion.setText("");
+        Table_cancion.setVisible(false);
     }//GEN-LAST:event_btn_limpiarCancionActionPerformed
 
     private void btn_mostarDatosCancionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_mostarDatosCancionActionPerformed
         try {
             // TODO add your handling code here:
             back_endCancion.MostrarCancion(Table_cancion);
+            Table_cancion.setVisible(true);
         } catch (SQLException ex) {
-            Logger.getLogger(interfazCancion.class.getName()).log(Level.SEVERE, null, ex);
+            //Logger.getLogger(interfazCancion.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         }
     }//GEN-LAST:event_btn_mostarDatosCancionActionPerformed
 
     private void btn_buscarCancionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarCancionActionPerformed
         try {
             // TODO add your handling code here:
-            back_endCancion.BuscarCancion(CB_optionsCancion.getItemAt(CB_optionsCancion.getSelectedIndex()), Table_cancion, txt_buscadoCancion.getText());
+            if (txt_buscadoCancion.getText().length()==0) {
+                JOptionPane.showMessageDialog(null, "Ingrese dato a buscar");
+            }else{
+                back_endCancion.BuscarCancion(CB_optionsCancion.getItemAt(CB_optionsCancion.getSelectedIndex()), Table_cancion, txt_buscadoCancion.getText());
+                Table_cancion.setVisible(true);
+            }            
         } catch (SQLException ex) {
-            Logger.getLogger(interfazCancion.class.getName()).log(Level.SEVERE, null, ex);
+            //Logger.getLogger(interfazCancion.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         }
     }//GEN-LAST:event_btn_buscarCancionActionPerformed
 
     private void btn_eliminarCancionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eliminarCancionActionPerformed
         try {
             // TODO add your handling code here:
-            back_endCancion.deleteCancion(CB_optionsCancion.getItemAt(CB_optionsCancion.getSelectedIndex()), txt_buscadoCancion.getText());
+            if (txt_buscadoCancion.getText().length()==0) {
+                JOptionPane.showMessageDialog(null, "Ingrese dato a eliminar");
+            }else{                
+                back_endCancion.deleteCancion(CB_optionsCancion.getItemAt(CB_optionsCancion.getSelectedIndex()), txt_buscadoCancion.getText());
+                btn_mostarDatosCancion.setVisible(true);
+                txt_buscadoCancion.setText("");
+            }            
         } catch (SQLException ex) {
-            Logger.getLogger(interfazCancion.class.getName()).log(Level.SEVERE, null, ex);
+            //Logger.getLogger(interfazCancion.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         }
     }//GEN-LAST:event_btn_eliminarCancionActionPerformed
 
@@ -398,9 +421,9 @@ public class interfazCancion extends javax.swing.JFrame {
             btn_eliminarCancion.setVisible(false);
             btn_insertCancion.setVisible(false);
             btn_limpiarCancion.setVisible(false);
-            btn_mostarDatosCancion.setVisible(true);
+            btn_mostarDatosCancion.setVisible(false);
         //tabla
-            Table_cancion.setVisible(true);
+            Table_cancion.setVisible(false);
         //combo
             CB_optionsCancion.setVisible(true);
         //textfiel
@@ -425,9 +448,22 @@ public class interfazCancion extends javax.swing.JFrame {
     private void btn_actualizarCancionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_actualizarCancionActionPerformed
         try {
             // TODO add your handling code here:
-            back_endCancion.ActualizarCancion(CB_optionsCancion.getItemAt(CB_optionsCancion.getSelectedIndex()), txt_buscadoCancion.getText(), txt_nameCancion.getText(), Integer.parseInt(txt_duracion.getText()));
+            if ((txt_buscadoCancion.getText().length()==0)||(txt_idCancion.getText().length()==0)||(Txt_idAlbum.getText().length()==0)||(Txt_idGenero.getText().length()==0)||(Txt_idIdioma.getText().length()==0)||(txt_nameCancion.getText().length()==0)||(txt_duracion.getText().length()==0)    ) {
+                JOptionPane.showMessageDialog(null, "falta dato por ingresar");
+            }else{
+                back_endCancion.ActualizarCancion(CB_optionsCancion.getItemAt(CB_optionsCancion.getSelectedIndex()), txt_buscadoCancion.getText(), txt_nameCancion.getText(), Integer.parseInt(txt_duracion.getText()));                
+                txt_idCancion.setText("");
+                Txt_idAlbum.setText("");
+                Txt_idGenero.setText("");
+                Txt_idIdioma.setText("");
+                txt_nameCancion.setText("");
+                txt_duracion.setText("");
+                txt_buscadoCancion.setText("");
+                btn_mostarDatosCancion.setVisible(true);
+            }            
         } catch (SQLException ex) {
-            Logger.getLogger(interfazCancion.class.getName()).log(Level.SEVERE, null, ex);
+            //Logger.getLogger(interfazCancion.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         }
     }//GEN-LAST:event_btn_actualizarCancionActionPerformed
 
@@ -439,6 +475,7 @@ public class interfazCancion extends javax.swing.JFrame {
         Txt_idIdioma.setText("");
         txt_nameCancion.setText("");
         txt_duracion.setText("");
+        txt_buscadoCancion.setText("");
          //botones
         btn_actualizarCancion.setVisible(false);
         btn_buscarCancion.setVisible(false);
@@ -447,7 +484,7 @@ public class interfazCancion extends javax.swing.JFrame {
         btn_limpiarCancion.setVisible(true);
         btn_mostarDatosCancion.setVisible(true);
         //tabla
-        Table_cancion.setVisible(true);
+        Table_cancion.setVisible(false);
         //combo
         CB_optionsCancion.setVisible(false);
         //textfiel
@@ -469,7 +506,8 @@ public class interfazCancion extends javax.swing.JFrame {
         Txt_idIdioma.setText("");
         txt_nameCancion.setText("");
         txt_duracion.setText("");
-         //botones
+        txt_buscadoCancion.setText("");
+         //botones         
         btn_actualizarCancion.setVisible(false);
         btn_buscarCancion.setVisible(true);
         btn_eliminarCancion.setVisible(false);
@@ -477,7 +515,7 @@ public class interfazCancion extends javax.swing.JFrame {
         btn_limpiarCancion.setVisible(false);
         btn_mostarDatosCancion.setVisible(false);
         //tabla
-        Table_cancion.setVisible(true);
+        Table_cancion.setVisible(false);
         //combo
         CB_optionsCancion.setVisible(true);
         //textfiel
@@ -499,15 +537,16 @@ public class interfazCancion extends javax.swing.JFrame {
         Txt_idIdioma.setText("");
         txt_nameCancion.setText("");
         txt_duracion.setText("");
+        txt_buscadoCancion.setText("");
          //botones
         btn_actualizarCancion.setVisible(false);
         btn_buscarCancion.setVisible(false);
         btn_eliminarCancion.setVisible(true);
         btn_insertCancion.setVisible(false);
         btn_limpiarCancion.setVisible(false);
-        btn_mostarDatosCancion.setVisible(true);
+        btn_mostarDatosCancion.setVisible(false);
         //tabla
-        Table_cancion.setVisible(true);
+        Table_cancion.setVisible(false);
         //combo
         CB_optionsCancion.setVisible(true);
         //textfiel

@@ -185,20 +185,6 @@ public class Interprete {
     
     public void Actualizar(String Item, String valorActualizar, String Nombre,String Apellido, String Pais, String Alias, int Edad) throws SQLException{
         
-        if(Item.equals("ID")){
-            System.out.println("1");
-            System.out.println(valorActualizar);
-            update = "update interprete set Nombre_interprete = ?, Apellido_interprete = ?, Lugar=?, Alias=?, Edad=? where ID_INTERPRETE=?";
-            stm=conexion.getConexion().prepareStatement(update);   
-            stm.setString(1, Nombre);
-            stm.setString(2, Apellido);
-            stm.setString(3, Pais);
-            stm.setString(4, Alias);
-            stm.setInt(5, Edad);
-            stm.setInt(6, Integer.parseInt(valorActualizar));
-            stm.executeUpdate();  
-            JOptionPane.showMessageDialog(null, "ACTUALIZADO");
-        }
         if(Item.equals("Nombre Interprete")){
             System.out.println("2");
             System.out.println(valorActualizar);

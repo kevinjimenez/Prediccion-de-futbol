@@ -380,8 +380,9 @@ public class interfazInterprete extends javax.swing.JFrame {
             if (Text_Busqueda.getText().length()==0) {
                 JOptionPane.showMessageDialog(null, "Ingrese cual desea eliminar");
             }else{                
-                backEnd_interprete.deleteInterprete(Cb_Busqueda.getItemAt(Cb_Busqueda.getSelectedIndex()), Text_Busqueda.getText());
+                backEnd_interprete.deleteInterprete(Cb_Busqueda.getItemAt(Cb_Busqueda.getSelectedIndex()), Text_Busqueda.getText());                
                 Button_Mostar.setVisible(true);
+                Text_Busqueda.setToolTipText("");
             }
             
         } catch (SQLException ex) {
@@ -479,7 +480,7 @@ public class interfazInterprete extends javax.swing.JFrame {
         
         Button_Borrado.setVisible(false);
         Button_Insert.setVisible(false);
-        Button_buscar.setVisible(false);
+        Button_buscar.setVisible(true);
         Button_Update.setVisible(false);
         
         TextF_IdInterprete.setEnabled(false);
@@ -509,7 +510,7 @@ public class interfazInterprete extends javax.swing.JFrame {
             Button_Update.setVisible(true);        
             Button_Borrado.setVisible(false);
             Button_Insert.setVisible(false);
-            Button_buscar.setVisible(false);
+            Button_buscar.setVisible(true);
             Button_delete.setVisible(false);        
             Button_Mostar.setVisible(false);
         
@@ -534,11 +535,8 @@ public class interfazInterprete extends javax.swing.JFrame {
 
     private void Button_UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_UpdateActionPerformed
         try {
-            if (Text_Busqueda.getText().length()==0) {
+            if ((Text_Busqueda.getText().length()==0)||(TextF_IdInterprete.getText().length()==0)||(TextF_Nombre_Interprete.getText().length()==0)||(TextF_Apellido_Interprete.getText().length()==0)||(TextF_Alias.getText().length()==0)||(TextF_Pais.getText().length()==0)||(TextF_Edad.getText().length()==0)) {
                 JOptionPane.showMessageDialog(null,"Ingrese cual desea actuaizar");
-            }
-            if ((TextF_IdInterprete.getText().length()==0)||(TextF_Nombre_Interprete.getText().length()==0)||(TextF_Apellido_Interprete.getText().length()==0)||(TextF_Alias.getText().length()==0)||(TextF_Pais.getText().length()==0)||(TextF_Edad.getText().length()==0)){                
-                JOptionPane.showMessageDialog(null, "Falta campos");
             }else{
                 backEnd_interprete.Actualizar(Cb_Busqueda.getItemAt(Cb_Busqueda.getSelectedIndex()), Text_Busqueda.getText(), TextF_Nombre_Interprete.getText(), TextF_Apellido_Interprete.getText(), TextF_Pais.getText(), TextF_Alias.getText(), Integer.parseInt(TextF_Edad.getText()));            
                 TextF_IdInterprete.setText("");

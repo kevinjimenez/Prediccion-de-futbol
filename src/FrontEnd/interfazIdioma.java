@@ -307,9 +307,10 @@ public class interfazIdioma extends javax.swing.JFrame {
     private void btn_insertIdiomaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_insertIdiomaActionPerformed
         try {
             if ((Txt_idIdioma.getText().length()==0)||(Txt_idioma.getText().length()==0)||(Txt_LugarIidoma.getText().length()==0)) {
-                JOptionPane.showMessageDialog(null, "Falat ingresos");
+                JOptionPane.showMessageDialog(null, "Falta ingresos");
             }else{
                 back_endIdioma.insertIdioma(Integer.parseInt(Txt_idIdioma.getText()), Txt_idioma.getText(),Txt_LugarIidoma.getText());
+                Table_idiomaData.setVisible(false);
             }
             
         } catch (SQLException | ParseException ex) {
@@ -322,12 +323,15 @@ public class interfazIdioma extends javax.swing.JFrame {
         Txt_idIdioma.setText("");
         Txt_idioma.setText("");
         Txt_LugarIidoma.setText("");
+        Txt_busquedaInput.setText("");
+        Table_idiomaData.setVisible(false);
     }//GEN-LAST:event_btn_limpiarCamposActionPerformed
 
     private void btn_showIidomaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_showIidomaActionPerformed
         try {
             // TODO add your handling code here:
             back_endIdioma.MostrarDataIdioma(Table_idiomaData);
+            Table_idiomaData.setVisible(true);
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
@@ -339,6 +343,7 @@ public class interfazIdioma extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Ingrese dato ha Buscar");
             }else{
                 back_endIdioma.buscarIdioma(CB_setIdioma.getItemAt(CB_setIdioma.getSelectedIndex()), Table_idiomaData, Txt_busquedaInput.getText());
+                Table_idiomaData.setVisible(true);
             }            
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex);
@@ -351,6 +356,8 @@ public class interfazIdioma extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Ingrese dato ha eliminar");
             }else{
                 back_endIdioma.deleteIdioma(CB_setIdioma.getItemAt(CB_setIdioma.getSelectedIndex()), Txt_busquedaInput.getText());
+                Txt_busquedaInput.setText("");
+                btn_showIidoma.setVisible(true);
             }            
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex);
@@ -359,26 +366,22 @@ public class interfazIdioma extends javax.swing.JFrame {
         
     private void Table_idiomaDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Table_idiomaDataMouseClicked
         // TODO add your handling code here:
-        if (evt.getClickCount()==2) {
-            Txt_idIdioma.setText("");
-            Txt_idioma.setText("");    
-            Txt_LugarIidoma.setText("");
-            
+        if (evt.getClickCount()==2) {                        
         //botones
             btn_deleteIdioma.setVisible(false);
             btn_insertIdioma.setVisible(false);
             btn_limpiarCampos.setVisible(false);
             btn_searchIdioma.setVisible(true);
-            btn_showIidoma.setVisible(true);
+            btn_showIidoma.setVisible(false);
             btn_updateIdioma.setVisible(true);
         //tabla
-            Table_idiomaData.setVisible(true);
+            Table_idiomaData.setVisible(false);
         //combo
             CB_setIdioma.setVisible(true);
         //textfield
             Txt_busquedaInput.setVisible(true);
             Txt_idioma.setEnabled(true);
-            Txt_idIdioma.setEnabled(true);
+            Txt_idIdioma.setEnabled(false);
             Txt_LugarIidoma.setEnabled(false);
                     
             for (int i = 0; i < Table_idiomaData.getRowCount(); i++) {
@@ -391,10 +394,16 @@ public class interfazIdioma extends javax.swing.JFrame {
 
     private void btn_updateIdiomaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_updateIdiomaActionPerformed
         try {
-            if (Txt_busquedaInput.getText().length()==0) {
+            if ((Txt_busquedaInput.getText().length()==0)||(Txt_idIdioma.getText().length()==0)||(Txt_idioma.getText().length()==0)||(Txt_LugarIidoma.getText().length()==0)) {
                 JOptionPane.showMessageDialog(null, "Ingrese dato ha Buscar");
             }else{
                 back_endIdioma.updateIdioma(CB_setIdioma.getItemAt(CB_setIdioma.getSelectedIndex()), Txt_busquedaInput.getText(), Txt_idioma.getText());
+                Txt_idIdioma.setText("");
+                Txt_idioma.setText("");
+                Txt_LugarIidoma.setText("");
+                Txt_busquedaInput.setText("");
+                btn_showIidoma.setVisible(true);
+                
             }
             
         } catch (SQLException ex) {
@@ -407,6 +416,7 @@ public class interfazIdioma extends javax.swing.JFrame {
         Txt_idIdioma.setText("");
         Txt_idioma.setText("");    
         Txt_busquedaInput.setText("");
+        Txt_busquedaInput.setText("");
         //botones
         btn_deleteIdioma.setVisible(false);
         btn_insertIdioma.setVisible(true);
@@ -415,7 +425,7 @@ public class interfazIdioma extends javax.swing.JFrame {
         btn_showIidoma.setVisible(true);
         btn_updateIdioma.setVisible(false);
         //tabla
-        Table_idiomaData.setVisible(true);
+        Table_idiomaData.setVisible(false);
         //combo
         CB_setIdioma.setVisible(false);
         //textfield
@@ -441,7 +451,7 @@ public class interfazIdioma extends javax.swing.JFrame {
         btn_showIidoma.setVisible(false);
         btn_updateIdioma.setVisible(false);
         //tabla
-        Table_idiomaData.setVisible(true);
+        Table_idiomaData.setVisible(false);
         //combo
         CB_setIdioma.setVisible(true);
         //textfield
@@ -463,10 +473,10 @@ public class interfazIdioma extends javax.swing.JFrame {
         btn_insertIdioma.setVisible(false);
         btn_limpiarCampos.setVisible(false);
         btn_searchIdioma.setVisible(true);
-        btn_showIidoma.setVisible(true);
+        btn_showIidoma.setVisible(false);
         btn_updateIdioma.setVisible(false);
         //tabla
-        Table_idiomaData.setVisible(true);
+        Table_idiomaData.setVisible(false);
         //combo
         CB_setIdioma.setVisible(true);
         //textfield

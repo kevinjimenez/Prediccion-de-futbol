@@ -315,16 +315,17 @@ public class interfazGenero extends javax.swing.JFrame {
 
     private void btn_insertRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_insertRecordActionPerformed
         try {
-            // TODO add your handling code here:
-            if ((Txt_idGenero.getText().length()==0)||(Txt_tipoGenero.getText().length()==0)) {
+            
+            if ((Txt_idGenero.getText().length()==0)||(Txt_tipoGenero.getText().length()==0)||(txtArea_descripcion.getText().length()==0)) {
                 JOptionPane.showMessageDialog(null, "Falta de ingresar campos");
             }else{
                 back_endGenero.insertGenero(Integer.parseInt(Txt_idGenero.getText()), Txt_tipoGenero.getText(), txtArea_descripcion.getText());
-            }
-            
+                Table_generoData.setVisible(false);
+            }            
         } catch (SQLException | ParseException ex) {
+            //Logger.getLogger(interfazGenero.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(null, ex);
-        }
+        } 
     }//GEN-LAST:event_btn_insertRecordActionPerformed
 
     private void btn_clearCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_clearCamposActionPerformed
@@ -332,12 +333,14 @@ public class interfazGenero extends javax.swing.JFrame {
         Txt_idGenero.setText("");
         Txt_tipoGenero.setText("");
         txtArea_descripcion.setText("");
+        Table_generoData.setVisible(false);
     }//GEN-LAST:event_btn_clearCamposActionPerformed
 
     private void btn_showDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_showDataActionPerformed
         try {
             // TODO add your handling code here:
             back_endGenero.MostrarDataGenero(Table_generoData);
+            Table_generoData.setVisible(true);
         } catch (SQLException ex) {
             //Logger.getLogger(interfazGenero.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(null, ex);
@@ -346,8 +349,13 @@ public class interfazGenero extends javax.swing.JFrame {
 
     private void btn_searchRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_searchRecordActionPerformed
         try {
-            // TODO add your handling code here:
-            back_endGenero.buscarGenero(CB_tipoBusqueda.getItemAt(CB_tipoBusqueda.getSelectedIndex()), Table_generoData, Txt_entrada.getText());
+            if (Txt_entrada.getText().length()==0) {
+                JOptionPane.showMessageDialog(null, "Ingrese dato ha buscar");
+            }else{
+                back_endGenero.buscarGenero(CB_tipoBusqueda.getItemAt(CB_tipoBusqueda.getSelectedIndex()), Table_generoData, Txt_entrada.getText());
+                Table_generoData.setVisible(true);
+            }
+            
         } catch (SQLException ex) {
             //Logger.getLogger(interfazGenero.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(null, ex);
@@ -357,8 +365,13 @@ public class interfazGenero extends javax.swing.JFrame {
     private void btn_deleteRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_deleteRecordActionPerformed
         
         try {
-            // TODO add your handling code here:
-            back_endGenero.deleteGenero(CB_tipoBusqueda.getItemAt(CB_tipoBusqueda.getSelectedIndex()), Txt_entrada.getText());
+            if (Txt_entrada.getText().length()==0) {
+                JOptionPane.showMessageDialog(null, "Ingrese dato ha eliminar");
+            }else{
+                back_endGenero.deleteGenero(CB_tipoBusqueda.getItemAt(CB_tipoBusqueda.getSelectedIndex()), Txt_entrada.getText());
+                btn_showData.setVisible(true); 
+                Txt_entrada.setText("");
+            }
         } catch (SQLException ex) {
             //Logger.getLogger(interfazGenero.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(null, ex);
@@ -368,8 +381,16 @@ public class interfazGenero extends javax.swing.JFrame {
     private void btn_updateRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_updateRecordActionPerformed
         try {
             // TODO add your handling code here:
-
-            back_endGenero.updateAlbum(CB_tipoBusqueda.getItemAt(CB_tipoBusqueda.getSelectedIndex()), Txt_entrada.getText(), txtArea_descripcion.getText());
+            if ((Txt_entrada.getText().length()==0)||(Txt_idGenero.getText().length()==0)||(Txt_tipoGenero.getText().length()==0)||(txtArea_descripcion.getText().length()==0)) {
+                JOptionPane.showMessageDialog(null, "Falta de ingresar datos");
+            }else{
+                back_endGenero.updateAlbum(CB_tipoBusqueda.getItemAt(CB_tipoBusqueda.getSelectedIndex()), Txt_entrada.getText(), txtArea_descripcion.getText());
+                Txt_idGenero.setText("");
+                Txt_tipoGenero.setText("");
+                txtArea_descripcion.setText("");
+                Txt_entrada.setText("");
+                btn_showData.setVisible(true);
+            }            
         } catch (SQLException ex) {
             //Logger.getLogger(interfazGenero.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(null, ex);
@@ -378,25 +399,22 @@ public class interfazGenero extends javax.swing.JFrame {
 
     private void Table_generoDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Table_generoDataMouseClicked
         // TODO add your handling code here:
-        if (evt.getClickCount()==2) {
-            Txt_idGenero.setText("");
-            Txt_tipoGenero.setText("");
-            txtArea_descripcion.setText("");
+        if (evt.getClickCount()==2) {            
         //botones
             btn_clearCampos.setVisible(false);
             btn_deleteRecord.setVisible(false);
             btn_insertRecord.setVisible(false);
-            btn_showData.setVisible(true);
+            btn_showData.setVisible(false);
             btn_searchRecord.setVisible(true);
             btn_updateRecord.setVisible(true);
         //tabla
-            Table_generoData.setVisible(true);
+            Table_generoData.setVisible(false);
         //combo
             CB_tipoBusqueda.setVisible(true);
         //textfiel
             Txt_entrada.setVisible(true);
             Txt_idGenero.setEnabled(false);
-            Txt_tipoGenero.setEnabled(false);
+            Txt_tipoGenero.setEnabled(true);
             txtArea_descripcion.setEnabled(true);
             for (int i = 0; i < Table_generoData.getRowCount(); i++) {
                 Txt_idGenero.setText(Table_generoData.getValueAt(i, 0).toString());
@@ -412,6 +430,7 @@ public class interfazGenero extends javax.swing.JFrame {
         Txt_idGenero.setText("");
         Txt_tipoGenero.setText("");
         txtArea_descripcion.setText("");
+        Txt_entrada.setText("");
         //botones
         btn_clearCampos.setVisible(true);
         btn_deleteRecord.setVisible(false);
@@ -420,7 +439,7 @@ public class interfazGenero extends javax.swing.JFrame {
         btn_searchRecord.setVisible(false);
         btn_updateRecord.setVisible(false);
         //tabla
-        Table_generoData.setVisible(true);
+        Table_generoData.setVisible(false);
         //combo
         CB_tipoBusqueda.setVisible(false);
         //textfiel
@@ -436,6 +455,7 @@ public class interfazGenero extends javax.swing.JFrame {
         Txt_idGenero.setText("");
         Txt_tipoGenero.setText("");
         txtArea_descripcion.setText("");
+        Txt_entrada.setText("");
         //botones
         btn_clearCampos.setVisible(false);
         btn_deleteRecord.setVisible(false);
@@ -444,7 +464,7 @@ public class interfazGenero extends javax.swing.JFrame {
         btn_searchRecord.setVisible(true);
         btn_updateRecord.setVisible(false);
         //tabla
-        Table_generoData.setVisible(true);
+        Table_generoData.setVisible(false);
         //combo
         CB_tipoBusqueda.setVisible(true);
         //textfiel
@@ -460,15 +480,16 @@ public class interfazGenero extends javax.swing.JFrame {
         Txt_idGenero.setText("");
         Txt_tipoGenero.setText("");
         txtArea_descripcion.setText("");
+        Txt_entrada.setText("");
         //botones
         btn_clearCampos.setVisible(false);
         btn_deleteRecord.setVisible(true);
         btn_insertRecord.setVisible(false);
-        btn_showData.setVisible(true);
+        btn_showData.setVisible(false);
         btn_searchRecord.setVisible(true);
         btn_updateRecord.setVisible(false);
         //tabla
-        Table_generoData.setVisible(true);
+        Table_generoData.setVisible(false);
         
         //combo
         CB_tipoBusqueda.setVisible(true);

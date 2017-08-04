@@ -68,6 +68,20 @@ public class Genero {
                 {
                     return false;
                 }};
+        if(Item.equals("Genero")){            
+            search="Select * from Genero where tipo_genero like '%"+valorBuscar+"%' ORDER BY id_genero ASC";        
+            stm=conexion.getConexion().prepareStatement(search);                   
+            rs = stm.executeQuery();                  
+            while (rs.next()) {                        
+                registro[0]=rs.getString(1);
+                registro[1]=rs.getString(2);
+                registro[2]=rs.getString(3);
+                modeloTabla.addRow(registro);
+            }
+            //JOptionPane.showMessageDialog(null, "NO EXISTE");
+            
+            tablaResultados.setModel(modeloTabla);
+        }
         
         if(Item.equals("Descripcion del Genero")){            
             search="Select * from Genero where Descripcion like '%"+valorBuscar+"%' ORDER BY id_genero ASC";        

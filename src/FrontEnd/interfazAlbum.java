@@ -8,8 +8,6 @@ package FrontEnd;
 import BackEnd.Album;
 import java.sql.SQLException;
 import java.text.ParseException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -360,9 +358,8 @@ public class interfazAlbum extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Falta de llenar campos");
             }else{
                 backEnd_album.insertAlbum(Integer.parseInt(Text_idAlbum.getText()), Integer.parseInt(Text_idInterprete.getText()), Text_nameAlbum.getText(), Text_lugarGrabacion.getText(), Text_anioLan.getText());
-            }
-            
-            
+                Table_dataAlbum.setVisible(false);
+            }                        
         } catch (SQLException | ParseException ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
@@ -375,12 +372,14 @@ public class interfazAlbum extends javax.swing.JFrame {
         Text_nameAlbum.setText("");
         Text_lugarGrabacion.setText("");
         Text_anioLan.setText("");
+        Table_dataAlbum.setVisible(false);
     }//GEN-LAST:event_Button_clearCamposActionPerformed
 
     private void Button_showDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_showDataActionPerformed
-        try {
-            
+        try {            
             backEnd_album.MostrarDataAlbum(Table_dataAlbum);
+            Table_dataAlbum.setVisible(true);
+            
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
@@ -391,7 +390,9 @@ public class interfazAlbum extends javax.swing.JFrame {
             if (Text_input.getText().length()==0) {
                 JOptionPane.showMessageDialog(null, "INGRESE EL DATO A ELIMINAR");
             }else{
-                backEnd_album.deleteAlbum(CB_options.getItemAt(CB_options.getSelectedIndex()), Text_input.getText());
+                backEnd_album.deleteAlbum(CB_options.getItemAt(CB_options.getSelectedIndex()), Text_input.getText());                
+                Text_input.setText("");
+                Button_showData.setVisible(true);
             }                        
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex);
@@ -404,8 +405,11 @@ public class interfazAlbum extends javax.swing.JFrame {
             // TODO add your handling code here:
             if (Text_input.getText().length()==0) {
                 JOptionPane.showMessageDialog(null, "Ingrese dato ha buscar");
+            }else{
+                backEnd_album.buscarAlbum(CB_options.getItemAt(CB_options.getSelectedIndex()), Table_dataAlbum, Text_input.getText());
+                Table_dataAlbum.setVisible(true);
+        
             }
-            backEnd_album.buscarAlbum(CB_options.getItemAt(CB_options.getSelectedIndex()), Table_dataAlbum, Text_input.getText());
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
@@ -413,24 +417,25 @@ public class interfazAlbum extends javax.swing.JFrame {
 
     private void Table_dataAlbumMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Table_dataAlbumMouseClicked
         // TODO add your handling code here:
-        Button_insertRecord.setVisible(false);
-        Button_clearCampos.setVisible(false);
-        Button_showData.setVisible(true);
-        Button_deleteRecord.setVisible(false);
-        Button_searchRecord.setVisible(false);
-        Button_updateRecord.setVisible(true);
-        //combo
-        CB_options.setVisible(true);
-        //tabla
-        Table_dataAlbum.setVisible(true);
-        //textfield
-        Text_anioLan.setEnabled(true);
-        Text_idAlbum.setEnabled(false);
-        Text_idInterprete.setEnabled(false);
-        Text_input.setVisible(true);
-        Text_lugarGrabacion.setEnabled(true);
-        Text_nameAlbum.setEnabled(true);
+        
         if (evt.getClickCount()==2) {
+            Button_insertRecord.setVisible(false);
+            Button_clearCampos.setVisible(false);
+            Button_showData.setVisible(false);
+            Button_deleteRecord.setVisible(false);
+            Button_searchRecord.setVisible(true);
+            Button_updateRecord.setVisible(true);
+        //combo
+            CB_options.setVisible(true);
+        //tabla
+            Table_dataAlbum.setVisible(false);
+        //textfield
+            Text_anioLan.setEnabled(true);
+            Text_idAlbum.setEnabled(false);
+            Text_idInterprete.setEnabled(false);
+            Text_input.setVisible(true);
+            Text_lugarGrabacion.setEnabled(true);
+            Text_nameAlbum.setEnabled(true);
             for (int i = 0; i < Table_dataAlbum.getRowCount(); i++) {
                 Text_idAlbum.setText(Table_dataAlbum.getValueAt(i, 0).toString());
                 Text_idInterprete.setText(Table_dataAlbum.getValueAt(i, 1).toString());
@@ -443,11 +448,21 @@ public class interfazAlbum extends javax.swing.JFrame {
 
     private void Button_updateRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_updateRecordActionPerformed
         try {
-            if (Text_input.getText().length()==0) {
-                JOptionPane.showMessageDialog(null, "Ingrese dato ha actualizar");
-            }
-            // TODO add your handling code here:
+            if ((Text_input.getText().length()==0)||(Text_idAlbum.getText().length()==0)||(Text_idInterprete.getText().length()==0)||(Text_nameAlbum.getText().length()==0)||(Text_lugarGrabacion.getText().length()==0)||(Text_anioLan.getText().length()==0)) {
+                JOptionPane.showMessageDialog(null, "Ingrese dato ha actualizar o falta campos de llenas");
+            }else{
+                // TODO add your handling code here:
             backEnd_album.updateAlbum(CB_options.getItemAt(CB_options.getSelectedIndex()), Text_input.getText(), Text_nameAlbum.getText(), Text_lugarGrabacion.getText(), Text_anioLan.getText());
+            Text_idAlbum.setText("");
+            Text_idInterprete.setText("");
+            Text_nameAlbum.setText("");
+            Text_lugarGrabacion.setText("");
+            Text_anioLan.setText("");
+            Text_input.setText("");
+            //Table_dataAlbum.setVisible(false);
+            Button_showData.setVisible(true);
+            }
+            
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
@@ -471,7 +486,7 @@ public class interfazAlbum extends javax.swing.JFrame {
         //combo
         CB_options.setVisible(false);
         //tabla
-        Table_dataAlbum.setVisible(true);
+        Table_dataAlbum.setVisible(false);
         //textfield
         Text_anioLan.setEnabled(true);
         Text_idAlbum.setEnabled(true);
@@ -499,7 +514,7 @@ public class interfazAlbum extends javax.swing.JFrame {
         //combo
         CB_options.setVisible(true);
         //tabla
-        Table_dataAlbum.setVisible(true);
+        Table_dataAlbum.setVisible(false);
         //textfield
         Text_anioLan.setEnabled(false);
         Text_idAlbum.setEnabled(false);
@@ -520,14 +535,14 @@ public class interfazAlbum extends javax.swing.JFrame {
         //botones
         Button_insertRecord.setVisible(false);
         Button_clearCampos.setVisible(false);
-        Button_showData.setVisible(true);
+        Button_showData.setVisible(false);
         Button_deleteRecord.setVisible(true);
-        Button_searchRecord.setVisible(false);
+        Button_searchRecord.setVisible(true);
         Button_updateRecord.setVisible(false);
         //combo
         CB_options.setVisible(true);
         //tabla
-        Table_dataAlbum.setVisible(true);
+        Table_dataAlbum.setVisible(false);
         //textfield
         Text_anioLan.setEnabled(false);
         Text_idAlbum.setEnabled(false);

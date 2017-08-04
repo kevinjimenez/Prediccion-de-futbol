@@ -34,7 +34,7 @@ public class replicaInterprete {
                 }};
         
         if(Item.equals("Nombre Interprete")){            
-            search="Select * from Interprete where Nombre_Interprete like '%"+valorBuscar+"%' ORDER BY id_interprete ASC";        
+            search="Select * from viewInterprete where Nombre_Interprete like '%"+valorBuscar+"%' ORDER BY id_interprete ASC";        
             stm=conexion.getConexion().prepareStatement(search);                   
             rs = stm.executeQuery();                  
             while (rs.next()) {                        
@@ -51,7 +51,7 @@ public class replicaInterprete {
             tablaResultados.setModel(modeloTabla);
         }
         if(Item.equals("Apellido Interprete")){            
-            search="Select * from Interprete where Apellido_Interprete like '%"+valorBuscar+"%' ORDER BY id_interprete ASC";        
+            search="Select * from viewInterprete where Apellido_Interprete like '%"+valorBuscar+"%' ORDER BY id_interprete ASC";        
             stm=conexion.getConexion().prepareStatement(search);                   
             rs = stm.executeQuery();                  
             while (rs.next()) {                        
@@ -68,7 +68,7 @@ public class replicaInterprete {
             tablaResultados.setModel(modeloTabla);
         }
         if(Item.equals("Pais")){            
-            search="Select * from Interprete where Lugar like '%"+valorBuscar+"%' ORDER BY id_interprete ASC";        
+            search="Select * from viewInterprete where Lugar like '%"+valorBuscar+"%' ORDER BY id_interprete ASC";        
             stm=conexion.getConexion().prepareStatement(search);                   
             rs = stm.executeQuery();                  
             while (rs.next()) {                        
@@ -85,7 +85,7 @@ public class replicaInterprete {
             tablaResultados.setModel(modeloTabla);
         }
         if(Item.equals("Alias")){            
-            search="Select * from Interprete where Alias like '%"+valorBuscar+"%' ORDER BY id_interprete ASC";        
+            search="Select * from viewInterprete where Alias like '%"+valorBuscar+"%' ORDER BY id_interprete ASC";        
             stm=conexion.getConexion().prepareStatement(search);                   
             rs = stm.executeQuery();                  
             while (rs.next()) {                        
@@ -102,7 +102,7 @@ public class replicaInterprete {
             tablaResultados.setModel(modeloTabla);
         }
         if(Item.equals("Edad")){            
-            search="Select * from Interprete where Edad =? ORDER BY id_interprete ASC";        
+            search="Select * from viewInterprete where Edad =? ORDER BY id_interprete ASC";        
             stm=conexion.getConexion().prepareStatement(search);     
             stm.setInt(1, Integer.parseInt(valorBuscar));
             rs = stm.executeQuery();                  

@@ -33,7 +33,7 @@ public class AuditoriaTabla {
                     return false;
                 }
         };
-        mostar="Select * from auditoria ";        
+        mostar="Select * from auditoria order by fecha DESC";        
         stm=conexion.getConexion().prepareStatement(mostar);                
         rs = stm.executeQuery();  
         while (rs.next()) {                        
