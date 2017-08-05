@@ -93,7 +93,8 @@ public class Cancion {
             
             tablaResultados.setModel(modeloTabla);
         }        
-        if(Item.equals("Duracion")){            
+        if(Item.equals("Duracion")){      
+            isNumber(valorBuscar);
             search="Select * from Cancion where duracion =? ORDER BY id_canciones ASC";        
             stm=conexion.getConexion().prepareStatement(search);     
             stm.setInt(1, Integer.parseInt(valorBuscar));
@@ -125,7 +126,7 @@ public class Cancion {
             stm.executeUpdate();  
             JOptionPane.showMessageDialog(null, "ACTUALIZADO");
         }
-        if(Item.equals("Duracion")){
+        if(Item.equals("Duracion")){            
             System.out.println("3");
             System.out.println(valorActualizar);
             update = "update cancion set Nombre_cancion = ?, duracion = ? where duracion =?";
@@ -152,6 +153,16 @@ public class Cancion {
             stm.executeUpdate();  
             JOptionPane.showMessageDialog(null, "ELIMINADO");
         }              
+    }
+    
+    private static boolean isNumber(String id){
+        try {
+            Integer.parseInt(id);
+            return true;
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, e);
+            return false;
+        }
     }
     
     

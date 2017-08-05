@@ -118,7 +118,7 @@ public class interfazIdioma extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel1)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addComponent(jLabel2)
                             .addGap(18, 18, 18)
@@ -130,7 +130,7 @@ public class interfazIdioma extends javax.swing.JFrame {
                             .addGap(18, 18, 18)
                             .addComponent(jLabel4)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(Txt_LugarIidoma, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(Txt_LugarIidoma))
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addComponent(btn_insertIdioma)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -306,6 +306,7 @@ public class interfazIdioma extends javax.swing.JFrame {
 
     private void btn_insertIdiomaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_insertIdiomaActionPerformed
         try {
+            isNumber(Txt_idIdioma.getText());
             if ((Txt_idIdioma.getText().length()==0)||(Txt_idioma.getText().length()==0)||(Txt_LugarIidoma.getText().length()==0)) {
                 JOptionPane.showMessageDialog(null, "Falta ingresos");
             }else{
@@ -493,6 +494,16 @@ public class interfazIdioma extends javax.swing.JFrame {
         new interfazPrincipal().setVisible(true);
     }//GEN-LAST:event_btn_regresarActionPerformed
 
+    private static boolean isNumber(String id){
+        try {
+            Integer.parseInt(id);
+            return true;
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, e);
+            return false;
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */

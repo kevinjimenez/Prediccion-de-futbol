@@ -40,7 +40,7 @@ public class Album {
     }
 
     public void MostrarDataAlbum(JTable dataTable) throws SQLException{
-        String [] columnas = {"ID ALBUM", "ID INTERPRETE", "NOMBRE ALBUM","LUGAR","AÑO DE LANZAMIENTO"};
+        String [] columnas = {"ID ALBUM", "ID INTERPRETE", "NOMBRE ALBUM","LUGAR DE GRABACION","AÑO DE LANZAMIENTO"};
         String [] registros = new String[5];        
         modeloTabla = new DefaultTableModel(null,columnas){
         @Override
@@ -182,4 +182,13 @@ public class Album {
         }
     }
     
+    private boolean isNumber(String cadena){
+        try {
+            Integer.parseInt(cadena);
+            return true;
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, e);
+            return false;
+        }
+    }
 }

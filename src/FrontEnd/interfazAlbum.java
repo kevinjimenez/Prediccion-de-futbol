@@ -134,11 +134,11 @@ public class interfazAlbum extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Text_idAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(Text_idAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Text_idInterprete, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(Text_idInterprete, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -146,9 +146,9 @@ public class interfazAlbum extends javax.swing.JFrame {
                                 .addGap(77, 77, 77)
                                 .addComponent(jLabel4))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(59, 59, 59)
+                                .addGap(65, 65, 65)
                                 .addComponent(Text_nameAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(102, 102, 102)
+                        .addGap(96, 96, 96)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(jLabel1)
@@ -354,6 +354,8 @@ public class interfazAlbum extends javax.swing.JFrame {
 
     private void Button_insertRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_insertRecordActionPerformed
         try {
+            isNumber(Text_idAlbum.getText());
+            isNumber(Text_idInterprete.getText());
             if ((Text_idAlbum.getText().length()==0)||(Text_idInterprete.getText().length()==0)||(Text_nameAlbum.getText().length()==0)||(Text_lugarGrabacion.getText().length()==0)||(Text_anioLan.getText().length()==0)) {
                 JOptionPane.showMessageDialog(null, "Falta de llenar campos");
             }else{
@@ -447,6 +449,7 @@ public class interfazAlbum extends javax.swing.JFrame {
 
     private void Button_updateRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_updateRecordActionPerformed
         try {
+            
             if ((Text_input.getText().length()==0)||(Text_idAlbum.getText().length()==0)||(Text_idInterprete.getText().length()==0)||(Text_nameAlbum.getText().length()==0)||(Text_lugarGrabacion.getText().length()==0)||(Text_anioLan.getText().length()==0)) {
                 JOptionPane.showMessageDialog(null, "Ingrese dato ha actualizar o falta campos de llenas");
             }else{
@@ -557,6 +560,15 @@ public class interfazAlbum extends javax.swing.JFrame {
         new interfazPrincipal().setVisible(true);
     }//GEN-LAST:event_btn_regresarMainActionPerformed
 
+    private static boolean isNumber(String id){
+        try {
+            Integer.parseInt(id);
+            return true;
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, e);
+            return false;
+        }
+    }
     /**
      * @param args the command line arguments
      */

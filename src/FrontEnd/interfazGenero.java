@@ -129,7 +129,7 @@ public class interfazGenero extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
-                        .addComponent(Txt_idGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(Txt_idGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel3)
@@ -315,7 +315,7 @@ public class interfazGenero extends javax.swing.JFrame {
 
     private void btn_insertRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_insertRecordActionPerformed
         try {
-            
+            isNumber(Txt_idGenero.getText());
             if ((Txt_idGenero.getText().length()==0)||(Txt_tipoGenero.getText().length()==0)||(txtArea_descripcion.getText().length()==0)) {
                 JOptionPane.showMessageDialog(null, "Falta de ingresar campos");
             }else{
@@ -505,6 +505,16 @@ public class interfazGenero extends javax.swing.JFrame {
         new interfazPrincipal().setVisible(true);
     }//GEN-LAST:event_btn_regresarActionPerformed
 
+    private static boolean isNumber(String id){
+        try {
+            Integer.parseInt(id);
+            return true;
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, e);
+            return false;
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */

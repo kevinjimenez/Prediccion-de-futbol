@@ -101,7 +101,7 @@ public class interfazCancion extends javax.swing.JFrame {
 
         jLabel5.setText("Nombre Cancion");
 
-        jLabel6.setText("Duracion");
+        jLabel6.setText("Duracion (min)");
 
         btn_insertCancion.setText("Insertar");
         btn_insertCancion.addActionListener(new java.awt.event.ActionListener() {
@@ -110,7 +110,7 @@ public class interfazCancion extends javax.swing.JFrame {
             }
         });
 
-        btn_mostarDatosCancion.setText("Mostrsr Datos");
+        btn_mostarDatosCancion.setText("Mostrar Datos");
         btn_mostarDatosCancion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_mostarDatosCancionActionPerformed(evt);
@@ -130,48 +130,48 @@ public class interfazCancion extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addComponent(jLabel7)
+                .addGap(0, 500, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addGap(35, 35, 35)
+                                .addComponent(txt_duracion, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addGap(35, 35, 35)
+                                .addComponent(txt_nameCancion, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel4))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel6)
-                                        .addGap(35, 35, 35)
-                                        .addComponent(txt_duracion, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addGap(35, 35, 35)
-                                        .addComponent(txt_nameCancion, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(Txt_idIdioma, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
+                                    .addComponent(Txt_idGenero)
+                                    .addComponent(Txt_idAlbum)
+                                    .addComponent(txt_idCancion)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel2)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(Txt_idAlbum, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-                                            .addComponent(txt_idCancion)
-                                            .addComponent(Txt_idGenero)
-                                            .addComponent(Txt_idIdioma)))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(217, 217, 217)
-                                        .addComponent(jLabel1))
-                                    .addComponent(btn_limpiarCancion))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btn_insertCancion)
-                            .addComponent(btn_mostarDatosCancion, javax.swing.GroupLayout.Alignment.TRAILING))))
-                .addGap(22, 22, 22))
+                                .addGap(217, 217, 217)
+                                .addComponent(jLabel1)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)))
+                .addContainerGap(180, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(btn_insertCancion)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn_mostarDatosCancion)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn_limpiarCancion)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -182,11 +182,10 @@ public class interfazCancion extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txt_idCancion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(14, 14, 14)
+                .addGap(15, 15, 15)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(txt_nameCancion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_insertCancion)
                     .addComponent(Txt_idAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -194,15 +193,19 @@ public class interfazCancion extends javax.swing.JFrame {
                     .addComponent(Txt_idGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
                     .addComponent(jLabel6)
-                    .addComponent(txt_duracion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_mostarDatosCancion))
+                    .addComponent(txt_duracion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(Txt_idIdioma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(btn_limpiarCancion)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(57, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_insertCancion)
+                    .addComponent(btn_mostarDatosCancion)
+                    .addComponent(btn_limpiarCancion))
+                .addContainerGap())
         );
 
         Table_cancion.setModel(new javax.swing.table.DefaultTableModel(
@@ -346,6 +349,11 @@ public class interfazCancion extends javax.swing.JFrame {
 
     private void btn_insertCancionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_insertCancionActionPerformed
         try {
+            isNumber(Txt_idAlbum.getText());
+            isNumber(Txt_idGenero.getText());
+            isNumber(Txt_idIdioma.getText());
+            isNumber(txt_idCancion.getText());
+            isNumber(txt_duracion.getText());
             // TODO add your handling code here:
             if((txt_idCancion.getText().length()==0)||(Txt_idAlbum.getText().length()==0)||(Txt_idGenero.getText().length()==0)||(Txt_idIdioma.getText().length()==0)||(txt_nameCancion.getText().length()==0)||(txt_duracion.getText().length()==0)){
                 JOptionPane.showMessageDialog(null, "falta llenar campos");
@@ -447,6 +455,7 @@ public class interfazCancion extends javax.swing.JFrame {
 
     private void btn_actualizarCancionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_actualizarCancionActionPerformed
         try {
+            isNumber(txt_duracion.getText());
             // TODO add your handling code here:
             if ((txt_buscadoCancion.getText().length()==0)||(txt_idCancion.getText().length()==0)||(Txt_idAlbum.getText().length()==0)||(Txt_idGenero.getText().length()==0)||(Txt_idIdioma.getText().length()==0)||(txt_nameCancion.getText().length()==0)||(txt_duracion.getText().length()==0)    ) {
                 JOptionPane.showMessageDialog(null, "falta dato por ingresar");
@@ -565,7 +574,16 @@ public class interfazCancion extends javax.swing.JFrame {
         this.dispose();
         new interfazPrincipal().setVisible(true);
     }//GEN-LAST:event_btn_regresarmainActionPerformed
-
+    
+    private static boolean isNumber(String id){
+        try {
+            Integer.parseInt(id);
+            return true;
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, e);
+            return false;
+        }
+    }
     
     /**
      * @param args the command line arguments
