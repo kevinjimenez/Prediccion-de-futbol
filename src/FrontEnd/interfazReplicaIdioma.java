@@ -46,7 +46,7 @@ public class interfazReplicaIdioma extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("replica3");
+        jLabel1.setText("Replica Idioma");
 
         CB_replica3Options.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Idioma" }));
 

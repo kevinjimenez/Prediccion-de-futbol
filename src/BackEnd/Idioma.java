@@ -33,7 +33,7 @@ public class Idioma {
         stm.setString(3, lugar);
         stm.executeUpdate();
         //conexion.Desconectar();
-        JOptionPane.showMessageDialog(null, "INSERTADO ALBUM CORRECTAMENRE");
+        JOptionPane.showMessageDialog(null, "IDIOMA AGREGADA CORRECTAMENTE");
         
     }
     

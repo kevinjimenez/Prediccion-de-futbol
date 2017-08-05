@@ -46,7 +46,7 @@ public class interfazReplicaInterprete extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Replica1");
+        jLabel1.setText("Replica Interprete");
 
         CB_replica1Options.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombre Interprete", "Apellido Interprete", "Pais", "Alias", "Edad" }));
 

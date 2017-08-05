@@ -93,7 +93,7 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Replica2"/>
+            <Property name="text" type="java.lang.String" value="Replica Album"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JComboBox" name="CB_replica2Options">

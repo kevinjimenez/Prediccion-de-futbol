@@ -35,7 +35,7 @@ public class Album {
         stm.setString(5, fecha);
         stm.executeUpdate();
         //conexion.Desconectar();
-        JOptionPane.showMessageDialog(null, "INSERTADO ALBUM CORRECTAMENRE");
+        JOptionPane.showMessageDialog(null, "ALBUM AGREGADO CORRECTAMENTE");
         
     }
 

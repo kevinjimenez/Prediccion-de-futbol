@@ -34,7 +34,7 @@ public class Genero {
         stm.setString(3, descripcion);
         stm.executeUpdate();
         //conexion.Desconectar();
-        JOptionPane.showMessageDialog(null, "INSERTADO Genero CORRECTAMENRE");        
+        JOptionPane.showMessageDialog(null, "GENERO AGREGADAO CORRECTAMENTE");        
     }
     
     public void MostrarDataGenero(JTable dataTable) throws SQLException{

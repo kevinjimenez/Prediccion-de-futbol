@@ -46,7 +46,7 @@ public class interfazReplicaAlbum extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Replica2");
+        jLabel1.setText("Replica Album");
 
         CB_replica2Options.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombre Album", "Lugar Grabacion", "Año de Grabacion" }));
 

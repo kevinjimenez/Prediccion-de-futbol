@@ -39,7 +39,7 @@ public class Interprete {
         stm.executeUpdate();
         
         //conexion.Desconectar();
-        JOptionPane.showMessageDialog(null, "INSERTADO INTERPRETE CORRECTAMENRE");
+        JOptionPane.showMessageDialog(null, "INTERPRETE AGREGADO CORRECTAMENTE");
         
     }
     
@@ -79,7 +79,7 @@ public class Interprete {
     }
     
     public void Buscar(String Item, JTable tablaResultados, String valorBuscar ) throws SQLException{
-        String [] columnas = {"ID", "NOMBRE INTERPRETE","APELLIDO INTERPRETE","LUGAR","ALIAS","EDAD"};
+        String [] columnas = {"ID", "NOMBRE INTERPRETE","APELLIDO INTERPRETE","LUGAR DE ORIGEN","ALIAS","EDAD"};
         String [] registro = new String[6];                       
         modeloTabla = new DefaultTableModel(null,columnas){
             @Override
@@ -250,7 +250,7 @@ public class Interprete {
     }
     
     public void MostrarDataInterprete(JTable dataTable) throws SQLException{
-        String [] columnas = {"ID", "NOMBRE INTERPRETE","APELLIDO INTERPRETE","LUGAR","ALIAS","EDAD"};
+        String [] columnas = {"ID", "NOMBRE INTERPRETE","APELLIDO INTERPRETE","LUGAR DE ORIGEN","ALIAS","EDAD"};
         String [] registros = new String[6];        
         modeloTabla = new DefaultTableModel(null,columnas){
         @Override

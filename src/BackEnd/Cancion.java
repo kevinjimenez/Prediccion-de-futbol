@@ -36,7 +36,7 @@ public class Cancion {
         stm.setInt(6, duracionCancion);
         stm.executeUpdate();
         //conexion.Desconectar();
-        JOptionPane.showMessageDialog(null, "INSERTADO INTERPRETE CORRECTAMENRE");
+        JOptionPane.showMessageDialog(null, "CANCION AGREGADA CORRECTAMENTE");
         
     }
     
