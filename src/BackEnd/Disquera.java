@@ -25,7 +25,7 @@ public class Disquera {
     String insert,delete="",update="",search="",mostar;
     DefaultTableModel modeloTabla;
     
-     public void insertGenero(int idDisquera, String nombre) throws SQLException, ParseException{                
+     public void insertDisquera(int idDisquera, String nombre) throws SQLException, ParseException{                
         insert = "insert into disquera (ID_DISQUERA ,NOMBRE_DISQUERA) values(?,?)";
         stm = conexion.getConexion().prepareStatement(insert);
         stm.setInt(1, idDisquera);        
@@ -36,7 +36,7 @@ public class Disquera {
         JOptionPane.showMessageDialog(null, "GENERO AGREGADAO CORRECTAMENTE");        
     }
      
-     public void MostrarDataAlbum(JTable dataTable) throws SQLException{
+     public void MostrarDataDisquera(JTable dataTable) throws SQLException{
         String [] columnas = {"ID DISQUERA", "NOMBRE DISQUERA"};
         String [] registros = new String[2];        
         modeloTabla = new DefaultTableModel(null,columnas){
@@ -57,7 +57,7 @@ public class Disquera {
         dataTable.setModel(modeloTabla);        
     }
      
-     public void buscarAlbum(String Item, JTable tablaResultados, String valorBuscar ) throws SQLException{
+     public void buscarDisquera(String Item, JTable tablaResultados, String valorBuscar ) throws SQLException{
         String [] columnas = {"ID DISQUERA", "NOMBRE DISQUERA"};
         String [] registro = new String[2];                       
         modeloTabla = new DefaultTableModel(null,columnas){
@@ -83,7 +83,7 @@ public class Disquera {
         
     }
      
-     public void deleteAlbum(String Item, String valorEliminado) throws SQLException{                       
+     public void deleteDisquera(String Item, String valorEliminado) throws SQLException{                       
         //System.out.println("khe: "+valorEliminado);
         if(Item.equals("Nombre Disquera")){
             delete = "delete from disquera where Nombre_disquera like '%"+valorEliminado+"%'";
@@ -94,7 +94,7 @@ public class Disquera {
         
     } 
      
-     public void updateAlbum(String Item, String valorActualizar, String name) throws SQLException{
+     public void updateDisquera(String Item, String valorActualizar, String name) throws SQLException{
                 
         if(Item.equals("Nombre Disquera")){
             System.out.println("2");

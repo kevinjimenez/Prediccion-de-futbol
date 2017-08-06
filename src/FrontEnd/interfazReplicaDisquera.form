@@ -41,29 +41,29 @@
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="171" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="167" max="-2" attributes="0"/>
                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                          <Component id="CB_replica3Options" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                          <Component id="Txt_inputReplica3" min="-2" pref="75" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                          <Component id="btn_replica3Busqueda" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane1" min="-2" pref="375" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="btn_mostarReplica3" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="btn_regresarmain" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jScrollPane1" min="-2" pref="375" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="CB_replica1Options" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="Txt_inputReplica1" min="-2" pref="72" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                                  <Component id="btn_replica1Buscar" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="btn_mostarReplica1" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                                  <Component id="btn_regresa" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                   </Group>
-                  <EmptySpace pref="15" max="32767" attributes="0"/>
+                  <EmptySpace pref="85" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -72,20 +72,20 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="CB_replica3Options" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="Txt_inputReplica3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btn_replica3Busqueda" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="CB_replica1Options" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="Txt_inputReplica1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btn_replica1Buscar" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" min="-2" pref="97" max="-2" attributes="0"/>
+                  <Component id="jScrollPane1" min="-2" pref="96" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btn_mostarReplica3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btn_regresarmain" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btn_mostarReplica1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btn_regresa" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="20" max="32767" attributes="0"/>
+                  <EmptySpace pref="51" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -93,14 +93,18 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Replica Idioma"/>
+            <Property name="text" type="java.lang.String" value="Replica Disquera"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="CB_replica3Options">
+        <Component class="javax.swing.JComboBox" name="CB_replica1Options">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="1">
-                <StringItem index="0" value="Idioma"/>
+              <StringArray count="5">
+                <StringItem index="0" value="Nombre Interprete"/>
+                <StringItem index="1" value="Apellido Interprete"/>
+                <StringItem index="2" value="Pais"/>
+                <StringItem index="3" value="Alias"/>
+                <StringItem index="4" value="Edad"/>
               </StringArray>
             </Property>
           </Properties>
@@ -108,14 +112,14 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JTextField" name="Txt_inputReplica3">
+        <Component class="javax.swing.JTextField" name="Txt_inputReplica1">
         </Component>
-        <Component class="javax.swing.JButton" name="btn_replica3Busqueda">
+        <Component class="javax.swing.JButton" name="btn_replica1Buscar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Buscar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_replica3BusquedaActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_replica1BuscarActionPerformed"/>
           </Events>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -125,7 +129,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTable" name="Table_replica3">
+            <Component class="javax.swing.JTable" name="Table_replica1">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="0" rowCount="0"/>
@@ -140,20 +144,20 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="btn_mostarReplica3">
+        <Component class="javax.swing.JButton" name="btn_mostarReplica1">
           <Properties>
             <Property name="text" type="java.lang.String" value="Mostar Datos"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_mostarReplica3ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_mostarReplica1ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btn_regresarmain">
+        <Component class="javax.swing.JButton" name="btn_regresa">
           <Properties>
             <Property name="text" type="java.lang.String" value="Regresar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_regresarmainActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_regresaActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

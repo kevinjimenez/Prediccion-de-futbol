@@ -5,7 +5,7 @@
  */
 package FrontEnd;
 
-import BackEnd.replicaInterprete;
+import BackEnd.replicaDisquera;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -14,15 +14,15 @@ import java.util.logging.Logger;
  *
  * @author KEVIN
  */
-public class interfazReplicaInterprete extends javax.swing.JFrame {
+public class interfazReplicaDisquera extends javax.swing.JFrame {
 
-    replicaInterprete replica1;
+    replicaDisquera replica1;
     /**
      * Creates new form replica1
      */
-    public interfazReplicaInterprete() {
+    public interfazReplicaDisquera() {
         initComponents();
-        replica1=new replicaInterprete();
+        replica1=new replicaDisquera();
     }
 
     /**
@@ -46,7 +46,7 @@ public class interfazReplicaInterprete extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Replica Interprete");
+        jLabel1.setText("Replica Disquera");
 
         CB_replica1Options.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombre Interprete", "Apellido Interprete", "Pais", "Alias", "Edad" }));
 
@@ -142,19 +142,19 @@ public class interfazReplicaInterprete extends javax.swing.JFrame {
     private void btn_mostarReplica1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_mostarReplica1ActionPerformed
         try {
             // TODO add your handling code here:
-            replica1.MostrarInterprete(Table_replica1);
+            replica1.MostrarDataAlbum(Table_replica1);
         } catch (SQLException ex) {
-            Logger.getLogger(interfazReplicaInterprete.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(interfazReplicaDisquera.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btn_mostarReplica1ActionPerformed
 
     private void btn_replica1BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_replica1BuscarActionPerformed
-        try {
-            // TODO add your handling code here:
-            replica1.Buscar(CB_replica1Options.getItemAt(CB_replica1Options.getSelectedIndex()), Table_replica1, Txt_inputReplica1.getText());
-        } catch (SQLException ex) {
-            Logger.getLogger(interfazReplicaInterprete.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        //try {
+//            // TODO add your handling code here:
+//            replica1.Buscar(CB_replica1Options.getItemAt(CB_replica1Options.getSelectedIndex()), Table_replica1, Txt_inputReplica1.getText());
+//        } catch (SQLException ex) {
+//            Logger.getLogger(interfazReplicaDisquera.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }//GEN-LAST:event_btn_replica1BuscarActionPerformed
 
     private void btn_regresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_regresaActionPerformed
@@ -180,21 +180,23 @@ public class interfazReplicaInterprete extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(interfazReplicaInterprete.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(interfazReplicaDisquera.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(interfazReplicaInterprete.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(interfazReplicaDisquera.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(interfazReplicaInterprete.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(interfazReplicaDisquera.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(interfazReplicaInterprete.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(interfazReplicaDisquera.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new interfazReplicaInterprete().setVisible(true);
+                new interfazReplicaDisquera().setVisible(true);
             }
         });
     }

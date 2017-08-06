@@ -11,9 +11,9 @@ import FrontEnd.interfazCancion;
 import FrontEnd.interfazGenero;
 import FrontEnd.interfazIdioma;
 import FrontEnd.interfazInterprete;
-import FrontEnd.interfazReplicaInterprete;
-import FrontEnd.interfazReplicaAlbum;
-import FrontEnd.interfazReplicaIdioma;
+import FrontEnd.interfazReplicaDisquera;
+import FrontEnd.interfazReplicaCancion;
+import FrontEnd.interfazReplicaGenero;
 
 /**
  *
@@ -27,9 +27,9 @@ public class interfazPrincipal extends javax.swing.JFrame {
     interfazGenero genero;
     interfazIdioma idioma;
     Auditoria auditoria; 
-    interfazReplicaInterprete r1;
-    interfazReplicaAlbum r2;
-    interfazReplicaIdioma r3;
+    interfazReplicaDisquera r1;
+    interfazReplicaCancion r2;
+    interfazReplicaGenero r3;
     interfazDisquera dis;
     //interfazPrincipal ventan ;
         
@@ -44,9 +44,9 @@ public class interfazPrincipal extends javax.swing.JFrame {
         genero=new interfazGenero();
         idioma=new interfazIdioma();
         auditoria=new Auditoria();
-        r1=new interfazReplicaInterprete();
-        r2=new interfazReplicaAlbum();
-        r3=new interfazReplicaIdioma();
+        r1=new interfazReplicaDisquera();
+        r2=new interfazReplicaCancion();
+        r3=new interfazReplicaGenero();
         dis=new interfazDisquera();
         //ventan = new interfazPrincipal();
     }
@@ -118,21 +118,21 @@ public class interfazPrincipal extends javax.swing.JFrame {
             }
         });
 
-        btnReplica1.setText("Replica Interprete");
+        btnReplica1.setText("Replica Disquera");
         btnReplica1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReplica1ActionPerformed(evt);
             }
         });
 
-        btnReplica2.setText("Replica Album");
+        btnReplica2.setText("Replica Cancion");
         btnReplica2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReplica2ActionPerformed(evt);
             }
         });
 
-        btnReplica3.setText("Replica Idioma");
+        btnReplica3.setText("Replica Genero");
         btnReplica3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReplica3ActionPerformed(evt);
@@ -174,17 +174,19 @@ public class interfazPrincipal extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btn_album, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(btn_interprete)
-                                    .addComponent(btn_cancion)
                                     .addComponent(btn_genero, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btn_idioma, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton1))
-                                .addGap(18, 18, 18))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(btn_cancion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(btn_idioma, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(btn_album, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE)))
+                                .addGap(91, 91, 91))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(72, 72, 72)
+                                .addGap(114, 114, 114)
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -214,15 +216,15 @@ public class interfazPrincipal extends javax.swing.JFrame {
                     .addComponent(btnReplica2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_cancion)
-                    .addComponent(btnReplica3))
-                .addGap(1, 1, 1)
-                .addComponent(btn_genero)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn_idioma)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(btnReplica3)
+                    .addComponent(btn_idioma))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addComponent(jButton1)
-                .addContainerGap(66, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_cancion)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_genero)
+                .addGap(43, 43, 43))
         );
 
         pack();

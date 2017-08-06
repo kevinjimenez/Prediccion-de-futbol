@@ -46,19 +46,23 @@
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace pref="43" max="32767" attributes="0"/>
+                              <EmptySpace pref="93" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="btn_album" min="-2" pref="81" max="-2" attributes="0"/>
                                   <Component id="btn_interprete" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btn_cancion" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="btn_genero" alignment="0" min="-2" pref="81" max="-2" attributes="0"/>
-                                  <Component id="btn_idioma" alignment="0" min="-2" pref="81" max="-2" attributes="0"/>
-                                  <Component id="jButton1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="jButton1" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="btn_cancion" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="btn_idioma" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="btn_album" alignment="0" pref="81" max="32767" attributes="0"/>
+                                  </Group>
                               </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="114" max="-2" attributes="0"/>
                               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
@@ -100,16 +104,16 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btn_cancion" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnReplica3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btn_idioma" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-              <Component id="btn_genero" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="btn_idioma" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace pref="29" max="32767" attributes="0"/>
               <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="66" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="btn_cancion" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="btn_genero" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -165,7 +169,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnReplica1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Replica Interprete"/>
+        <Property name="text" type="java.lang.String" value="Replica Disquera"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnReplica1ActionPerformed"/>
@@ -173,7 +177,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnReplica2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Replica Album"/>
+        <Property name="text" type="java.lang.String" value="Replica Cancion"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnReplica2ActionPerformed"/>
@@ -181,7 +185,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnReplica3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Replica Idioma"/>
+        <Property name="text" type="java.lang.String" value="Replica Genero"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnReplica3ActionPerformed"/>

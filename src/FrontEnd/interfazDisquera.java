@@ -305,7 +305,7 @@ public class interfazDisquera extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "");
         }else{
             
-                disquera.insertGenero(Integer.parseInt(jTextField1.getText()), jTextField2.getText());
+                disquera.insertDisquera(Integer.parseInt(jTextField1.getText()), jTextField2.getText());
                 tabla.setVisible(false);
         }
         } catch (SQLException | ParseException ex) {
@@ -371,7 +371,7 @@ public class interfazDisquera extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         try {
             // TODO add your handling code here:
-            disquera.MostrarDataAlbum(tabla);
+            disquera.MostrarDataDisquera(tabla);
             tabla.setVisible(true);
         } catch (SQLException ex) {
             //Logger.getLogger(interfazDisquera.class.getName()).log(Level.SEVERE, null, ex);
@@ -386,7 +386,7 @@ public class interfazDisquera extends javax.swing.JFrame {
             if (jTextField3.getText().length()==0) {
                 JOptionPane.showMessageDialog(null, "");
             }else{
-                disquera.buscarAlbum(jComboBox1.getItemAt(jComboBox1.getSelectedIndex()), tabla, jTextField3.getText());
+                disquera.buscarDisquera(jComboBox1.getItemAt(jComboBox1.getSelectedIndex()), tabla, jTextField3.getText());
                 tabla.setVisible(true);
             }
             
@@ -401,7 +401,7 @@ public class interfazDisquera extends javax.swing.JFrame {
             if (jTextField3.getText().length()==0) {
                 JOptionPane.showMessageDialog(null, "");
             }else{
-                disquera.deleteAlbum(jComboBox1.getItemAt(jComboBox1.getSelectedIndex()), jTextField3.getText());
+                disquera.deleteDisquera(jComboBox1.getItemAt(jComboBox1.getSelectedIndex()), jTextField3.getText());
                 jButton3.setVisible(true);
             }
             
@@ -417,7 +417,7 @@ public class interfazDisquera extends javax.swing.JFrame {
             if((jTextField3.getText().length()==0)||(jTextField2.getText().length()==0)){
                 JOptionPane.showMessageDialog(null, "");
             }else{
-                disquera.updateAlbum(jComboBox1.getItemAt(jComboBox1.getSelectedIndex()), jTextField3.getText(), jTextField2.getText());
+                disquera.updateDisquera(jComboBox1.getItemAt(jComboBox1.getSelectedIndex()), jTextField3.getText(), jTextField2.getText());
                 jTextField1.setText("");
         jTextField2.setText("");
         jTextField3.setText("");

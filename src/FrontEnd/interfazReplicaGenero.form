@@ -41,16 +41,16 @@
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="168" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="171" max="-2" attributes="0"/>
                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                          <Component id="CB_replica2Options" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="Txt_replica2Input" min="-2" pref="83" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                          <Component id="btn_replica2Busqueda" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                          <Component id="CB_replica3Options" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                          <Component id="Txt_inputReplica3" min="-2" pref="75" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                          <Component id="btn_replica3Busqueda" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
@@ -58,8 +58,8 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="btn_dataAlbum" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="btn_mostarReplica3" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="btn_regresarmain" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -72,20 +72,20 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="CB_replica2Options" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="Txt_replica2Input" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btn_replica2Busqueda" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="CB_replica3Options" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="Txt_inputReplica3" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btn_replica3Busqueda" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" min="-2" pref="96" max="-2" attributes="0"/>
-                  <EmptySpace pref="12" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" min="-2" pref="97" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btn_dataAlbum" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btn_mostarReplica3" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btn_regresarmain" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace pref="20" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -93,16 +93,14 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Replica Album"/>
+            <Property name="text" type="java.lang.String" value="Replica Genero"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="CB_replica2Options">
+        <Component class="javax.swing.JComboBox" name="CB_replica3Options">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="3">
-                <StringItem index="0" value="Nombre Album"/>
-                <StringItem index="1" value="Lugar Grabacion"/>
-                <StringItem index="2" value="A&#xf1;o de Grabacion"/>
+              <StringArray count="1">
+                <StringItem index="0" value="Idioma"/>
               </StringArray>
             </Property>
           </Properties>
@@ -110,14 +108,14 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JTextField" name="Txt_replica2Input">
+        <Component class="javax.swing.JTextField" name="Txt_inputReplica3">
         </Component>
-        <Component class="javax.swing.JButton" name="btn_replica2Busqueda">
+        <Component class="javax.swing.JButton" name="btn_replica3Busqueda">
           <Properties>
             <Property name="text" type="java.lang.String" value="Buscar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_replica2BusquedaActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_replica3BusquedaActionPerformed"/>
           </Events>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -127,7 +125,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTable" name="Table_replica2">
+            <Component class="javax.swing.JTable" name="Table_replica3">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="0" rowCount="0"/>
@@ -142,12 +140,12 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="btn_dataAlbum">
+        <Component class="javax.swing.JButton" name="btn_mostarReplica3">
           <Properties>
             <Property name="text" type="java.lang.String" value="Mostar Datos"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_dataAlbumActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_mostarReplica3ActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btn_regresarmain">

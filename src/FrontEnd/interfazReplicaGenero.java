@@ -5,7 +5,7 @@
  */
 package FrontEnd;
 
-import BackEnd.replicaIdioma;
+import BackEnd.replicaGenero;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -14,15 +14,15 @@ import java.util.logging.Logger;
  *
  * @author KEVIN
  */
-public class interfazReplicaIdioma extends javax.swing.JFrame {
+public class interfazReplicaGenero extends javax.swing.JFrame {
 
-    replicaIdioma r3;
+    replicaGenero r3;
     /**
      * Creates new form replica3
      */
-    public interfazReplicaIdioma() {
+    public interfazReplicaGenero() {
         initComponents();
-        r3=new replicaIdioma();
+        r3=new replicaGenero();
     }
 
     /**
@@ -46,7 +46,7 @@ public class interfazReplicaIdioma extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Replica Idioma");
+        jLabel1.setText("Replica Genero");
 
         CB_replica3Options.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Idioma" }));
 
@@ -143,19 +143,19 @@ public class interfazReplicaIdioma extends javax.swing.JFrame {
     private void btn_mostarReplica3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_mostarReplica3ActionPerformed
         try {
             // TODO add your handling code here:
-            r3.MostrarDataIdioma(Table_replica3);
+            r3.MostrarDataGenero(Table_replica3);
         } catch (SQLException ex) {
-            Logger.getLogger(interfazReplicaIdioma.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(interfazReplicaGenero.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btn_mostarReplica3ActionPerformed
 
     private void btn_replica3BusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_replica3BusquedaActionPerformed
-        try {
-            // TODO add your handling code here:
-            r3.buscarIdioma(CB_replica3Options.getItemAt(CB_replica3Options.getSelectedIndex()), Table_replica3, Txt_inputReplica3.getText());
-        } catch (SQLException ex) {
-            Logger.getLogger(interfazReplicaIdioma.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        try {
+//            // TODO add your handling code here:
+//            r3.buscarIdioma(CB_replica3Options.getItemAt(CB_replica3Options.getSelectedIndex()), Table_replica3, Txt_inputReplica3.getText());
+//        } catch (SQLException ex) {
+//            Logger.getLogger(interfazReplicaGenero.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }//GEN-LAST:event_btn_replica3BusquedaActionPerformed
 
     private void btn_regresarmainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_regresarmainActionPerformed
@@ -181,21 +181,23 @@ public class interfazReplicaIdioma extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(interfazReplicaIdioma.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(interfazReplicaGenero.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(interfazReplicaIdioma.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(interfazReplicaGenero.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(interfazReplicaIdioma.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(interfazReplicaGenero.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(interfazReplicaIdioma.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(interfazReplicaGenero.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new interfazReplicaIdioma().setVisible(true);
+                new interfazReplicaGenero().setVisible(true);
             }
         });
     }

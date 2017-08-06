@@ -5,7 +5,7 @@
  */
 package FrontEnd;
 
-import BackEnd.replicaAlbum;
+import BackEnd.replicaCancion;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -14,15 +14,15 @@ import java.util.logging.Logger;
  *
  * @author KEVIN
  */
-public class interfazReplicaAlbum extends javax.swing.JFrame {
+public class interfazReplicaCancion extends javax.swing.JFrame {
 
-     replicaAlbum r2;
+     replicaCancion r2;
     /**
      * Creates new form replica2
      */
-    public interfazReplicaAlbum() {
+    public interfazReplicaCancion() {
         initComponents();
-        r2=new replicaAlbum();
+        r2=new replicaCancion();
     }
        
     /**
@@ -46,7 +46,7 @@ public class interfazReplicaAlbum extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Replica Album");
+        jLabel1.setText("Replica Cancion");
 
         CB_replica2Options.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombre Album", "Lugar Grabacion", "Año de Grabacion" }));
 
@@ -143,18 +143,18 @@ public class interfazReplicaAlbum extends javax.swing.JFrame {
     private void btn_dataAlbumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_dataAlbumActionPerformed
          try {
              // TODO add your handling code here:
-             r2.MostrarDataAlbum(Table_replica2);
+             r2.MostrarCancion(Table_replica2);
          } catch (SQLException ex) {
-             Logger.getLogger(interfazReplicaAlbum.class.getName()).log(Level.SEVERE, null, ex);
+             Logger.getLogger(interfazReplicaCancion.class.getName()).log(Level.SEVERE, null, ex);
          }
     }//GEN-LAST:event_btn_dataAlbumActionPerformed
 
     private void btn_replica2BusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_replica2BusquedaActionPerformed
          try {
              // TODO add your handling code here:
-             r2.buscarAlbum(CB_replica2Options.getItemAt(CB_replica2Options.getSelectedIndex()), Table_replica2, Txt_replica2Input.getText());
+             r2.BuscarCancion(CB_replica2Options.getItemAt(CB_replica2Options.getSelectedIndex()), Table_replica2, Txt_replica2Input.getText());
          } catch (SQLException ex) {
-             Logger.getLogger(interfazReplicaAlbum.class.getName()).log(Level.SEVERE, null, ex);
+             Logger.getLogger(interfazReplicaCancion.class.getName()).log(Level.SEVERE, null, ex);
          }
     }//GEN-LAST:event_btn_replica2BusquedaActionPerformed
 
@@ -181,21 +181,23 @@ public class interfazReplicaAlbum extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(interfazReplicaAlbum.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(interfazReplicaCancion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(interfazReplicaAlbum.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(interfazReplicaCancion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(interfazReplicaAlbum.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(interfazReplicaCancion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(interfazReplicaAlbum.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(interfazReplicaCancion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new interfazReplicaAlbum().setVisible(true);
+                new interfazReplicaCancion().setVisible(true);
             }
         });
     }

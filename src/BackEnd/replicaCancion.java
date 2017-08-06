@@ -16,16 +16,16 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author KEVIN
  */
-public class replicaAlbum {
+public class replicaCancion {
     PreparedStatement stm = null;
     ResultSet rs = null;
     DBConexion conexion = new DBConexion();
     String insert,delete="",update="",search="",mostar;
     DefaultTableModel modeloTabla;
     
-     public void MostrarDataAlbum(JTable dataTable) throws SQLException{
-        String [] columnas = {"ID ALBUM", "ID INTERPRETE", "NOMBRE ALBUM","LUGAR","AÑO DE LANZAMIENTO"};
-        String [] registros = new String[5];        
+     public void MostrarCancion(JTable dataTable) throws SQLException{
+        String [] columnas = {"ID CANCION", "ID ALBUM","ID GENERO","ID IDIOMA","CANCION","DURACION (min)"};
+        String [] registros = new String[6];        
         modeloTabla = new DefaultTableModel(null,columnas){
         @Override
                 public boolean isCellEditable(int row, int col)
@@ -33,7 +33,7 @@ public class replicaAlbum {
                     return false;
                 }
         };
-        mostar="Select * from viewAlbum ORDER BY id_album ASC";        
+        mostar="Select * from viewCancion ORDER BY id_canciones ASC";        
         stm=conexion.getConexion().prepareStatement(mostar);                
         rs = stm.executeQuery();  
         while (rs.next()) {                        
@@ -41,15 +41,17 @@ public class replicaAlbum {
                 registros[1]=rs.getString(2);
                 registros[2]=rs.getString(3);
                 registros[3]=rs.getString(4);
-                registros[4]=rs.getString(5);                
-                modeloTabla.addRow(registros);                
+                registros[4]=rs.getString(5);
+                registros[5]=rs.getString(6);
+                modeloTabla.addRow(registros);
+                
         }
         dataTable.setModel(modeloTabla);        
     }
      
-     public void buscarAlbum(String Item, JTable tablaResultados, String valorBuscar ) throws SQLException{
-        String [] columnas = {"ID ALBUM", "ID INTERPRETE", "NOMBRE ALBUM","LUGAR","AÑO DE LANZAMIENTO"};
-        String [] registro = new String[5];                       
+      public void BuscarCancion(String Item, JTable tablaResultados, String valorBuscar ) throws SQLException{
+        String [] columnas = {"ID CANCION", "ID ALBUM","ID GENERO","ID IDIOMA","CANCION","DURACION (min)"};
+        String [] registro = new String[6];                       
         modeloTabla = new DefaultTableModel(null,columnas){
             @Override
                 public boolean isCellEditable(int row, int col)
@@ -57,8 +59,8 @@ public class replicaAlbum {
                     return false;
                 }};
         
-        if(Item.equals("Nombre Album")){            
-            search="Select * from viewAlbum where Nombre_Album like '%"+valorBuscar+"%' ORDER BY id_Album ASC";        
+        if(Item.equals("Cancion")){            
+            search="Select * from viewCancion where Nombre_Cancion like '%"+valorBuscar+"%' ORDER BY id_canciones ASC";        
             stm=conexion.getConexion().prepareStatement(search);                   
             rs = stm.executeQuery();                  
             while (rs.next()) {                        
@@ -66,39 +68,27 @@ public class replicaAlbum {
                 registro[1]=rs.getString(2);
                 registro[2]=rs.getString(3);
                 registro[3]=rs.getString(4);
-                registro[4]=rs.getString(5);                                                
+                registro[4]=rs.getString(5);                                
+                registro[5]=rs.getString(6);
                 modeloTabla.addRow(registro);
             }
             //JOptionPane.showMessageDialog(null, "NO EXISTE");
             
             tablaResultados.setModel(modeloTabla);
-        }
-        if(Item.equals("Lugar Grabacion")){            
-            search="Select * from viewAlbum where Lugar like '%"+valorBuscar+"%' ORDER BY id_Album ASC";        
-            stm=conexion.getConexion().prepareStatement(search);                   
-            rs = stm.executeQuery();                  
-            while (rs.next()) {                        
-                registro[0]=rs.getString(1);
-                registro[1]=rs.getString(2);
-                registro[2]=rs.getString(3);
-                registro[3]=rs.getString(4);
-                registro[4]=rs.getString(5);                                                
-                modeloTabla.addRow(registro);
-            }
-            //JOptionPane.showMessageDialog(null, "NO EXISTE");
+        }        
+        if(Item.equals("Duracion")){      
             
-            tablaResultados.setModel(modeloTabla);
-        }
-        if(Item.equals("Año de Grabacion")){            
-            search="Select * from viewAlbum where Anio_Lanzamiento like '%"+valorBuscar+"%' ORDER BY id_Album ASC";        
-            stm=conexion.getConexion().prepareStatement(search);                   
+            search="Select * from Cancion where duracion =? ORDER BY id_canciones ASC";        
+            stm=conexion.getConexion().prepareStatement(search);     
+            stm.setInt(1, Integer.parseInt(valorBuscar));
             rs = stm.executeQuery();                  
             while (rs.next()) {                        
                 registro[0]=rs.getString(1);
                 registro[1]=rs.getString(2);
                 registro[2]=rs.getString(3);
                 registro[3]=rs.getString(4);
-                registro[4]=rs.getString(5);                
+                registro[4]=rs.getString(5);
+                registro[5]=rs.getString(6);
                 modeloTabla.addRow(registro);
             }
             //JOptionPane.showMessageDialog(null, "NO EXISTE");
