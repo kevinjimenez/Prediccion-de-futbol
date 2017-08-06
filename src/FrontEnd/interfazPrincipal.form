@@ -53,6 +53,7 @@
                                   <Component id="btn_cancion" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="btn_genero" alignment="0" min="-2" pref="81" max="-2" attributes="0"/>
                                   <Component id="btn_idioma" alignment="0" min="-2" pref="81" max="-2" attributes="0"/>
+                                  <Component id="jButton1" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                           </Group>
@@ -106,7 +107,9 @@
               <Component id="btn_genero" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="btn_idioma" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="95" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="66" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -198,6 +201,14 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Auditoria"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Disquera"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

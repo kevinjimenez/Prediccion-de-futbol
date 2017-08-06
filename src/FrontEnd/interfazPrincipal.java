@@ -30,6 +30,7 @@ public class interfazPrincipal extends javax.swing.JFrame {
     interfazReplicaInterprete r1;
     interfazReplicaAlbum r2;
     interfazReplicaIdioma r3;
+    interfazDisquera dis;
     //interfazPrincipal ventan ;
         
     /**
@@ -46,6 +47,7 @@ public class interfazPrincipal extends javax.swing.JFrame {
         r1=new interfazReplicaInterprete();
         r2=new interfazReplicaAlbum();
         r3=new interfazReplicaIdioma();
+        dis=new interfazDisquera();
         //ventan = new interfazPrincipal();
     }
 
@@ -70,6 +72,7 @@ public class interfazPrincipal extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -142,6 +145,13 @@ public class interfazPrincipal extends javax.swing.JFrame {
 
         jLabel3.setText("Auditoria");
 
+        jButton1.setText("Disquera");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -170,7 +180,8 @@ public class interfazPrincipal extends javax.swing.JFrame {
                                     .addComponent(btn_interprete)
                                     .addComponent(btn_cancion)
                                     .addComponent(btn_genero, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btn_idioma, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(btn_idioma, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton1))
                                 .addGap(18, 18, 18))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(72, 72, 72)
@@ -209,7 +220,9 @@ public class interfazPrincipal extends javax.swing.JFrame {
                 .addComponent(btn_genero)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btn_idioma)
-                .addContainerGap(95, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
+                .addContainerGap(66, Short.MAX_VALUE))
         );
 
         pack();
@@ -269,6 +282,11 @@ public class interfazPrincipal extends javax.swing.JFrame {
         auditoria.setVisible(true);
     }//GEN-LAST:event_btnAuditoriaActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        dis.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -314,6 +332,7 @@ public class interfazPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btn_genero;
     private javax.swing.JButton btn_idioma;
     private javax.swing.JButton btn_interprete;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

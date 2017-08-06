@@ -41,6 +41,7 @@ public class interfazAlbum extends javax.swing.JFrame {
         Text_input.setVisible(false);
         Text_lugarGrabacion.setEnabled(false);
         Text_nameAlbum.setEnabled(false);
+        txt_idisquera.setEnabled(false);
         
     }
 
@@ -69,6 +70,8 @@ public class interfazAlbum extends javax.swing.JFrame {
         Button_clearCampos = new javax.swing.JButton();
         Button_showData = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        txt_idisquera = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         CB_options = new javax.swing.JComboBox<>();
         Text_input = new javax.swing.JTextField();
@@ -122,6 +125,8 @@ public class interfazAlbum extends javax.swing.JFrame {
 
         jLabel7.setText("DD-MMM-YYYY");
 
+        jLabel8.setText("id Disquera");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -138,7 +143,9 @@ public class interfazAlbum extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Text_idInterprete, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(Text_idInterprete, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel8)))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,11 +169,14 @@ public class interfazAlbum extends javax.swing.JFrame {
                 .addGap(88, 88, 88))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(Button_insertRecord)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Button_clearCampos)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Button_showData)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txt_idisquera, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(Button_insertRecord)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Button_clearCampos)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Button_showData)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -181,7 +191,9 @@ public class interfazAlbum extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(Text_idInterprete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Text_idInterprete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8)
+                    .addComponent(txt_idisquera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -356,10 +368,11 @@ public class interfazAlbum extends javax.swing.JFrame {
         try {
             isNumber(Text_idAlbum.getText());
             isNumber(Text_idInterprete.getText());
+            isNumber(txt_idisquera.getText());
             if ((Text_idAlbum.getText().length()==0)||(Text_idInterprete.getText().length()==0)||(Text_nameAlbum.getText().length()==0)||(Text_lugarGrabacion.getText().length()==0)||(Text_anioLan.getText().length()==0)) {
                 JOptionPane.showMessageDialog(null, "Falta de llenar campos");
             }else{
-                backEnd_album.insertAlbum(Integer.parseInt(Text_idAlbum.getText()), Integer.parseInt(Text_idInterprete.getText()), Text_nameAlbum.getText(), Text_lugarGrabacion.getText(), Text_anioLan.getText());
+                backEnd_album.insertAlbum(Integer.parseInt(Text_idAlbum.getText()), Integer.parseInt(Text_idInterprete.getText()),Integer.parseInt(txt_idisquera.getText()), Text_nameAlbum.getText(), Text_lugarGrabacion.getText(), Text_anioLan.getText());
                 Table_dataAlbum.setVisible(false);
             }                        
         } catch (SQLException | ParseException ex) {
@@ -371,6 +384,7 @@ public class interfazAlbum extends javax.swing.JFrame {
         // TODO add your handling code here:
         Text_idAlbum.setText("");
         Text_idInterprete.setText("");
+        txt_idisquera.setText("");
         Text_nameAlbum.setText("");
         Text_lugarGrabacion.setText("");
         Text_anioLan.setText("");
@@ -433,6 +447,7 @@ public class interfazAlbum extends javax.swing.JFrame {
         //textfield
             Text_anioLan.setEnabled(true);
             Text_idAlbum.setEnabled(false);
+            txt_idisquera.setEnabled(false);
             Text_idInterprete.setEnabled(false);
             Text_input.setVisible(true);
             Text_lugarGrabacion.setEnabled(true);
@@ -440,9 +455,10 @@ public class interfazAlbum extends javax.swing.JFrame {
             for (int i = 0; i < Table_dataAlbum.getRowCount(); i++) {
                 Text_idAlbum.setText(Table_dataAlbum.getValueAt(i, 0).toString());
                 Text_idInterprete.setText(Table_dataAlbum.getValueAt(i, 1).toString());
-                Text_nameAlbum.setText(Table_dataAlbum.getValueAt(i, 2).toString());
-                Text_lugarGrabacion.setText(Table_dataAlbum.getValueAt(i, 3).toString());
-                Text_anioLan.setText(Table_dataAlbum.getValueAt(i, 4).toString());            
+                txt_idisquera.setText(Table_dataAlbum.getValueAt(i, 2).toString());
+                Text_nameAlbum.setText(Table_dataAlbum.getValueAt(i, 3).toString());
+                Text_lugarGrabacion.setText(Table_dataAlbum.getValueAt(i, 4).toString());
+                Text_anioLan.setText(Table_dataAlbum.getValueAt(i, 5).toString());            
             }
         }
     }//GEN-LAST:event_Table_dataAlbumMouseClicked
@@ -457,6 +473,7 @@ public class interfazAlbum extends javax.swing.JFrame {
             backEnd_album.updateAlbum(CB_options.getItemAt(CB_options.getSelectedIndex()), Text_input.getText(), Text_nameAlbum.getText(), Text_lugarGrabacion.getText(), Text_anioLan.getText());
             Text_idAlbum.setText("");
             Text_idInterprete.setText("");
+            txt_idisquera.setText("");
             Text_nameAlbum.setText("");
             Text_lugarGrabacion.setText("");
             Text_anioLan.setText("");
@@ -492,6 +509,7 @@ public class interfazAlbum extends javax.swing.JFrame {
         //textfield
         Text_anioLan.setEnabled(true);
         Text_idAlbum.setEnabled(true);
+        txt_idisquera.setEnabled(true);
         Text_idInterprete.setEnabled(true);        
         Text_input.setVisible(false);
         Text_lugarGrabacion.setEnabled(true);
@@ -520,6 +538,7 @@ public class interfazAlbum extends javax.swing.JFrame {
         //textfield
         Text_anioLan.setEnabled(false);
         Text_idAlbum.setEnabled(false);
+        txt_idisquera.setEnabled(false);
         Text_idInterprete.setEnabled(false);
         Text_input.setVisible(true);
         Text_lugarGrabacion.setEnabled(false);
@@ -548,6 +567,7 @@ public class interfazAlbum extends javax.swing.JFrame {
         //textfield
         Text_anioLan.setEnabled(false);
         Text_idAlbum.setEnabled(false);
+        txt_idisquera.setEnabled(false);
         Text_idInterprete.setEnabled(false);
         Text_input.setVisible(true);
         Text_lugarGrabacion.setEnabled(false);
@@ -630,11 +650,13 @@ public class interfazAlbum extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField txt_idisquera;
     // End of variables declaration//GEN-END:variables
 }
