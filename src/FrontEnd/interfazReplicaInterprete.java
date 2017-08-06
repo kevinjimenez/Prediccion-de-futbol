@@ -160,7 +160,7 @@ public class interfazReplicaInterprete extends javax.swing.JFrame {
     private void btn_regresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_regresaActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        new interfazPrincipal().setVisible(true);
+        //new interfazPrincipal().setVisible(true);
     }//GEN-LAST:event_btn_regresaActionPerformed
 
     /**

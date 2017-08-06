@@ -39,11 +39,11 @@ public class DBConexion {
         return conexion;
     }
     
-    public void Desconectar() throws SQLException{
-        System.out.println(" cerrando ");
-        //conexion.close();        
-        conexion=null;
-    }
+//    public void Desconectar() throws SQLException{
+//        System.out.println(" cerrando ");
+//        //conexion.close();        
+//        conexion=null;
+//    }
     
    
     

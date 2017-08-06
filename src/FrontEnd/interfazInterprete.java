@@ -584,7 +584,7 @@ public class interfazInterprete extends javax.swing.JFrame {
     private void btn_closeInterpreteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_closeInterpreteActionPerformed
         // TODO add your handling code here:        
         this.dispose();
-        new interfazPrincipal().setVisible(true);
+        //new interfazPrincipal().setVisible(true);
         //this.setVisible(false);
         
     }//GEN-LAST:event_btn_closeInterpreteActionPerformed

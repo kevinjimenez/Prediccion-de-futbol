@@ -161,7 +161,7 @@ public class interfazReplicaIdioma extends javax.swing.JFrame {
     private void btn_regresarmainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_regresarmainActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        new interfazPrincipal().setVisible(true);
+        //new interfazPrincipal().setVisible(true);
     }//GEN-LAST:event_btn_regresarmainActionPerformed
 
     /**

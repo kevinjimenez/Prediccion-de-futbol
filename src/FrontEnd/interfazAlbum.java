@@ -557,7 +557,7 @@ public class interfazAlbum extends javax.swing.JFrame {
     private void btn_regresarMainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_regresarMainActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        new interfazPrincipal().setVisible(true);
+        //new interfazPrincipal().setVisible(true);
     }//GEN-LAST:event_btn_regresarMainActionPerformed
 
     private static boolean isNumber(String id){

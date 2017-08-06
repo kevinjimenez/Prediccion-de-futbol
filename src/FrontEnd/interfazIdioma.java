@@ -491,7 +491,7 @@ public class interfazIdioma extends javax.swing.JFrame {
     private void btn_regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_regresarActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        new interfazPrincipal().setVisible(true);
+        //new interfazPrincipal().setVisible(true);
     }//GEN-LAST:event_btn_regresarActionPerformed
 
     private static boolean isNumber(String id){
